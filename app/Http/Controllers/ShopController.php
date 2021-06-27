@@ -14,12 +14,19 @@ class ShopController extends Controller
     public function __construct()
     {
         // lấy dữ liệu setting và chia sẻ global
-        // 4. cấu hình website
+        // 1. cấu hình website
         $settings = Setting::first();
+
+        // 2. Lấy dữ liệu - Danh mục, có trạng thái là hiển thị
+        $categories = Category::where([
+            'is_active'=> 1,
+            'type'=> 1
+            ])->get();
 
         // Chia sẻ dữ qua tất các layout
         view()->share([
-            'settings' => $settings
+            'settings' => $settings,
+            'categories'=> $categories
         ]);
     }
 
