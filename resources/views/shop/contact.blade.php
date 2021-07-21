@@ -21,19 +21,19 @@
             <div class="iconbox-wrap">
                 <div class="row iconbox-list">
                     <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
-                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="http://placehold.it/43x90" alt=""><!-- NO SPACE --></p>
+                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="/frontend/img/nhanvienchamsoc.png" alt=""><!-- NO SPACE --></p>
                         <h3 class="iconbox-i-ttl">{{ $settings->phone }}</h3>
                         Nếu bạn cần hãy gọi cho tôi
                         <span class="iconbox-i-margin"></span>
                     </div>
                     <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
-                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="http://placehold.it/47x90" alt=""><!-- NO SPACE --></p>
+                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="/frontend/img/shop-mobile.png" alt=""><!-- NO SPACE --></p>
                         <h3 class="iconbox-i-ttl">Địa chỉ của chúng tôi</h3>
                         {{ $settings->address }}
                         <span class="iconbox-i-margin"></span>
                     </div>
                     <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
-                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="http://placehold.it/58x90" alt=""><!-- NO SPACE --></p>
+                        <p class="iconbox-i-img"><!-- NO SPACE --><img src="/frontend/img/giolamviec.png" alt=""><!-- NO SPACE --></p>
                         <h3 class="iconbox-i-ttl">Schedule</h3>
                         Mon-Fri 07:00-22:00<br>
                         Sat-Sun closed
@@ -103,6 +103,8 @@
                     <form class="contact-form" id="contactForm" method="post" action="{{route('shop.postContact')}}">
                         @csrf
                         <div class="row">
+                            <h3 class="component-ttl component-ttl-ct component-ttl-hasdesc"><span>Phản Hồi</span></h3>
+                            <p class="component-desc component-desc-ct">Có khó khăn gì cứ nhắn cho chúng tôi</p>
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
                                 <div class="form-group primary-form-group">
                                     <label>Họ Tên</label>
@@ -116,15 +118,15 @@
                                     <label>Điện Thoại</label>
                                     <input type="text" class="form-control input-feild" id="phone" name="phone" value="">
                                 </div>
-                                <br>
-                                <button type="submit" name="submit" id="sendMessage" class="send-message main-btn">Gửi <i class="fa fa-chevron-right"></i></button>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
                                 <div class="type-of-text">
                                     <div class="form-group primary-form-group">
                                         <label>Message</label>
-                                        <textarea class="contact-text" name="content"></textarea>
+                                        <textarea class="contact-text" name="content" style="height: 190px"></textarea>
                                     </div>
+                                    <br>
+                                    <button type="submit" name="submit" id="sendMessage" class="send-message main-btn pull-right">Gửi <i class="fa fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>

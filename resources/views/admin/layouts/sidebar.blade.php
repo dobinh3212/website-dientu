@@ -51,6 +51,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.article.index') }}">
+                    <i class="fa fa-fw fa-file-text"></i> <span>QL Bài Viết</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.setting.index') }}">
                     <i class="fa fa-fw fa-gears"></i> <span>Cấu Hình Website</span>
                 </a>

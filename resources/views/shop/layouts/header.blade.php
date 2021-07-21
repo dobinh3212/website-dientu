@@ -5,10 +5,7 @@
         <div class="container">
             <ul class="contactinfo nav nav-pills">
                 <li>
-                    <i class='fa fa-phone'></i> {{ $settings->phone }}
-                </li>
-                <li>
-                    <i class="fa fa-envelope"></i> {{ $settings->email }}
+                    <marquee width="100%" direction="right" style="color: #3a89cf">Chào mừng quý khách hàng đã đến cửa hàng của chúng tôi</marquee>
                 </li>
             </ul>
             <!-- Social links -->
@@ -46,8 +43,8 @@
     <div class="header-middle">
         <div class="container header-middle-cont">
             <div class="toplogo">
-                <a href="index.html">
-                    <img src="/frontend/img/logo.png" alt="AllStore - MultiConcept eCommerce Template">
+                <a href="/">
+                    <img src="/frontend/img/logo2.png" alt="Cửa Hàng Điện Thoại">
                 </a>
             </div>
             <div class="shop-menu">
@@ -80,9 +77,9 @@
 
                     <li>
                         <div class="h-cart">
-                            <a href="cart.html">
+                            <a href="{{ route('shop.cart') }}">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span class="shop-menu-ttl">Cart</span>
+                                <span class="shop-menu-ttl">Giỏ Hàng</span>
                                 (<b>0</b>)
                             </a>
                         </div>
@@ -106,25 +103,38 @@
                         @if(!empty($categories))
                             @foreach($categories as $category)
                                 @if($category->parent_id == 0)
-                        <li>
-                            <a href="catalog-list.html">
-                                {{ $category->name }}
-                            </a>
-
-                            <ul>
-                                @foreach($categories as $key => $child)
-                                    @if($child->parent_id !=0 && $child->parent_id == $category->id)
                                     <li>
-                                    <a href="catalog-list.html">
-                                        {{$child->name}}
-                                    </a>
+                                        <a href="{{ route('shop.listProducts',['slug' => $category->slug]) }}">
+                                            {{ $category->name }}
+                                        </a>
 
-                                </li>
-                                    @endif
-                                @endforeach
-                            </ul>
+                                        <ul>
+                                            @foreach($categories as $key => $child)
+                                                @if($child->parent_id == $category->id)
+                                                <li>
+                                                <a href="{{ route('shop.listProducts',['slug' => $child->slug]) }}">
+                                                    {{$child->name}}
+                                                </a>
+                                                    @foreach($categories as $key => $child2)
+                                                        @if($child2->parent_id == $child->id)
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="{{ route('shop.listProducts',['slug' => $child2->slug]) }}">
+                                                                        {{$child2->name}}
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        @endif
+                                                    @endforeach
+                                                </li>
 
-                        </li>
+
+
+                                                @endif
+                                            @endforeach
+                                        </ul>
+
+                                    </li>
                                 @endif
                             @endforeach
                         @endif
@@ -141,119 +151,23 @@
                             Trang Chủ
                         </a>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a href="catalog-list.html">
-                            Catalog <i class="fa fa-angle-down"></i>
+
+                    <li>
+                        <a href="{{ route('shop.listArticles') }}">
+                            Tin Tức
                         </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="catalog-list.html">
-                                    Catalog List - Style 1
-                                </a>
-                            </li>
-                            <li>
-                                <a href="catalog-list-2.html">
-                                    Catalog List - Style 2
-                                </a>
-                            </li>
-                            <li>
-                                <a href="catalog-gallery.html">
-                                    Catalog Gallery - Style 1
-                                </a>
-                            </li>
-                            <li>
-                                <a href="catalog-gallery-2.html">
-                                    Catalog Gallery - Style 2
-                                </a>
-                            </li>
-                            <li>
-                                <a href="catalog-table.html">
-                                    Catalog Table
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="product.html">
-                            Product <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="product.html">
-                                    Product - Style 1 (Slider)
-                                </a>
-                            </li>
-                            <li>
-                                <a href="product-2.html">
-                                    Product - Style 2 (Scroll)
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="{{ route('shop.contact') }}">
                             Liên Hệ
                         </a>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a href="blog.html">
-                            Blog <i class="fa fa-angle-down"></i>
+                    <li>
+                        <a href="">
+                            Giới Thiệu
                         </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="blog.html">
-                                    Blog - Style 1
-                                </a>
-                            </li>
-                            <li>
-                                <a href="blog-2.html">
-                                    Blog - Style 2
-                                </a>
-                            </li>
-                            <li>
-                                <a href="post.html">
-                                    Single Post
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">
-                            Pages <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="contacts.html">
-                                    Contacts
-                                </a>
-                            </li>
-                            <li>
-                                <a href="cart.html">
-                                    Cart
-                                </a>
-                            </li>
-                            <li>
-                                <a href="auth.html">
-                                    Authorization
-                                </a>
-                            </li>
-                            <li>
-                                <a href="compare.html">
-                                    Compare
-                                </a>
-                            </li>
-                            <li>
-                                <a href="wishlist.html">
-                                    Wishlist
-                                </a>
-                            </li>
-                            <li>
-                                <a href="404.html">
-                                    Error 404
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+
                     <li class="mainmenu-more">
                         <span>...</span>
                         <ul class="mainmenu-sub"></ul>

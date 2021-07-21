@@ -1,6 +1,18 @@
 @extends('shop.layouts.main')
 
 @section('content')
+    <style>
+        .prod-cont .product-stock{
+            margin: 0 0 11px;
+            color: #7b7b7b;
+        }
+        .product-stock span{
+            border: 1px solid black;
+            color: #fff;
+            background: #0ba011;
+            padding: 5px 5px;
+        }
+    </style>
     <main>
         <section class="container">
 
@@ -8,24 +20,19 @@
             <ul class="b-crumbs">
                 <li>
                     <a href="index.html">
-                        Home
+                        Trang Chủ
                     </a>
                 </li>
                 <li>
-                    <a href="catalog-list.html">
-                        Catalog
+                    <a href="{{ route('shop.listProducts', ['slug' => $category->slug]) }}">
+                        {{ $category->name }}
                     </a>
                 </li>
                 <li>
-                    <a href="catalog-list.html">
-                        Women
-                    </a>
-                </li>
-                <li>
-                    <span>Aperiam nihil veniam</span>
+                    {{ $product->name }}
                 </li>
             </ul>
-            <h1 class="main-ttl"><span>Aperiam nihil veniam</span></h1>
+            <h1 class="main-ttl"><span>{{ $product->name }}</span></h1>
             <!-- Single Product - start -->
             <div class="prod-wrap">
 
@@ -34,8 +41,8 @@
                     <div class="prod-slider">
                         <ul class="prod-slider-car">
                             <li>
-                                <a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x642">
-                                    <img src="http://placehold.it/500x642" alt="">
+                                <a data-fancybox-group="product" class="fancy-img" href="{{ asset($product->image) }}">
+                                    <img src="{{ asset($product->image) }}" alt="">
                                 </a>
                             </li>
                             <li>
@@ -79,7 +86,7 @@
                         <ul class="prod-thumbs-car">
                             <li>
                                 <a data-slide-index="0" href="#">
-                                    <img src="http://placehold.it/500x642" alt="">
+                                    <img src="{{ asset($product->image) }}" alt="">
                                 </a>
                             </li>
                             <li>
@@ -124,95 +131,47 @@
                 <!-- Product Description/Info -->
                 <div class="prod-cont">
                     <div class="prod-cont-txt">
-                        Quis temporibus hic reprehenderit explicabo odio earum maxime cupiditate mollitia magni laboriosam illum adipisci, ipsam, repellendus optio esse dolorem incidunt debitis eius voluptate expedita assumenda
+                        {!! $product->summary !!}
                     </div>
                     <p class="prod-actions">
                         <a href="#" class="prod-favorites"><i class="fa fa-heart"></i> Wishlist</a>
                         <a href="#" class="prod-compare"><i class="fa fa-bar-chart"></i> Compare</a>
                     </p>
                     <div class="prod-skuwrap">
-                        <p class="prod-skuttl">Color</p>
-                        <ul class="prod-skucolor">
-                            <li class="active">
-                                <img src="/frontend/img/color/blue.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/red.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/green.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/yellow.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/purple.jpg" alt="">
-                            </li>
-                        </ul>
-                        <p class="prod-skuttl">CLOTHING SIZES</p>
-                        <div class="offer-props-select">
-                            <p>XL</p>
-                            <ul>
-                                <li><a href="#">XS</a></li>
-                                <li><a href="#">S</a></li>
-                                <li><a href="#">M</a></li>
-                                <li class="active"><a href="#">XL</a></li>
-                                <li><a href="#">L</a></li>
-                                <li><a href="#">4XL</a></li>
-                                <li><a href="#">XXL</a></li>
-                            </ul>
-                        </div>
+                        <p class="product-stock">
+                            Số lượng:
+                            @if ($product->stock > 0)
+                                <span>Còn hàng</span>
+                            @else
+                                <span style="color: red">Hết hàng</span>
+                            @endif
+                        </p>
+
+
                     </div>
                     <div class="prod-info">
-                        <p class="prod-price">
-                            <b class="item_current_price">$135</b>
+                        <p class="prod-priced">
+                            <b class="item_current_price" style="color: red; padding: 0 15px 0 0">{{ number_format($product->sale, 0,",",".") }} đ*</b>
+                            <b> <strike>{{ number_format($product->price, 0,",",".") }} đ</strike></b>
                         </p>
                         <p class="prod-qnt">
                             <input value="1" type="text">
-                            <a href="#" class="prod-plus"><i class="fa fa-angle-up"></i></a>
-                            <a href="#" class="prod-minus"><i class="fa fa-angle-down"></i></a>
                         </p>
                         <p class="prod-addwrap">
-                            <a href="#" class="prod-add" rel="nofollow">Add to cart</a>
+                            <a href="{{ route('shop.addToCart', ['id' => $product->id]) }}" class="prod-add" rel="nofollow" title="Mua Ngay">Mua Ngay</a>
                         </p>
                     </div>
                     <ul class="prod-i-props">
                         <li>
-                            <b>SKU</b> 05464207
+                            <b> Mã SKU</b> {{ $product->sku }}
                         </li>
-                        <li>
-                            <b>Material</b> Nylon
-                        </li>
-                        <li>
-                            <b>Pattern Type</b> Solid
-                        </li>
-                        <li>
-                            <b>Wash</b> Colored
-                        </li>
-                        <li>
-                            <b>Style</b> Sport
-                        </li>
-                        <li>
-                            <b>Color</b> Blue
-                        </li>
-                        <li>
-                            <b>Gender</b> Unisex
-                        </li>
-                        <li>
-                            <b>Rain Cover</b> No
-                        </li>
-                        <li>
-                            <b>Exterior</b> Solid Bag
-                        </li>
-                        <li><a href="#" class="prod-showprops">All Features</a></li>
                     </ul>
                 </div>
 
                 <!-- Product Tabs -->
                 <div class="prod-tabs-wrap">
                     <ul class="prod-tabs">
-                        <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Description</a></li>
-                        <li><a data-prodtab-num="2" id="prod-props" href="#" data-prodtab="#prod-tab-2">Features</a></li>
+                        <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Mô Tả</a></li>
                         <li><a data-prodtab-num="3" href="#" data-prodtab="#prod-tab-3">Video</a></li>
                         <li><a data-prodtab-num="4" href="#" data-prodtab="#prod-tab-4">Articles (6)</a></li>
                         <li><a data-prodtab-num="5" href="#" data-prodtab="#prod-tab-5">Reviews (3)</a></li>
@@ -221,64 +180,9 @@
 
                         <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
                         <div class="prod-tab stylization" id="prod-tab-1">
-                            <p>Quis temporibus hic reprehenderit explicabo odio earum maxime cupiditate mollitia magni laboriosam illum adipisci, ipsam, repellendus optio esse dolorem incidunt debitis eius voluptate expedita assumenda. Praesentium iure inventore nostrum corporis illum, est asperiores accusamus, ducimus, accusantium natus illo</p>
-                            <p>Ad officiis omnis eaque, tempora quidem, vel, esse quasi qui sed rem provident ea autem accusamus? Aspernatur excepturi rem illo amet sapiente non repellat debitis dignissimos quod, accusamus corrupti consectetur optio maiores, sint aliquam. Veniam, non harum voluptate dicta sit porro iste cumque eligendi placeat ea voluptatem deserunt quam quo facere! Libero vitae rem dolore placeat quae, magni voluptate maiores nemo ullam temporibus adipisci perferendis laboriosam illo ipsam quia numquam, ipsum delectus at vel error iure aspernatur</p>
+                            {!! $product->description !!}
                         </div>
-                        <p data-prodtab-num="2" class="prod-tab-mob" data-prodtab="#prod-tab-2">Features</p>
-                        <div class="prod-tab prod-props" id="prod-tab-2">
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td>SKU</td>
-                                    <td>05464207</td>
-                                </tr>
-                                <tr>
-                                    <td>Material</td>
-                                    <td>Nylon</td>
-                                </tr>
-                                <tr>
-                                    <td>Pattern Type</td>
-                                    <td>Solid</td>
-                                </tr>
-                                <tr>
-                                    <td>Wash</td>
-                                    <td>Colored</td>
-                                </tr>
-                                <tr>
-                                    <td>Style</td>
-                                    <td>Sport</td>
-                                </tr>
-                                <tr>
-                                    <td>Color</td>
-                                    <td>Blue</td>
-                                </tr>
-                                <tr>
-                                    <td>Gender</td>
-                                    <td>Unisex</td>
-                                </tr>
-                                <tr>
-                                    <td>Rain Cover</td>
-                                    <td>No</td>
-                                </tr>
-                                <tr>
-                                    <td>Exterior</td>
-                                    <td>Solid Bag</td>
-                                </tr>
-                                <tr>
-                                    <td>Closure Type</td>
-                                    <td>Zipper</td>
-                                </tr>
-                                <tr>
-                                    <td>Handle/Strap Type</td>
-                                    <td>Soft Handle</td>
-                                </tr>
-                                <tr>
-                                    <td>Size</td>
-                                    <td>33cm x 18cm x 48cm</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+
                         <p data-prodtab-num="3" class="prod-tab-mob" data-prodtab="#prod-tab-3">Video</p>
                         <div class="prod-tab prod-tab-video" id="prod-tab-3">
                             <iframe width="853" height="480" src="https://www.youtube.com/embed/kaOVHSkDoPY?rel=0&amp;showinfo=0" allowfullscreen></iframe>
@@ -435,18 +339,19 @@
 
             <!-- Related Products - start -->
             <div class="prod-related">
-                <h2><span>Related products</span></h2>
+                <h2><span>Sản Phẩm Liên Quan</span></h2>
                 <div class="prod-related-car" id="prod-related-car">
                     <ul class="slides">
                         <li class="prod-rel-wrap">
+                            @foreach($relatedProducts as $item)
                             <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x311" alt="Adipisci aperiam commodi">
+                                <a href="{{ route('shop.detailProduct',['slug' => $product->slug]) }}" class="prod-rel-img">
+                                    <img src="{{ asset( $item->image) }}" alt="Adipisci aperiam commodi">
                                 </a>
                                 <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Adipisci aperiam commodi</a></h3>
+                                    <h3><a href="product.html">{{ $item->name }}</a></h3>
                                     <p class="prod-rel-price">
-                                        <b>$59</b>
+                                        <b>{{ number_format($product->sale,0,",",".") }} đ</b>
                                     </p>
                                     <div class="prod-rel-actions">
                                         <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
@@ -457,196 +362,7 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x366" alt="Nulla numquam obcaecati">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Nulla numquam obcaecati</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$48</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/370x300" alt="Dignissimos eaque earum">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Dignissimos eaque earum</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$37</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x345" alt="Porro quae quasi">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Porro quae quasi</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$85</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li class="prod-rel-wrap">
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/378x300" alt="Sunt temporibus velit">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Sunt temporibus velit</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$115</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x394" alt="Harum illum incidunt">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Harum illum incidunt</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$130</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x303" alt="Reprehenderit rerum">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Reprehenderit rerum</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$210</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x588" alt="Quae quasi adipisci alias">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Quae quasi adipisci alias</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$85</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li class="prod-rel-wrap">
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x416" alt="Maxime molestias necessitatibus nobis">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Maxime molestias necessitatibus nobis</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$95</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="prod-rel">
-                                <a href="product.html" class="prod-rel-img">
-                                    <img src="http://placehold.it/300x480" alt="Facilis illum">
-                                </a>
-                                <div class="prod-rel-cont">
-                                    <h3><a href="product.html">Facilis illum</a></h3>
-                                    <p class="prod-rel-price">
-                                        <b>$150</b>
-                                    </p>
-                                    <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
-                                        <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </li>
                     </ul>
                 </div>
