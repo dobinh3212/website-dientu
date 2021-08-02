@@ -215,7 +215,9 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="/backend/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        @if(Auth::check())
+                            <img src="{{ asset(Auth::user()->avatar) }}" class="user-image" alt="User Image">
+                        @endif
                         <span class="hidden-xs">
                             @if(Auth::check())
                                 {{ Auth::user()->name }}

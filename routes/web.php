@@ -44,8 +44,10 @@ Route::get('/cap-nhat-so-luong/{rowId}/{qty}', 'ShopController@updateCart')->nam
 Route::get('/dat-hang', 'ShopController@order')->name('shop.order');
 // Gửi dữ liệu về database
 Route::post('/dat-hang', 'ShopController@postOrder')->name('shop.postOrder');
-
+// Thông báo khách hàng
 Route::get('/dat-hang-thanh-cong', 'ShopController@orderSuccess')->name('shop.orderSuccess');
+
+Route::get('/tim-kiem', 'ShopController@search')->name('shop.search');
 
 Route::get('/admin/login', 'LoginController@index')->name('admin.login');
 Route::post('/admin/postLogin', 'LoginController@postLogin')->name('admin.postLogin');
@@ -61,4 +63,5 @@ Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'
     Route::resource('user', 'UserController');
     Route::resource('article', 'ArticleController');
     Route::resource('setting', 'SettingController');
+    Route::resource('order', 'OrderController');
 });

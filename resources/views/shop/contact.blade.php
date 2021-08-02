@@ -23,7 +23,7 @@
                     <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
                         <p class="iconbox-i-img"><!-- NO SPACE --><img src="/frontend/img/nhanvienchamsoc.png" alt=""><!-- NO SPACE --></p>
                         <h3 class="iconbox-i-ttl">{{ $settings->phone }}</h3>
-                        Nếu bạn cần hãy gọi cho tôi
+                        Nếu bạn gặp vấn đề gì hãy gọi cho chúng tôi
                         <span class="iconbox-i-margin"></span>
                     </div>
                     <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">

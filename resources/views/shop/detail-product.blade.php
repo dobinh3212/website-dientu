@@ -2,6 +2,9 @@
 
 @section('content')
     <style>
+        .prod-cont .prod-qnt input[type=text] {
+            width: 65px;
+        }
         .prod-cont .product-stock{
             margin: 0 0 11px;
             color: #7b7b7b;
@@ -46,23 +49,23 @@
                                 </a>
                             </li>
                             <li>
-                                <a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x722">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                <a data-fancybox-group="product" class="fancy-img" href="{{ asset($product->image1) }}">
+                                    <img src="{{ asset($product->image1) }}" alt="">
                                 </a>
                             </li>
                             <li>
-                                <a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x722">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                <a data-fancybox-group="product" class="fancy-img" href="{{ asset($product->image2) }}">
+                                    <img src="{{ asset($product->image2) }}" alt="">
                                 </a>
                             </li>
                             <li>
-                                <a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x722">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                <a data-fancybox-group="product" class="fancy-img" href="{{ asset($product->image3) }}">
+                                    <img src="{{ asset($product->image3) }}" alt="">
                                 </a>
                             </li>
                             <li>
-                                <a data-fancybox-group="product" class="fancy-img" href="http://placehold.it/500x722">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                <a data-fancybox-group="product" class="fancy-img" href="{{ asset($product->image4) }}">
+                                    <img src="{{ asset($product->image4) }}" alt="">
                                 </a>
                             </li>
                             <li>
@@ -91,22 +94,22 @@
                             </li>
                             <li>
                                 <a data-slide-index="1" href="#">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                    <img src="{{ asset($product->image1) }}" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a data-slide-index="2" href="#">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                    <img src="{{ asset($product->image2) }}" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a data-slide-index="3" href="#">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                    <img src="{{ asset($product->image3) }}" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a data-slide-index="4" href="#">
-                                    <img src="http://placehold.it/500x722" alt="">
+                                    <img src="{{ asset($product->image4) }}" alt="">
                                 </a>
                             </li>
                             <li>
@@ -129,58 +132,138 @@
                 </div>
 
                 <!-- Product Description/Info -->
+                <div class="prod-i-props">
+                    <b> Mã SKU: </b> {{ $product->sku }}
+                </div>
+                <hr>
+                <div class="prod-priced">
+                    <b class="item_current_price" style="color: red; padding: 0 15px 0 0">{{ number_format($product->sale, 0,",",".") }} đ</b>
+                    <b> Giá Niêm Yết: <strike>{{ number_format($product->price, 0,",",".") }} đ</strike></b>
+                </div>
+                <hr>
                 <div class="prod-cont">
                     <div class="prod-cont-txt">
                         {!! $product->summary !!}
                     </div>
-                    <p class="prod-actions">
-                        <a href="#" class="prod-favorites"><i class="fa fa-heart"></i> Wishlist</a>
-                        <a href="#" class="prod-compare"><i class="fa fa-bar-chart"></i> Compare</a>
-                    </p>
+                    <hr>
                     <div class="prod-skuwrap">
-                        <p class="product-stock">
-                            Số lượng:
+                        <p class="product-stock" style="text-transform: uppercase">
+                            Số lượng hàng:
                             @if ($product->stock > 0)
-                                <span>Còn hàng</span>
+                                <span>{{ $product->stock }}</span>
                             @else
                                 <span style="color: red">Hết hàng</span>
                             @endif
                         </p>
-
-
+                        <br>
+                        <p class="prod-skuttl">Màu Sắc</p>
+                        <ul class="prod-skucolor">
+                            <li class="active">
+                                <img src="/frontend/img/color/blue.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="/frontend/img/color/red.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="/frontend/img/color/green.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="/frontend/img/color/yellow.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="/frontend/img/color/purple.jpg" alt="">
+                            </li>
+                        </ul>
+                        <p class="prod-skuttl">Bộ nhớ</p>
+                        <div class="offer-props-select">
+                            <p>Lựa chọn</p>
+                            <ul>
+                                <li><a href="#">32GB</a></li>
+                                <li><a href="#">64GB</a></li>
+                                <li><a href="#">128GB</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="prod-info">
-                        <p class="prod-priced">
-                            <b class="item_current_price" style="color: red; padding: 0 15px 0 0">{{ number_format($product->sale, 0,",",".") }} đ*</b>
-                            <b> <strike>{{ number_format($product->price, 0,",",".") }} đ</strike></b>
-                        </p>
-                        <p class="prod-qnt">
-                            <input value="1" type="text">
-                        </p>
-                        <p class="prod-addwrap">
-                            <a href="{{ route('shop.addToCart', ['id' => $product->id]) }}" class="prod-add" rel="nofollow" title="Mua Ngay">Mua Ngay</a>
-                        </p>
+                        <div class="prod-qnt">
+                            <p style="padding:0 0 11px 0; text-transform: uppercase;width: 120px;font-size: 12px">Số Lượng</p>
+                            <input class="cart-plus-minus" value="1" type="text" name="qtybutton">
+                        </div>
                     </div>
-                    <ul class="prod-i-props">
-                        <li>
-                            <b> Mã SKU</b> {{ $product->sku }}
-                        </li>
-                    </ul>
+                    <div class="prod-addwrap">
+                        <a href="{{ route('shop.addToCart', ['id' => $product->id]) }}" class="prod-add" rel="nofollow" title="Mua Ngay">Mua Ngay</a>
+                    </div>
                 </div>
 
                 <!-- Product Tabs -->
                 <div class="prod-tabs-wrap">
                     <ul class="prod-tabs">
                         <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Mô Tả</a></li>
+                        <li><a data-prodtab-num="2" id="prod-props" href="#" data-prodtab="#prod-tab-2">Thông Số</a></li>
                         <li><a data-prodtab-num="3" href="#" data-prodtab="#prod-tab-3">Video</a></li>
-                        <li><a data-prodtab-num="4" href="#" data-prodtab="#prod-tab-4">Articles (6)</a></li>
-                        <li><a data-prodtab-num="5" href="#" data-prodtab="#prod-tab-5">Reviews (3)</a></li>
+                        <li><a data-prodtab-num="4" href="#" data-prodtab="#prod-tab-4">Bài Viết</a></li>
+                        <li><a data-prodtab-num="5" href="#" data-prodtab="#prod-tab-5">Nhận Xét</a></li>
                     </ul>
                     <div class="prod-tab-cont">
 
-                        <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
+                        <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Mô tả</p>
                         <div class="prod-tab stylization" id="prod-tab-1">
                             {!! $product->description !!}
+                        </div>
+                        <p data-prodtab-num="2" class="prod-tab-mob" data-prodtab="#prod-tab-2">Features</p>
+                        <div class="prod-tab prod-props" id="prod-tab-2">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>SKU</td>
+                                    <td>05464207</td>
+                                </tr>
+                                <tr>
+                                    <td>Material</td>
+                                    <td>Nylon</td>
+                                </tr>
+                                <tr>
+                                    <td>Pattern Type</td>
+                                    <td>Solid</td>
+                                </tr>
+                                <tr>
+                                    <td>Wash</td>
+                                    <td>Colored</td>
+                                </tr>
+                                <tr>
+                                    <td>Style</td>
+                                    <td>Sport</td>
+                                </tr>
+                                <tr>
+                                    <td>Color</td>
+                                    <td>Blue</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td>Unisex</td>
+                                </tr>
+                                <tr>
+                                    <td>Rain Cover</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>Exterior</td>
+                                    <td>Solid Bag</td>
+                                </tr>
+                                <tr>
+                                    <td>Closure Type</td>
+                                    <td>Zipper</td>
+                                </tr>
+                                <tr>
+                                    <td>Handle/Strap Type</td>
+                                    <td>Soft Handle</td>
+                                </tr>
+                                <tr>
+                                    <td>Size</td>
+                                    <td>33cm x 18cm x 48cm</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
 
                         <p data-prodtab-num="3" class="prod-tab-mob" data-prodtab="#prod-tab-3">Video</p>
@@ -345,11 +428,11 @@
                         <li class="prod-rel-wrap">
                             @foreach($relatedProducts as $item)
                             <div class="prod-rel">
-                                <a href="{{ route('shop.detailProduct',['slug' => $product->slug]) }}" class="prod-rel-img">
+                                <a href="{{ route('shop.detailProduct',['slug' => $item->slug]) }}" class="prod-rel-img">
                                     <img src="{{ asset( $item->image) }}" alt="Adipisci aperiam commodi">
                                 </a>
                                 <div class="prod-rel-cont">
-                                    <h3><a href="product.html">{{ $item->name }}</a></h3>
+                                    <h3><a href="{{ route('shop.detailProduct',['slug' => $item->slug]) }}">{{ $item->name }}</a></h3>
                                     <p class="prod-rel-price">
                                         <b>{{ number_format($product->sale,0,",",".") }} đ</b>
                                     </p>
@@ -373,3 +456,26 @@
     </main>
 @endsection
 
+@section('sub_js')
+    <script>
+        $(document).ready(function(){
+            $(".prod-qnt").append('<div class="dec qtybutton">-</div><div class="inc qtybutton">+</div>');
+            $(".qtybutton").on("click", function() {
+                var $button = $(this);
+                var oldValue = $button.parent().find("input").val();
+                if ($button.text() == "+") {
+                    var newVal = parseFloat(oldValue) + 1;
+                } else {
+                    // Don't allow decrementing below zero
+                    if (oldValue > 0) {
+                        var newVal = parseFloat(oldValue) - 1;
+                    } else {
+                        newVal = 0;
+                    }
+                }
+                $button.parent().find("input").val(newVal);
+            });
+
+        });
+    </script>
+@endsection

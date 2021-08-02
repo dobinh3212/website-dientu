@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login Now</title>
+    <title>Login Fast</title>
+    <link rel="icon" href="/backend/img1/lock-login.png" sizes="16x16" type="image/png">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -26,6 +27,13 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+        .login-page, .register-page{
+            background-image: url("/backend/img1/anh-meo.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">

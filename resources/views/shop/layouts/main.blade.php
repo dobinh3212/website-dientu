@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Mobile Shop</title>
+    <title>{{ $settings->company }}</title>
+    <link rel="icon" href="/frontend/img/favicon.png" sizes="16x16" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700ii%7CRoboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic" rel="stylesheet">
 
@@ -23,6 +24,31 @@
     <style>
         .fr-pop-tab-cont {height: 430px !important;}
 
+        .header-middle {
+            padding: 0;
+        }
+
+        .fr-slider .flex-control-paging li a{
+            height: 7px;
+        }
+
+        .topmenu .mainmenu {
+            padding: 0 10px 0 10px;
+        }
+
+        .f-menu-list {
+            margin-bottom: 15px;
+        }
+        .customer-cart{
+            border: 2px solid #373d54;
+            border-radius: 15px;
+            padding: 30px;
+
+        }
+
+        .footer-copyright{
+            margin: 10px 0 10px 0;
+        }
         .prod-cont .prod-priced {
             top: 0;
             right: 0;
@@ -40,18 +66,13 @@
         .companyinfo{
             margin-top: 0;
         }
-        .topmenu .topcatalog .topcatalog-btn{
-            color: #fff;
-            background: #1E90FF url(/frontend/img/bar.png) no-repeat 14px 15px;
-        }
+
 
         h3 .banner-i-ttl{
             color: #fff;
         }
 
-        .toplogo img{
-            width: 120px;
-        }
+
 
         .f-menu i a{
             margin: 0 5px;
@@ -179,7 +200,7 @@
 <!-- jQuery plugins/scripts - end -->
 
 @yield('main_js')
-
+@yield('sub_js')
 @yield('my_js')
 </body>
 </html>

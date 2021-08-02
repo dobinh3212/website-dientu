@@ -1,6 +1,26 @@
 @extends('shop.layouts.main')
 
 @section('content')
+    <style>
+        #cart-summary tbody td.cart-product img { border: 0px }
+        .returne-continue-shop .procedtocheckout {
+            border-radius: 4px;
+            color: #fff;
+            display: block;
+            float: right;
+            font-size: 20px;
+            line-height: 50px;
+            padding: 0 16px;
+            transition: all 500ms ease 0s;
+        }
+        .contact-form label {
+            display: block;
+            margin: 14px 0;
+        }
+        a.continueshoping{
+            color: #373d54;
+        }
+    </style>
     <main>
         <section class="container stylization maincont">
 
@@ -15,7 +35,7 @@
                     <span>Giỏ Hàng</span>
                 </li>
             </ul>
-            <h1 class="main-ttl"><span>Thông tin Khách hàng</span></h1>
+
 
             <div class="row">
             @if(session('cart'))
@@ -29,7 +49,38 @@
                                     <!-- CONTACT-FORM START -->
                                     <div class="contact-form" id="contactForm">
                                         <div class="row">
-                                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <h3 style="padding: 30px 30px 0 30px; text-align: center">Sản phẩm trong giỏ</h3>
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <td width="58px">Ảnh</td>
+                                                        <td width="145px">Tên Sản Phẩm</td>
+                                                        <td width="60px">Số lượng</td>
+                                                        <td width="85px">Thành Tiền</td>
+                                                    </tr>
+                                                    </thead>
+                                                    @foreach($listProducts as $item)
+                                                        <tbody>
+                                                        <tr>
+                                                            <td><img src="{{ asset($item->options->image) }}" alt="" width="55px"></td>
+                                                            <td>{{ $item->name }}</td>
+                                                            <td style="text-align: center">{{ $item->qty }}</td>
+                                                            <td>{{ number_format($item->price, 0,",",".") }} đ</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    @endforeach
+                                                    <tfoot>
+                                                    <tr>
+                                                        <td colspan="2" style="color: red">Hãy kiểm tra kỹ sản phẩm trong giỏ hàng của bạn trước khi chuyển sang mục điền thông tin !</td>
+                                                        <td>Tổng Tiền:</td>
+                                                        <td>{{$totalPrice}} đ</td>
+                                                    </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 customer-cart">
+                                                <h3 class="text-center">Thông tin khách hàng</h3>
                                                 <div class="form-group primary-form-group">
                                                     <label>Họ và tên</label>
                                                     <input type="text" class="form-control input-feild" id="fullname" name="fullname" value="">
@@ -45,14 +96,12 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group primary-form-group">
-                                                    <label>Số ĐT</label>
+                                                    <label>Số Điện Thoại</label>
                                                     <input type="text" class="form-control input-feild" id="contactEmail" name="phone" value="">
                                                     @if ($errors->has('phone'))
                                                         <span class="invalid-feedback" role="alert" style="color:red;">{{ $errors->first('phone') }}</span>
                                                     @endif
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
                                                 <div class="type-of-text">
                                                     <div class="form-group primary-form-group">
                                                         <label>Địa chỉ nhận hàng</label>
@@ -65,7 +114,7 @@
                                                 <div class="type-of-text">
                                                     <div class="form-group primary-form-group">
                                                         <label>Ghi chú</label>
-                                                        <textarea style="height: 104px" class="contact-text" name="note"></textarea>
+                                                        <textarea style="height: 90px" class="contact-text" name="note"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,10 +125,11 @@
                             </div>
                             <!-- CONTACT-US-FORM END -->
                         </div>
+
                         <div style="margin-top: 20px" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <!-- RETURNE-CONTINUE-SHOP START -->
                             <div class="returne-continue-shop">
-                                <a href="" class="continueshoping"><i class="fa fa-chevron-left"></i>Hủy đặt hàng</a>
+                                <a href="{{ route('shop.cart') }}" class="continueshoping"><i class="fa fa-chevron-left"></i>Quay lại Giỏ Hàng</a>
                                 <button type="submit" class="procedtocheckout pull-right">Gửi đơn hàng</button>
                             </div>
                         </div>

@@ -11,7 +11,9 @@
                     @foreach($banners as $key => $banner)
                     <ul class="slides">
                         <li>
-                            <img src="{{ asset($banner->image) }}" alt="">
+                            <a href="{{ $banner->url }}" target="_blank">
+                                <img src="{{ asset($banner->image) }}" alt="" >
+                            </a>
 {{--                            <div class="fr-slider-cont">--}}
 {{--                                <h3>{{ $banner->title }}</h3>--}}
 {{--                                <p class="fr-slider-more-wrap">--}}
@@ -46,7 +48,7 @@
                                                 <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
                                             </p>
                                             <p class="prod-i-addwrap">
-                                                <a href="#" class="prod-i-add">Thêm Vào Giỏ</a>
+                                                <a href="{{ route('shop.addToCart', ['id' => $product->id]) }}" class="prod-i-add">Thêm Vào Giỏ</a>
                                             </p>
                                         </div>
                                         @if($product->is_hot == 1)
@@ -82,36 +84,36 @@
 
 
             <!-- Banners -->
-            <div class="banners-wrap">
-                <div class="banners-list">
-                    @foreach($leftBanners as $key => $banner1)
-                        <div class="banner-i style_11">
+{{--            <div class="banners-wrap">--}}
+{{--                <div class="banners-list">--}}
+{{--                    @foreach($leftBanners as $key => $banner1)--}}
+{{--                        <div class="banner-i style_11">--}}
 
-                            <span class="banner-i-bg" style="background: url({{ asset($banner1->image) }});"></span>
-                            <div class="banner-i-cont">
-                                <h3 class="banner-i-ttl">{{ $banner1->title }}</h3>
-                                <p class="banner-i-link"><a href="section.html">Xem thêm</a></p>
-                            </div>
-                        </div>
-                    @endforeach
+{{--                            <span class="banner-i-bg" style="background: url({{ asset($banner1->image) }});"></span>--}}
+{{--                            <div class="banner-i-cont">--}}
+{{--                                <h3 class="banner-i-ttl">{{ $banner1->title }}</h3>--}}
+{{--                                <p class="banner-i-link"><a href="section.html">Xem thêm</a></p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
 
-                    <div class="banner-i style_22">
-                        <span class="banner-i-bg" style="background: url(https://icdn.dantri.com.vn/thumb_w/640/2019/11/11/xiaomimi-9-lite-1573415336440.jpg);"></span>
-                        <div class="banner-i-cont">
-                            <h3 class="banner-i-ttl">ĐIỆN THOẠI <br> ĐƯỢC GIẢM GIÁ <br>năm 2021</h3>
-                            <p class="banner-i-link"><a href="section.html">Xem thêm</a></p>
-                        </div>
-                    </div>
+{{--                    <div class="banner-i style_22">--}}
+{{--                        <span class="banner-i-bg" style="background: url(https://icdn.dantri.com.vn/thumb_w/640/2019/11/11/xiaomimi-9-lite-1573415336440.jpg);"></span>--}}
+{{--                        <div class="banner-i-cont">--}}
+{{--                            <h3 class="banner-i-ttl">ĐIỆN THOẠI <br> ĐƯỢC GIẢM GIÁ <br>năm 2021</h3>--}}
+{{--                            <p class="banner-i-link"><a href="section.html">Xem thêm</a></p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="banner-i style_21">
-                        <span class="banner-i-bg" style="background: url(https://cdn.tgdd.vn/Files/2019/08/22/1190454/laptop-vien-man-hinh-mong-co-nhung-uu-va-nhuoc-diem-gi--4.jpg);"></span>
-                        <div class="banner-i-cont">
-                            <h3 class="banner-i-ttl">LAPTOP <br> ĐƯỢC ƯA THÍCH NĂM 2021</h3>
-                            <p class="banner-i-link"><a href="section.html">Đến mục lục</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                    <div class="banner-i style_21">--}}
+{{--                        <span class="banner-i-bg" style="background: url(https://cdn.tgdd.vn/Files/2019/08/22/1190454/laptop-vien-man-hinh-mong-co-nhung-uu-va-nhuoc-diem-gi--4.jpg);"></span>--}}
+{{--                        <div class="banner-i-cont">--}}
+{{--                            <h3 class="banner-i-ttl">LAPTOP <br> ĐƯỢC ƯA THÍCH NĂM 2021</h3>--}}
+{{--                            <p class="banner-i-link"><a href="section.html">Đến mục lục</a></p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <!-- Special offer -->
 

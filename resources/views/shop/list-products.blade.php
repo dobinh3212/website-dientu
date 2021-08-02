@@ -12,9 +12,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('shop.listProducts',['slug'=>$category->slug]) }}">
+
                         {{ $category->name }}
-                    </a>
+
                 </li>
             </ul>
             <h1 class="main-ttl"><span>{{ $category->name }}</span></h1>
@@ -657,8 +657,9 @@
                             <a href="product.html">{{ $product->name }}</a>
                         </h3>
                         <p class="prod-i-price">
-                            <b>{{ number_format($product->sale, 0,",",".") }} đ</b>
                             <del>{{ number_format($product->price, 0,",",".") }} đ</del>
+                            <br>
+                            <b>{{ number_format($product->sale, 0,",",".") }} đ</b>
                         </p>
 {{--                        <div class="prod-i-skuwrapcolor">--}}
 {{--                            <ul class="prod-i-skucolor">--}}

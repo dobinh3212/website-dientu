@@ -47,6 +47,27 @@
                                 <img src="{{ asset($product->image) }}" alt="" width="100">
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputFile">Thay đổi ảnh sản phẩm 1</label>
+                                <input type="file" id="exampleInputFile" name="image1">
+                                <img width="100" src="{{ asset($product->image1) }}" alt="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Thay đổi ảnh sản phẩm 2</label>
+                                <input type="file" id="exampleInputFile" name="image2">
+                                <img width="100" src="{{ asset($product->image2) }}" alt="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Thay đổi ảnh sản phẩm 3</label>
+                                <input type="file" id="exampleInputFile" name="image3">
+                                <img width="100" src="{{ asset($product->image3) }}" alt="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Thay đổi ảnh sản phẩm 4</label>
+                                <input type="file" id="exampleInputFile" name="image4">
+                                <img width="100" src="{{ asset($product->image4) }}" alt="">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="exampleInputFile">Số lượng</label>
                                 <input value="{{ $product->stock }}" style="width: 100px" type="number" class="form-control" id="stock" name="stock"  min="1">
                             </div>

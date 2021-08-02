@@ -15,17 +15,17 @@
                     <span>Giỏ Hàng</span>
                 </li>
             </ul>
-            <h1 class="main-ttl"><span>Danh Sách Sản Phẩm Trong Giỏ Hàng</span></h1>
             <!-- Cart Items - start -->
 
             @if(count($listProducts))
+                <h1 class="main-ttl"><span>Danh Sách Sản Phẩm Trong Giỏ Hàng</span></h1>
                 <div class="cart-items-wrap">
                     <table class="cart-items table-bordered">
                         <thead>
                         <tr>
                             <td class="cart-image">Ảnh Sản Phẩm</td>
                             <td class="cart-ttl" style="text-align: center">Tên Sản Phẩm</td>
-                            <td class="cart-price">Giá Sản Phẩm</td>
+                            <td class="cart-price" style="text-align: center">Giá Tiền</td>
                             <td class="cart-quantity">Số Lượng</td>
                             <td class="cart-summ">Thành Tiền</td>
                             <td class="cart-del">&nbsp;</td>
@@ -42,10 +42,10 @@
                             <td class="cart-ttl" style="text-align: center">
                                 <a href="product.html">{{ $product->name }}</a>
                             </td>
-                            <td class="cart-price">
+                            <td class="cart-price" style="text-align: center">
                                 <b>{{ number_format($product->price, 0,",",".") }} đ</b>
                             </td>
-                            <td class="cart-quantity text-center">
+                            <td class="cart-quantity">
                                 <div class="cart-qnt">
                                     <input class="cart-plus-minus" type="text" name="qtybutton" value="{{ $product->qty }}">
                                 </div>
@@ -55,7 +55,7 @@
                                 <b>{{ number_format( $product->qty * $product->price, 0,",",".") }} đ</b>
                             </td>
                             <td class="cart-del">
-                                <a href="{{ route('shop.removeProductToCart',['rowId'=> $product->rowId ]) }}" class="cart-remove"></a>
+                                <a href="{{ route('shop.removeProductToCart',['rowId'=> $product->rowId ]) }}"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -63,12 +63,12 @@
                     </table>
                 </div>
                 <ul class="cart-total">
-                    <li class="cart-summ">Tổng Tiền: <b>{{ $totalPrice }} đ</b></li>
+                    <li class="cart-summ" style="padding: 0 35px">Tổng Tiền: <b style="padding: 0 50px">{{ $totalPrice }} đ</b></li>
                 </ul>
                 <div class="cart-submit">
                     <a href="{{ route('shop.cancelCart') }}" class="cart-submit-btn">Huỷ Đơn Hàng</a>
                     <a href="{{ route('shop.order') }}" class="cart-submit-btn">Tiến Hành Đặt Hàng</a>
-                    <a href="#" class="cart-clear"></a>
+                    <a href="/" class="cart-clear pull-left"> Tiếp Tục mua hàng</a>
                 </div>
             @else
                 <div style="text-align: center">

@@ -23,7 +23,7 @@
                                 <th class="text-center">Điện Thoại</th>
                                 <th class="text-center">Hình Ảnh</th>
                                 <th>Website</th>
-                                <th style="width: 10px">Địa Chỉ</th>
+                                <th style="width: 150px">Địa Chỉ</th>
                                 <th class="text-center">Vị trí</th>
                                 <th class="text-center">Trạng Thái</th>
                                 <th class="text-center">Hành Động</th>

@@ -82,7 +82,7 @@ class ShopController extends Controller
         return view('shop.index', [
             'banners' => $sliderBanners,
             'data' => $data,
-            'leftBanners' => $leftBanners,
+            'leftBanners' => $leftBanners
         ]);
     }
 
@@ -113,7 +113,7 @@ class ShopController extends Controller
             }
         }
 
-        $products = Product::where(['is_active' => 1, 'category_id' => $ids])->latest()->paginate(9);
+        $products = Product::where(['is_active' => 1, 'category_id' => $ids])->paginate(9);
 
         return view('shop.list-products',[
             'category' => $category,
@@ -130,7 +130,6 @@ class ShopController extends Controller
                                             ['category_id', '=' , $product->category_id ],
                                             ['id', '<>' , $product->id]
                                         ])->orderBy('id', 'desc')
-                                            ->take(10)
                                             ->get();
         $category = Category::find($product->category_id);
 
@@ -144,16 +143,17 @@ class ShopController extends Controller
     // trang danh sach tin tuc
     public function listArticles()
     {
-        $articles = Article::where(['is_active' => 1 ])->latest()->paginate(6);
+        $articles = Article::where(['is_active' => 1 ])->latest()->simplePaginate(6);
 
         return view('shop.list-articles',[
-            "articles" => $articles
+            'articles' => $articles
         ]);
     }
 
     public function detailArticle($slug)
     {
         $article = Article::where(['slug' => $slug, 'is_active' => 1])->firstOrFail();
+
 
         return view('shop.detail-article',[
             'article' => $article
@@ -243,7 +243,12 @@ class ShopController extends Controller
     // Lưu được thông tin sản phẩm
     public function order()
     {
-        return view('shop.cart.order');
+        $listProducts = Cart::content();
+        $totalPrice = Cart::subtotal(0,",",".");
+        return view('shop.cart.order',[
+            'listProducts' => $listProducts,
+            'totalPrice' => $totalPrice
+        ]);
     }
 
     // Xử lý lưu dữ liệu vào database
@@ -304,5 +309,31 @@ class ShopController extends Controller
     public function orderSuccess()
     {
         return view('shop.cart.orderSuccess');
+    }
+
+    // Tìm kiếm
+    public function search(Request $request)
+    {
+        // mục tiêu : lấy từ khóa + tìm trong bảng sản phẩm
+
+        // b1. Lấy từ khóa tìm kiếm
+        $keyword = trim($request->input('keyword'));
+
+        $slug = str_slug($keyword); // chuyen doi ve dang slug
+
+        //$sql = "SELECT * FROM products WHERE is_active = 1 AND slug like '%$keyword%'";
+        // b2 : lấy sản phẩm gần giống vs từ khóa tìm kiếm
+        $products = Product::where([
+            ['is_active', '=', 1],
+            ['slug', 'LIKE', '%' . $slug . '%']
+        ])->paginate(20);
+
+        $totalResult = $products->total(); // số lượng kết quả tìm kiếm
+
+        return view('shop.search', [
+            'products' => $products,
+            'totalResult' => $totalResult,
+            'keyword' => $keyword ? $keyword : ''
+        ]);
     }
 }

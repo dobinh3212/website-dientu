@@ -7,22 +7,12 @@
 
             <ul class="b-crumbs">
                 <li>
-                    <a href="index.html">
-                        Home
+                    <a href="/">
+                        Trang Chủ
                     </a>
                 </li>
                 <li>
-                    <a href="blog.html">
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="blog.html">
-                        News
-                    </a>
-                </li>
-                <li>
-                    <span>Hic quod maxime deserunt</span>
+                    <span>Bài viết</span>
                 </li>
             </ul>
             <h1 class="main-ttl"><span>{{ $article->title }}</span></h1>
@@ -73,14 +63,13 @@
                         </li>
                     </ul>
                     <ul class="post-info">
-                        <li><time datetime="2016-11-09 22:00:32">09 Nov, 2017</time></li>
-                        <li><a href="blog.html" class="blog-i-categ">News</a></li>
+                        <li><p>Tác Giả: Trương Chí Đức</p></li>
+                        <li><a href="{{ route('shop.listArticles') }}" class="blog-i-categ">Danh Sách Tin Tức</a></li>
                         <li>Comments: <a href="#">3</a></li>
                     </ul>
                 </div>
 
                 <!-- Related Posts -->
-
 
             </div>
             <!-- Blog Post - end -->

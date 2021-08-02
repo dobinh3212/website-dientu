@@ -18,7 +18,7 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>TT</th>
-                                <th>Tên</th>
+                                <th width="38%">Tên</th>
                                 <th class="text-center">Hình ảnh</th>
                                 <th>Số Lượng</th>
                                 <th class="text-center">Vị Trí</th>

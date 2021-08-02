@@ -76,6 +76,59 @@ class ProductController extends Controller
             $product->image = $path_upload.$filename;
         }
 
+        // Upload file1
+        if ($request->hasFile('image1')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image1');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image1 = $path_upload . $filename;
+        }
+        // Upload file2
+        if ($request->hasFile('image2')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image2');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image2 = $path_upload . $filename;
+        }
+        // Upload file3
+        if ($request->hasFile('image3')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image3');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image3 = $path_upload . $filename;
+        }
+        // Upload file4
+        if ($request->hasFile('image4')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image4');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image4 = $path_upload . $filename;
+        }
+
         $product->stock = $request->input('stock'); // số lượng
         $product->price = $request->input('price'); // giá bán
         $product->sale = $request->input('sale'); // giá khuyến mại
@@ -171,6 +224,59 @@ class ProductController extends Controller
             $file->move($path_upload,$filename); // upload lên thư mục public/uploads/product
 
             $product->image = $path_upload.$filename;
+        }
+
+        // Upload file1
+        if ($request->hasFile('image1')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image1');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image1 = $path_upload . $filename;
+        }
+        // Upload file2
+        if ($request->hasFile('image2')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image2');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image2 = $path_upload . $filename;
+        }
+        // Upload file3
+        if ($request->hasFile('image3')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image3');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image3 = $path_upload . $filename;
+        }
+        // Upload file4
+        if ($request->hasFile('image4')) { // dòng này Kiểm tra xem có image có được chọn
+            // get file
+            $file = $request->file('image4');
+            // tên file image
+            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            // Định nghĩa đường dẫn sẽ upload lên
+            $path_upload = 'uploads/product/'; // uploads/brand ; uploads/vendor
+            // Thực hiện upload file
+            $file->move($path_upload, $filename);
+
+            $product->image4 = $path_upload . $filename;
         }
 
         $product->stock = $request->input('stock'); // số lượng
