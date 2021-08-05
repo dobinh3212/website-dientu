@@ -54,7 +54,7 @@
 
                     <li class="topauth">
                         <a href="auth.html">
-                            <i class="fa fa-lock"></i>
+                            <i class="fa fa-user-circle-o"></i>
                             <span class="shop-menu-ttl">Đăng ký</span>
                         </a>
                         <a href="auth.html">
@@ -65,7 +65,7 @@
                     <li>
                         <div class="h-cart">
                             <a href="{{ route('shop.cart') }}">
-                                <i class="fa fa-shopping-cart"></i>
+                                <i class="fa fa-cart-plus"></i>
                                 <span class="shop-menu-ttl">Giỏ Hàng</span>
                             </a>
                         </div>

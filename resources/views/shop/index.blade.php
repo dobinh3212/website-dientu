@@ -11,9 +11,7 @@
                     @foreach($banners as $key => $banner)
                     <ul class="slides">
                         <li>
-                            <a href="{{ $banner->url }}" target="_blank">
-                                <img src="{{ asset($banner->image) }}" alt="" >
-                            </a>
+                            <img src="{{ asset($banner->image) }}" alt="" >
 {{--                            <div class="fr-slider-cont">--}}
 {{--                                <h3>{{ $banner->title }}</h3>--}}
 {{--                                <p class="fr-slider-more-wrap">--}}
@@ -31,7 +29,7 @@
             <!-- Popular Products -->
             <div class="fr-pop-wrap">
                 @foreach($data as $item)
-                    <h3 class="component-ttl"><span>{{ $item['category']->name }}</span></h3>
+                    <h3 class="component-ttl"><span>⊰{{ $item['category']->name }}⊱</span></h3>
 
                     <div class="fr-pop-tab-cont">
 

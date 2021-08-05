@@ -65,6 +65,7 @@
 
         .companyinfo{
             margin-top: 0;
+            padding-left: 0;
         }
 
 
@@ -72,7 +73,13 @@
             color: #fff;
         }
 
+        body .component-ttl {
+            text-align: center;
+        }
 
+        body .component-ttl span:after {
+            width: 100%;
+        }
 
         .f-menu i a{
             margin: 0 5px;
@@ -162,6 +169,10 @@
         button.cart-update-btn:hover {
             background: none;
             text-decoration: underline;
+        }
+
+        .prod-items .prod-i h3 {
+
         }
     </style>
 </head>

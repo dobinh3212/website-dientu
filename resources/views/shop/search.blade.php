@@ -4,8 +4,9 @@
     <style>
         .section-cont{
             padding: 40px;
+            margin: 0 0 40px 0;
             width: 100%;
-            border: 2px solid #373d54;
+            border: 1px solid #373d54;
         }
         .title-search{
             padding: 0 0 20px 0;
@@ -55,9 +56,7 @@
                 </div>
 
                 <!-- Pagination - start -->
-                <ul class="pagi">
-                    <li>{{ $products->appends(['tu-khoa'=>$keyword])->links()  }}</li>
-                </ul>
+                {{ $products->appends(['tu-khoa'=>$keyword])->links()  }}
                 <!-- Pagination - end -->
             </div>
         </div>

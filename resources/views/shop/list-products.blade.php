@@ -12,9 +12,7 @@
                     </a>
                 </li>
                 <li>
-
-                        {{ $category->name }}
-
+                    {{ $category->name }}
                 </li>
             </ul>
             <h1 class="main-ttl"><span>{{ $category->name }}</span></h1>

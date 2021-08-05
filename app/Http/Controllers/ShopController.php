@@ -126,6 +126,42 @@ class ShopController extends Controller
     {
         $product = Product::where(['slug' => $slug, 'is_active' => 1])->firstOrFail();
 
+        // khai báo mảng chứa danh sách các sản phẩm đã xem
+        $viewedProducts = [];
+
+        // xử lý lưu tin đã xem
+        if (isset($_COOKIE['list_product_viewed'])) {
+            $list_products_viewed = $_COOKIE['list_product_viewed']; // list id sản phẩm
+            $list_products_viewed = json_decode($list_products_viewed); // chuyển chuỗi list id=> mảng
+
+            // kiểm tra nếu chưa tồn tại trong list đã xem ??
+            if (!in_array($product->id, $list_products_viewed)) {
+                $list_products_viewed[] = $product->id;  // thêm id tiếp theo vào mảng đã xem
+
+                // 44 , 9, 10 ,13, 67, 99 ,89, 70, 71
+                // lấy ra 4 cái id mới nhất
+                $list_products_viewed = array_slice($list_products_viewed,-4,4);
+
+                // danh sách bị thay đổi => nạp lại giá trị cho key
+                $_list = json_encode($list_products_viewed);
+                setcookie('list_product_viewed', $_list , time() + (7*86400));
+            }
+
+            // lấy ra danh sách sách sản phẩm đã xem từ mảng : $list_products_viewed
+            $viewedProducts = Product::where([
+                ['is_active' , '=', 1],
+                ['id', '<>' , $product->id]
+            ])->whereIn('id' , $list_products_viewed)
+                ->take(4)
+                ->get();
+        } else {
+            // lưu id sẩn phẩm đã xem lần đầu vào cookie
+            $arr_product_id = [$product->id];
+            $arr_product_id = json_encode($arr_product_id); // { "ten" : "gia tri"  }
+            setcookie('list_product_viewed', $arr_product_id , time() + (7*86400));
+        }
+
+
         $relatedProducts = Product::where([ ['is_active' , '=', 1],
                                             ['category_id', '=' , $product->category_id ],
                                             ['id', '<>' , $product->id]
@@ -136,7 +172,8 @@ class ShopController extends Controller
         return view('shop.detail-product',[
             'product' => $product,
             'category'=>$category,
-            'relatedProducts' => $relatedProducts
+            'relatedProducts' => $relatedProducts,
+            'viewedProducts' => $viewedProducts
         ]);
     }
 
