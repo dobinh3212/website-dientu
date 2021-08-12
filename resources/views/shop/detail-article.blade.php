@@ -18,8 +18,8 @@
             <h1 class="main-ttl"><span>{{ $article->title }}</span></h1>
             <!-- Blog Post - start -->
             <div class="post-wrap stylization">
-                <p><i class="glyphicon glyphicon-calendar">{{ $article->updated_at }}</i></p>
-                <hr>
+                <p><i class="glyphicon glyphicon-calendar"></i> Viết ngày: {{date('d/m/Y', strtotime($article->updated_at)) }} <span style="font-size: 15px; margin: 10px">•</span> <i class="fa fa-user"></i> Tác Giả: Trương Chí Đức</p>
+                <br>
                 <img class="post-img" src="{{ asset($article->image) }}" alt="">
                 {!! $article->description !!}
 
@@ -75,7 +75,28 @@
             <!-- Blog Post - end -->
 
             <!-- Related Products - start -->
-
+            <div class="prod-related">
+                <h2><span>Tin Tức Liên Quan</span></h2>
+                <div class="prod-related-car" id="prod-related-car">
+                    <ul class="slides">
+                        <li class="prod-rel-wrap">
+                            @foreach($relatedArticle as $arc)
+                            <div class="prod-rel">
+                                <a href="{{ route('shop.detailArticle', ['slug' => $arc->slug]) }}" class="prod-rel-img">
+                                    <img src="{{ asset($arc->image) }}" alt="Adipisci aperiam commodi">
+                                </a>
+                                <div class="prod-rel-cont">
+                                    <h3><a href="{{ route('shop.detailArticle', ['slug' => $arc->slug]) }}">{{ $arc->title }}</a></h3>
+                                </div>
+                            </div>
+                            @endforeach
+                        </li>
+                    </ul>
+                </div>
+                <ul class="pagi">
+                    <li >{{ $relatedArticle->links() }}</li>
+                </ul>
+            </div>
             <!-- Related Products - end -->
 
             <!-- Comments - start -->

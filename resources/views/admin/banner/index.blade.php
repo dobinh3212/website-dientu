@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            QL Banner <a href="{{ route('admin.banner.create') }}" type="button" class="btn btn-primary">Thêm</a>
+            <i class="fa fa-fw fa-image"></i> QL Banner <a href="{{ route('admin.banner.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm Banner</a>
         </h1>
     </section>
 

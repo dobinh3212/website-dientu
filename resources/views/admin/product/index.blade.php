@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            QL Sản Phẩm <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Thêm</a>
+            <i class="fa fa-database"></i> QL Sản Phẩm <a href="{{ route('admin.product.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
         </h1>
     </section>
 

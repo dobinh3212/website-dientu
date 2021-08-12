@@ -7,10 +7,10 @@
                         <span>Trang của cửa hàng</span>
                     </h3>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="/">Trang Chủ</a></li>
+                        <li><a href="/">Trang Chủ</a></li>
                         <li><a href="{{ route('shop.listArticles') }}">Tin tức</a></li>
                         <li><a href="{{ route('shop.contact') }}">Liên Hệ</a></li>
-                        <li><a href="">Giới thiệu</a></li>
+                        <li><a href="{{ route('shop.intro') }}">Giới thiệu</a></li>
                     </ul>
                 </div>
                 <div class="f-menu">

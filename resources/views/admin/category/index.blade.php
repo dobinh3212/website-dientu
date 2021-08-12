@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            QL Danh Mục <a href="{{ route('admin.category.create') }}" type="button" class="btn btn-primary">Thêm</a>
+            <i class="fa fa-folder-open"></i> QL Danh Mục <a href="{{ route('admin.category.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm danh mục</a>
         </h1>
     </section>
 

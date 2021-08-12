@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            QL Người Dùng <a href="{{ route('admin.user.create') }}" type="button" class="btn btn-primary">Thêm</a>
+            <i class="fa fa-fw fa-users"></i> QL Người Dùng <a href="{{ route('admin.user.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm</a>
         </h1>
     </section>
 

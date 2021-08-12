@@ -3,7 +3,7 @@
     <style>tr td:first-child {max-width: 250px} .price {color: red}</style>
     <section class="content-header">
         <h1>
-            Danh Sách Đơn Hàng
+            <i class="fa fa-fw fa-cart-arrow-down"></i> Danh Sách Đơn Hàng
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"> Trang chủ</a></li>

@@ -7,12 +7,12 @@
             width: 350px;
             z-index: 1000;
             float: right;
-            right: 22px;
+            right: 15px;
         }
     </style>
     <section class="content-header">
         <h1>
-            <i class="fa fa-file-text-o" aria-hidden="true"></i> Chi Tiết Đơn Hàng
+            <i class="fa fa-file-text-o"></i> Chi Tiết Đơn Hàng
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
@@ -104,7 +104,7 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-md-12">
-                <h3>Danh Sách Sản Phẩm Đặt Hàng</h3>
+                <h3><i class="fa fa-file-text-o"></i> Danh Sách Sản Phẩm Đặt Hàng</h3>
                 <div class="box">
 
                     <div class="box-body table-responsive no-padding">

@@ -20,14 +20,14 @@
             @if(count($listProducts))
                 <h1 class="main-ttl"><span>Danh Sách Sản Phẩm Trong Giỏ Hàng</span></h1>
                 <div class="cart-items-wrap">
-                    <table class="cart-items table-bordered">
-                        <thead>
+                    <table class="cart-items table-bordered table-hover">
+                        <thead style="background: #373d54;color: white;">
                         <tr>
-                            <td class="cart-image">Ảnh Sản Phẩm</td>
+                            <td class="cart-image" style="text-align: center; width: 200px">Ảnh Sản Phẩm</td>
                             <td class="cart-ttl" style="text-align: center">Tên Sản Phẩm</td>
-                            <td class="cart-price" style="text-align: center">Giá Tiền</td>
-                            <td class="cart-quantity">Số Lượng</td>
-                            <td class="cart-summ">Thành Tiền</td>
+                            <td class="cart-price" style="text-align: center;width: 200px">Giá Tiền</td>
+                            <td class="cart-quantity" style="width: 100px">Số Lượng</td>
+                            <td class="cart-summ" style="text-align: center">Thành Tiền</td>
                             <td class="cart-del">&nbsp;</td>
                         </tr>
                         </thead>
@@ -51,7 +51,7 @@
                                 </div>
                                 <button data-id="{{ $product->rowId }}" type="button" class="cart-update-btn btnUpdateQty">Cập nhật</button>
                             </td>
-                            <td class="cart-summ">
+                            <td class="cart-summ" style="text-align: center">
                                 <b>{{ number_format( $product->qty * $product->price, 0,",",".") }} đ</b>
                             </td>
                             <td class="cart-del">
@@ -63,7 +63,7 @@
                     </table>
                 </div>
                 <ul class="cart-total">
-                    <li class="cart-summ" style="padding: 0 35px">Tổng Tiền: <b style="padding: 0 50px">{{ $totalPrice }} đ</b></li>
+                    <li class="cart-summ" style="padding: 0 65px">Tổng Tiền: <b style="padding: 0 0px 0 25px; color: red">{{ $totalPrice }} đ</b></li>
                 </ul>
                 <div class="cart-submit">
                     <a href="{{ route('shop.cancelCart') }}" class="cart-submit-btn">Huỷ Đơn Hàng</a>

@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Chỉnh Sửa Thông Tin Người Dùng <a href="{{ route('admin.user.index') }}" type="button" class="btn btn-primary">Danh Sách</a>
+            <i class="fa fa-user-plus"></i> Chỉnh Sửa Thông Tin Người Dùng <a href="{{ route('admin.user.index') }}" type="button" class="btn btn-primary"><i class="fa fa-list"></i> Danh Sách</a>
         </h1>
     </section>
 

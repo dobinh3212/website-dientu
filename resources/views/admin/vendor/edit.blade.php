@@ -4,13 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Sửa Danh Mục <a href="{{ route('admin.vendor.index') }}" type="button" class="btn btn-primary">Danh Sách</a>
+            <i class="fa fa-fw fa-file-text-o"></i> Sửa Danh Mục <a href="{{ route('admin.vendor.index') }}" type="button" class="btn btn-primary"><i class="fa fa-list"></i> Danh Sách</a>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Forms</a></li>
-            <li class="active">General Elements</li>
-        </ol>
     </section>
 
 

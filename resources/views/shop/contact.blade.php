@@ -34,9 +34,9 @@
                     </div>
                     <div class="cf-xs-6 cf-sm-4 cf-lg-4 col-xs-6 col-sm-4 iconbox-i">
                         <p class="iconbox-i-img"><!-- NO SPACE --><img src="/frontend/img/giolamviec.png" alt=""><!-- NO SPACE --></p>
-                        <h3 class="iconbox-i-ttl">Schedule</h3>
-                        Mon-Fri 07:00-22:00<br>
-                        Sat-Sun closed
+                        <h3 class="iconbox-i-ttl">Thời gian làm việc</h3>
+                        Thứ Hai-Thứ Bảy 07:00-22:00<br>
+                        Chủ Nhật đóng cửa
                         <span class="iconbox-i-margin"></span>
                     </div>
                 </div>
@@ -54,27 +54,11 @@
                         </a>
                     </div>
                     <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://google.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-google-plus"></i>
-                            </p>
-                            <p class="social-i-ttl">Google +</p>
-                        </a>
-                    </div>
-                    <div class="social-i">
                         <a rel="nofollow" target="_blank" href="http://twitter.com/">
                             <p class="social-i-img">
                                 <i class="fa fa-twitter"></i>
                             </p>
                             <p class="social-i-ttl">Twitter</p>
-                        </a>
-                    </div>
-                    <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://vk.com/">
-                            <p class="social-i-img">
-                                <i class="fa fa-vk"></i>
-                            </p>
-                            <p class="social-i-ttl">Vkontakte</p>
                         </a>
                     </div>
                     <div class="social-i">
@@ -86,7 +70,7 @@
                         </a>
                     </div>
                     <div class="social-i">
-                        <a rel="nofollow" target="_blank" href="http://youtube.com/">
+                        <a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UC-BHUfCvpXBZaYDiAPz9gGQ">
                             <p class="social-i-img">
                                 <i class="fa fa-youtube"></i>
                             </p>
@@ -103,7 +87,7 @@
                     <form class="contact-form" id="contactForm" method="post" action="{{route('shop.postContact')}}">
                         @csrf
                         <div class="row">
-                            <h3 class="component-ttl component-ttl-ct component-ttl-hasdesc"><span>Phản Hồi</span></h3>
+                            <h3 class="component-ttl component-ttl-ct component-ttl-hasdesc">Phản Hồi</h3>
                             <p class="component-desc component-desc-ct">Có khó khăn gì cứ nhắn cho chúng tôi</p>
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
                                 <div class="form-group primary-form-group">

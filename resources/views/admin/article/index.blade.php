@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Danh sách tin tức <a href="{{ route('admin.article.create') }}" type="button" class="btn btn-primary">Thêm</a>
+            <i class="fa fa-fw fa-newspaper-o"></i> Danh sách tin tức <a href="{{ route('admin.article.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm tin tức</a>
         </h1>
     </section>
 

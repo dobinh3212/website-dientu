@@ -75,13 +75,13 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="remember" value="1"> Remember Account
+                            <input type="checkbox" name="remember" value="1"> Nhớ Mật Khẩu
                         </label>
                     </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -95,8 +95,8 @@
         </div>
         <!-- /.social-auth-links -->
 
-        <a href="#">Forgot My Password</a><br>
-        <a href="register.html" class="text-center">Sign Up</a>
+        <a href="#">Quên Mật Khẩu</a><br>
+        <a href="#" class="text-center">Đăng Ký</a>
 
     </div>
     <!-- /.login-box-body -->

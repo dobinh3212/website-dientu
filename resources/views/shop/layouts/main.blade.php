@@ -39,6 +39,7 @@
         .f-menu-list {
             margin-bottom: 15px;
         }
+
         .customer-cart{
             border: 2px solid #373d54;
             border-radius: 15px;
@@ -49,6 +50,17 @@
         .footer-copyright{
             margin: 10px 0 10px 0;
         }
+
+        /*Thanh phân trang*/
+        .pagi {
+            margin: 0;
+        }
+
+        /*sticker*/
+        .prod-sticker .prod-sticker-1 {
+            background: #373d54;
+        }
+
         .prod-cont .prod-priced {
             top: 0;
             right: 0;
@@ -67,7 +79,6 @@
             margin-top: 0;
             padding-left: 0;
         }
-
 
         h3 .banner-i-ttl{
             color: #fff;
@@ -159,20 +170,33 @@
 
         button.cart-update-btn {
             font-size: 12px;
-            padding: 0;
-            margin: 5px 0 0 5px;
-            background: #fff;
-            color: #333;
+            padding: 5px 6px 5px 5px;
+            margin: 20px 0 0 0;
+            background: #FFF;
+            color: #373d54;
             text-transform: none;
+            border: 1px solid #373d54;
+            border-radius: 10px;
         }
 
         button.cart-update-btn:hover {
-            background: none;
-            text-decoration: underline;
+            background: #373d54;
+            color: #fff;
+            text-decoration: none;
+            opacity: 99%;
         }
 
         .prod-items .prod-i h3 {
 
+        }
+
+        .topsearch .topsearch-form input[type=text] {
+            border-radius: 50px;
+        }
+
+        .topsearch .topsearch-form button[type=submit] {
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
         }
     </style>
 </head>

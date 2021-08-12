@@ -166,7 +166,7 @@ class ShopController extends Controller
                                             ['category_id', '=' , $product->category_id ],
                                             ['id', '<>' , $product->id]
                                         ])->orderBy('id', 'desc')
-                                            ->get();
+                                            ->simplepaginate(3);
         $category = Category::find($product->category_id);
 
         return view('shop.detail-product',[
@@ -191,10 +191,21 @@ class ShopController extends Controller
     {
         $article = Article::where(['slug' => $slug, 'is_active' => 1])->firstOrFail();
 
+        $relatedArticle = Article::where([ ['is_active' , '=', 1],
+                                            ['id', '<>' , $article->id]
+                                            ])->orderBy('id', 'desc')
+                                            ->simplepaginate(4);
 
         return view('shop.detail-article',[
-            'article' => $article
+            'article' => $article,
+            'relatedArticle' => $relatedArticle
         ]);
+    }
+
+    // trang giới thiệu cửa hàng
+    public function introCompany()
+    {
+        return view('shop.intro-company');
     }
 
     // thêm dữ liệu khách hàng liên hệ vào bảng contact

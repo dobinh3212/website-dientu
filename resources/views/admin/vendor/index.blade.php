@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            QL Nhà Cung Cấp <a href="{{ route('admin.vendor.create') }}" type="button" class="btn btn-primary">Thêm</a>
+            <i class="fa fa-cubes"></i> QL Nhà Cung Cấp <a href="{{ route('admin.vendor.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm nhà cung cấp</a>
         </h1>
     </section>
 

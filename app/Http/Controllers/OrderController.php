@@ -88,7 +88,7 @@ class OrderController extends Controller
         $order->order_status_id = $request->order_status_id;
         $order->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('msg', 'Cập nhật đơn hàng thành công');
     }
 
     /**

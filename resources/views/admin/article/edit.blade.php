@@ -3,7 +3,7 @@
     <style>.w-50 { width: 50% }</style>
     <section class="content-header">
         <h1>
-            Sửa mới tin tức <a href="{{route('admin.article.index')}}" type="button" class="btn btn-primary">Danh Sách</a>
+            <i class="fa fa-fw fa-newspaper-o"></i> Sửa mới tin tức <a href="{{route('admin.article.index')}}" type="button" class="btn btn-primary"><i class="fa fa-list"></i> Danh Sách</a>
         </h1>
     </section>
 

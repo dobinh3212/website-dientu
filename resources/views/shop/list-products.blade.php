@@ -20,7 +20,7 @@
             <div class="section-sb">
 
                 <!-- Catalog Categories - start -->
-                <div class="section-sb-current">
+                <!--<div class="section-sb-current">
                     <h3><a href="catalog-list.html">Women <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
@@ -100,7 +100,7 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- Catalog Categories - end -->
 
                 <!-- Filter - start -->
@@ -110,10 +110,10 @@
                     </button>
                     <div class="section-filter-cont">
                         <div class="section-filter-price">
-                            <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
+                            <div class="range-slider section-filter-price" data-min="0" data-max="50000000" data-from="100000" data-to="50000000" data-prefix="đ" data-grid="false"></div>
                         </div>
                         <div class="section-filter-item">
-                            <p class="section-filter-ttl">Style <i class="fa fa-angle-down"></i></p>
+                            <p class="section-filter-ttl">Phong cách <i class="fa fa-angle-down"></i></p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
                                     <input id="section-filter-checkbox2-1" value="on" type="checkbox">
@@ -137,8 +137,8 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="section-filter-item opened">
-                            <p class="section-filter-ttl">Material <i class="fa fa-angle-down"></i></p>
+                        <div class="section-filter-item">
+                            <p class="section-filter-ttl">Chất Liệu <i class="fa fa-angle-down"></i></p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
                                     <input id="section-filter-checkbox3-1" value="on" type="checkbox">
@@ -170,8 +170,8 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="section-filter-item opened">
-                            <p class="section-filter-ttl">Color <i class="fa fa-angle-down"></i></p>
+                        <div class="section-filter-item">
+                            <p class="section-filter-ttl">Màu Sắc <i class="fa fa-angle-down"></i></p>
                             <div class="section-filter-fields">
                                 <ul class="section-filter-color">
                                     <li class="active"><img src="/frontend/img/color/red.jpg" alt="Red"></li>
@@ -182,64 +182,11 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="section-filter-item opened">
-                            <p class="section-filter-ttl">Decoration <i class="fa fa-angle-down"></i></p>
+                        <div class="section-filter-item">
+                            <p class="section-filter-ttl">Quốc gia sản xuất <i class="fa fa-angle-down"></i></p>
                             <div class="section-filter-fields">
                                 <div class="section-filter-select">
-                                    <select data-placeholder="Decoration" class="chosen-select">
-                                        <option>Pattern</option>
-                                        <option>Pockets</option>
-                                        <option>Button</option>
-                                        <option>Beading</option>
-                                        <option>LOGO</option>
-                                        <option>Spliced</option>
-                                        <option>Letter</option>
-                                        <option>Pleated</option>
-                                        <option>Appliques</option>
-                                        <option>Bow</option>
-                                        <option>Criss-Cross</option>
-                                        <option>Crystal</option>
-                                        <option>Draped</option>
-                                        <option>Embroidery</option>
-                                        <option>Feathers</option>
-                                        <option>Fur</option>
-                                        <option>Flowers</option>
-                                        <option>Lace</option>
-                                        <option>Pearls</option>
-                                        <option>Ruched</option>
-                                        <option>Ruffles</option>
-                                        <option>Sashes</option>
-                                        <option>Ribbons</option>
-                                        <option>Sequined</option>
-                                        <option>Tassel</option>
-                                        <option>Rivet</option>
-                                        <option>Hole</option>
-                                        <option>Hollow Out</option>
-                                        <option>Embroidered Flares</option>
-                                        <option>Cuffs</option>
-                                        <option>Patches</option>
-                                        <option>Fake Zippers</option>
-                                        <option>Bleached</option>
-                                        <option>Ripped</option>
-                                        <option>Washed</option>
-                                        <option>Patchwork</option>
-                                        <option>Scratched</option>
-                                        <option>Side Stripe</option>
-                                        <option>None</option>
-                                        <option>Character</option>
-                                        <option>Other</option>
-                                        <option>Badge</option>
-                                        <option>Offset printing</option>
-                                        <option>Patch pocket</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="section-filter-item opened">
-                            <p class="section-filter-ttl">Manufacturer country <i class="fa fa-angle-down"></i></p>
-                            <div class="section-filter-fields">
-                                <div class="section-filter-select">
-                                    <select data-placeholder="Manufacturer country" class="chosen-select" multiple>
+                                    <select data-placeholder="Nơi sản xuất" class="chosen-select" multiple>
                                         <optgroup label="EUROPE">
                                             <option>Albania</option>
                                             <option>Andorra</option>
@@ -451,102 +398,27 @@
                             </div>
                         </div>
                         <div class="section-filter-item">
-                            <p class="section-filter-ttl">Pattern Type <i class="fa fa-angle-down"></i></p>
+                            <p class="section-filter-ttl">Dung Lượng <i class="fa fa-angle-down"></i></p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
                                     <input id="section-filter-checkbox4-1" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-1">Solid</label>
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-1">16GB</label>
                                 </p>
                                 <p class="section-filter-field">
                                     <input id="section-filter-checkbox4-2" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-2">Patchwork</label>
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-2">32GB</label>
                                 </p>
                                 <p class="section-filter-field">
                                     <input id="section-filter-checkbox4-3" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-3">Dot</label>
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-3">64GB</label>
                                 </p>
                                 <p class="section-filter-field">
                                     <input id="section-filter-checkbox4-4" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-4">Print</label>
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-4">128GB</label>
                                 </p>
                                 <p class="section-filter-field">
                                     <input id="section-filter-checkbox4-5" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-5">Character</label>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="section-filter-item">
-                            <p class="section-filter-ttl">Fit Type <i class="fa fa-angle-down"></i></p>
-                            <div class="section-filter-fields">
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox5-1" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox5-1">Loose</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox5-2" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox5-2">Skinny</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox5-3" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox5-3">Regular</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox5-4" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox5-4">Straight</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox5-5" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox5-5">Boot Cut</label>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="section-filter-item opened">
-                            <p class="section-filter-ttl">Fabric Type <i class="fa fa-angle-down"></i></p>
-                            <div class="section-filter-fields">
-                                <p class="section-filter-field">
-                                    <input id="section-filter-radio1-1" value="on" type="radio" name="section-filter-radio1">
-                                    <label class="section-filter-radio" for="section-filter-radio1-1">Velour</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-radio1-2" value="on" type="radio" name="section-filter-radio1">
-                                    <label class="section-filter-radio" for="section-filter-radio1-2">Batik</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-radio1-3" value="on" type="radio" name="section-filter-radio1">
-                                    <label class="section-filter-radio" for="section-filter-radio1-3">Chiffon</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-radio1-4" value="on" type="radio" name="section-filter-radio1">
-                                    <label class="section-filter-radio" for="section-filter-radio1-4">Broadcloth</label>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="section-filter-item">
-                            <p class="section-filter-ttl">Wash <i class="fa fa-angle-down"></i></p>
-                            <div class="section-filter-fields">
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox6-1" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox6-1">Colored</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox6-2" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox6-2">Light</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox6-3" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox6-3">Medium</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox6-4" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox6-4">Stonewashed</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox6-5" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox6-5">White</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox6-6" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox6-6">Distrressed</label>
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-5">256GB</label>
                                 </p>
                             </div>
                         </div>
@@ -564,51 +436,51 @@
             <div class="section-cont">
 
                 <!-- Catalog Topbar - start -->
-                <div class="section-top">
+{{--                <div class="section-top">--}}
 
-                    <!-- View Mode -->
-                    <ul class="section-mode">
-                        <li class="section-mode-gallery active"><a title="View mode: Gallery" href="catalog-gallery.html"></a></li>
-                        <li class="section-mode-list"><a title="View mode: List" href="catalog-list.html"></a></li>
-                        <li class="section-mode-table"><a title="View mode: Table" href="catalog-table.html"></a></li>
-                    </ul>
+{{--                    <!-- View Mode -->--}}
+{{--                    <ul class="section-mode">--}}
+{{--                        <li class="section-mode-gallery active"><a title="View mode: Gallery" href="catalog-gallery.html"></a></li>--}}
+{{--                        <li class="section-mode-list"><a title="View mode: List" href="catalog-list.html"></a></li>--}}
+{{--                        <li class="section-mode-table"><a title="View mode: Table" href="catalog-table.html"></a></li>--}}
+{{--                    </ul>--}}
 
-                    <!-- Sorting -->
-                    <div class="section-sortby">
-                        <p>default sorting</p>
-                        <ul>
-                            <li>
-                                <a href="#">sort by popularity</a>
-                            </li>
-                            <li>
-                                <a href="#">low price to high</a>
-                            </li>
-                            <li>
-                                <a href="#">high price to low</a>
-                            </li>
-                            <li>
-                                <a href="#">by title A <i class="fa fa-angle-right"></i> Z</a>
-                            </li>
-                            <li>
-                                <a href="#">by title Z <i class="fa fa-angle-right"></i> A</a>
-                            </li>
-                            <li>
-                                <a href="#">default sorting</a>
-                            </li>
-                        </ul>
-                    </div>
+{{--                    <!-- Sorting -->--}}
+{{--                    <div class="section-sortby">--}}
+{{--                        <p>default sorting</p>--}}
+{{--                        <ul>--}}
+{{--                            <li>--}}
+{{--                                <a href="#">sort by popularity</a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#">low price to high</a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#">high price to low</a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#">by title A <i class="fa fa-angle-right"></i> Z</a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#">by title Z <i class="fa fa-angle-right"></i> A</a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#">default sorting</a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
 
-                    <!-- Count per page -->
-                    <div class="section-count">
-                        <p>12</p>
-                        <ul>
-                            <li><a href="#">12</a></li>
-                            <li><a href="#">24</a></li>
-                            <li><a href="#">48</a></li>
-                        </ul>
-                    </div>
+{{--                    <!-- Count per page -->--}}
+{{--                    <div class="section-count">--}}
+{{--                        <p>12</p>--}}
+{{--                        <ul>--}}
+{{--                            <li><a href="#">12</a></li>--}}
+{{--                            <li><a href="#">24</a></li>--}}
+{{--                            <li><a href="#">48</a></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
 
-                </div>
+{{--                </div>--}}
                 <!-- Catalog Topbar - end -->
                 <div class="prod-items section-items">
                     @foreach($products as $product)

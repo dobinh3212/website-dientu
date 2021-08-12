@@ -5,7 +5,10 @@
         <div class="container">
             <ul class="contactinfo nav nav-pills">
                 <li>
-                    <i class="fa fa-phone"></i> HOTLINE: {{ $settings->hotline }}
+                    <i class="fa fa-phone"></i> HOTLINE 1: {{ $settings->hotline }}
+                </li>
+                <li>
+                    <i class="fa fa-phone"></i> HOTLINE 2: 19001068
                 </li>
             </ul>
             <!-- Social links -->
@@ -133,7 +136,7 @@
 
                 <ul class="mainmenu">
                     <li>
-                        <a href="/" class="active">
+                        <a href="/">
                             Trang Chủ
                         </a>
                     </li>
@@ -149,8 +152,18 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ route('shop.intro') }}">
                             Giới Thiệu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Khuyến Mại
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Bảo Hành
                         </a>
                     </li>
 

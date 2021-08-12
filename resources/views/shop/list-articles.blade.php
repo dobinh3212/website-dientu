@@ -15,7 +15,7 @@
                     <span>Tin Tức</span>
                 </li>
             </ul>
-            <h1 class="main-ttl main-ttl-categs"><span>Tin Tức</span></h1>
+            <h1 class="main-ttl main-ttl-categs"><span>Tin Tức Chung</span></h1>
             <!-- Blog Categories -->
 
 
@@ -25,11 +25,11 @@
                 <div class="cf-sm-6 cf-lg-4 col-xs-6 col-sm-6 col-md-4 posts2-i">
                     <a class="posts-i-img" href="{{ route('shop.detailArticle', ['slug' => $article->slug]) }}"><span style="background: url({{ asset($article->image) }})"></span></a>
 {{--                    <time class="posts-i-date" datetime="2017-01-01 12:00">{{ $article->updated_at }}</time>--}}
-                    <span><i class="glyphicon glyphicon-calendar">{{ $article->updated_at }}</i></span>
+                    <span><i class="glyphicon glyphicon-calendar"></i> Cập nhật ngày: {{date('d/m/Y', strtotime($article->updated_at)) }}</span>
                     <hr>
                     <h3 class="posts-i-ttl"><a href="{{ route('shop.detailArticle', ['slug' => $article->slug]) }}">{{ $article->title }}</a></h3>
                     {!! $article->summary !!}
-                    <a href="{{ route('shop.detailArticle', ['slug' => $article->slug]) }}" class="posts-i-more">Xem Thêm</a>
+                    <a href="{{ route('shop.detailArticle', ['slug' => $article->slug]) }}" class="posts-i-more"><i class="fa fa-angle-double-right"></i> Xem Thêm</a>
                 </div>
                 @endforeach
             </div>

@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Thêm Banner <a href="{{ route('admin.banner.index') }}" type="button" class="btn btn-primary">Danh Sách</a>
+            <i class="fa fa-file-text-o"></i> Thêm Banner <a href="{{ route('admin.banner.index') }}" type="button" class="btn btn-primary"><i class="fa fa-list"></i> Danh Sách</a>
         </h1>
     </section>
 

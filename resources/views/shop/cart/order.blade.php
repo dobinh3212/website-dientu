@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <span>Giỏ Hàng</span>
+                    <span>Thanh Toán</span>
                 </li>
             </ul>
 
@@ -50,37 +50,37 @@
                                     <div class="contact-form" id="contactForm">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <h3 style="padding: 30px 30px 0 30px; text-align: center">Sản phẩm trong giỏ</h3>
+                                                <h3 style="padding: 30px 30px 0 30px; text-align: center"><i class="fa fa-shopping-basket"> Giỏ hàng</i></h3>
                                                 <table class="table table-bordered">
-                                                    <thead>
+                                                    <thead style="background: #373d54;color: white;">
                                                     <tr>
-                                                        <td width="58px">Ảnh</td>
-                                                        <td width="145px">Tên Sản Phẩm</td>
-                                                        <td width="60px">Số lượng</td>
-                                                        <td width="85px">Thành Tiền</td>
+                                                        <td width="58px" style="text-align: center">Ảnh</td>
+                                                        <td width="145px" style="text-align: center">Tên Sản Phẩm</td>
+                                                        <td width="60px" style="text-align: center">Số lượng</td>
+                                                        <td width="85px" style="text-align: center">Thành Tiền</td>
                                                     </tr>
                                                     </thead>
                                                     @foreach($listProducts as $item)
                                                         <tbody>
                                                         <tr>
-                                                            <td><img src="{{ asset($item->options->image) }}" alt="" width="55px"></td>
+                                                            <td style="text-align: center"><img src="{{ asset($item->options->image) }}" alt="" width="55px"></td>
                                                             <td>{{ $item->name }}</td>
                                                             <td style="text-align: center">{{ $item->qty }}</td>
-                                                            <td>{{ number_format($item->price, 0,",",".") }} đ</td>
+                                                            <td style="text-align: center">{{ number_format($item->price, 0,",",".") }} đ</td>
                                                         </tr>
                                                         </tbody>
                                                     @endforeach
                                                     <tfoot>
                                                     <tr>
-                                                        <td colspan="2" style="color: red">Hãy kiểm tra kỹ sản phẩm trong giỏ hàng của bạn trước khi chuyển sang mục điền thông tin !</td>
-                                                        <td>Tổng Tiền:</td>
-                                                        <td>{{$totalPrice}} đ</td>
+                                                        <td colspan="2" style="color: red">Hãy kiểm tra kỹ sản phẩm trong giỏ hàng của bạn trước khi bạn chuyển sang mục điền thông tin !!!</td>
+                                                        <td style="text-align: center">Tổng:</td>
+                                                        <td style="text-align: center">{{$totalPrice}} đ</td>
                                                     </tr>
                                                     </tfoot>
                                                 </table>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 customer-cart">
-                                                <h3 class="text-center">Thông tin khách hàng</h3>
+                                                <h3 class="text-center">⊰ Thông tin khách hàng ⊱</h3>
                                                 <div class="form-group primary-form-group">
                                                     <label>Họ và tên</label>
                                                     <input type="text" class="form-control input-feild" id="fullname" name="fullname" value="">

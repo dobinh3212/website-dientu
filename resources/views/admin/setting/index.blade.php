@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Thông tin cấu hình website
+            <i class="fa fa-file-text-o" aria-hidden="true"></i> Thông tin cấu hình website
         </h1>
     </section>
     <section class="content">
@@ -12,7 +12,7 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Thông tin danh mục</h3>
+                        <h3 class="box-title">Thông tin cấu hình</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->

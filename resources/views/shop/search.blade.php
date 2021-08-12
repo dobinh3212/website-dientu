@@ -2,22 +2,31 @@
 
 @section('content')
     <style>
-        .section-cont{
+        .section-cont {
             padding: 40px;
-            margin: 0 0 40px 0;
             width: 100%;
-            border: 1px solid #373d54;
+            border: 1px solid #dad7d7;
         }
-        .title-search{
+        .title-search {
             padding: 0 0 20px 0;
         }
 
-        .title-search h1{
+        .holas2 a {
+            border: none;
+            color: black;
+        }
+        .holas2 a:hover {
+            text-decoration: none;
+            border: none;
+            color: red;
+        }
+
+        .title-search h1 {
 
         }
     </style>
     <main>
-        <section class="container">
+        <section class="container stylization maincont">
 
 
             <ul class="b-crumbs">
@@ -32,9 +41,9 @@
             </ul>
 
             <!-- Catalog Items | Gallery V1 - start -->
-
+            @if($totalResult >0)
             <div class="title-search">
-                <h1><span>Tìm thấy ( {{ $totalResult }} ) kết quả với từ khóa "{{ $keyword }}"</span></h1>
+                <h5><span>Tìm thấy ( {{ $totalResult }} ) kết quả với từ khóa "{{ $keyword }}"</span></h5>
             </div>
         <div class="holas">
             <div class="section-cont">
@@ -58,6 +67,13 @@
                 <!-- Pagination - start -->
                 {{ $products->appends(['tu-khoa'=>$keyword])->links()  }}
                 <!-- Pagination - end -->
+                @else
+                    <div style="text-align: center;">
+                        <img src="https://1.bp.blogspot.com/-Xxtk6JuGBq8/X4AOyY4UH6I/AAAAAAAAATM/Y9Hw_X_nbBEYX-kzeuLpwYXWRKsII3lgQCLcBGAsYHQ/s600/Tai-sao-ban-hang-online-khong-ai-mua.jpg" alt="No result" width="400px" height="200px">
+                    </div>
+                    <h3 class="text-center">Không có kết quả phù hợp với từ khóa "{{ $keyword }}"</h3>
+                    <h5 class="text-center holas2"><a href="/"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Về Trang Chủ</a></h5>
+                @endif
             </div>
         </div>
 

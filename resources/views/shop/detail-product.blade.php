@@ -55,6 +55,14 @@
         .prod-cont .prod-add {
             font-size: 20px;
         }
+
+        .prod-cont .prod-skucolor li:hover {
+            border: 2px solid #373d54;
+        }
+
+        .prod2-related {
+            height: 210px;
+        }
     </style>
     <main>
         <section class="container">
@@ -198,7 +206,7 @@
                         <br>
                         <p class="prod-skuttl">Màu Sắc</p>
                         <ul class="prod-skucolor">
-                            <li class="active">
+                            <li>
                                 <img src="/frontend/img/color/blue.jpg" alt="">
                             </li>
                             <li>
@@ -458,7 +466,8 @@
                 </div>
                 <!-- Related Products - start -->
                 <div class="prod-related prod2-related">
-                    <h2><span>Sản Phẩm Đã Xem</span></h2>
+                    <h2><a href="/"><span>⊰ Sản Phẩm Đã Xem ⊱</span></a></h2>
+                    @if(count($viewedProducts))
                     <div class="prod-related-car" >
                         <ul class="slides">
                             <li class="prod-rel-wrap" style="width: 10%">
@@ -485,6 +494,9 @@
                             </li>
                         </ul>
                     </div>
+                    @else
+                        <h3 style="text-align: center;">Không có sản phẩm đã xem</h3>
+                    @endif
                 </div>
                 <!-- Related Products - end -->
             </div>
@@ -492,14 +504,14 @@
 
             <!-- Related Products - start -->
             <div class="prod-related">
-                <h2><span>Sản Phẩm Liên Quan</span></h2>
+                <h2><span>༺ Sản Phẩm Liên Quan ༻</span></h2>
                 <div class="prod-related-car" id="prod-related-car">
                     <ul class="slides">
                         <li class="prod-rel-wrap">
                             @foreach($relatedProducts as $item)
                             <div class="prod-rel">
                                 <a href="{{ route('shop.detailProduct',['slug' => $item->slug]) }}" class="prod-rel-img">
-                                    <img src="{{ asset( $item->image) }}" alt="Adipisci aperiam commodi">
+                                    <img src="{{ asset( $item->image) }}" alt="{{ $item->name }}">
                                 </a>
                                 <div class="prod-rel-cont">
                                     <h3><a href="{{ route('shop.detailProduct',['slug' => $item->slug]) }}">{{ $item->name }}</a></h3>
@@ -507,10 +519,10 @@
                                         <b>{{ number_format($product->sale,0,",",".") }} đ</b>
                                     </p>
                                     <div class="prod-rel-actions">
-                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>
-                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>
+{{--                                        <a title="Wishlist" href="#" class="prod-rel-favorites"><i class="fa fa-heart"></i></a>--}}
+{{--                                        <a title="Compare" href="#" class="prod-rel-compare"><i class="fa fa-bar-chart"></i></a>--}}
                                         <p class="prod-i-addwrap">
-                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart"></i></a>
+                                            <a title="Add to cart" href="#" class="prod-i-add"><i class="fa fa-shopping-cart" style="padding: 0 10px 10px 0"><span style="padding: 10px">Cho vào giỏ</span></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -521,6 +533,12 @@
                 </div>
             </div>
             <!-- Related Products - end -->
+
+            <!-- Pagination - start -->
+            <ul class="pagi">
+                <li >{{ $relatedProducts->links() }}</li>
+            </ul>
+            <!-- Pagination - end -->
 
         </section>
     </main>
