@@ -96,7 +96,15 @@
                                     @endforeach
                                 </select>
                             </div>
-
+                            <div class="form-group">
+                                <label>Thương hiệu</label>
+                                <select class="form-control w-50" name="brand_id">
+                                    <option value="0">-- chọn Thương Hiệu--</option>
+                                    @foreach($brands as $brand)
+                                        <option {{ $product->brand_id == $brand->id ? 'selected' : '' }} value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label>Nhà cung cấp</label>
                                 <select class="form-control w-50" name="vendor_id">

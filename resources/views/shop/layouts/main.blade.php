@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $settings->company }}</title>
-    <link rel="icon" href="/frontend/img/favicon.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/frontend/img/logoMS1.png" sizes="16x16" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700ii%7CRoboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic" rel="stylesheet">
 
@@ -28,6 +28,17 @@
             padding: 0;
         }
 
+        .header_top {
+            background: #373d54;
+        }
+
+        /*bố cục giữa*/
+
+        .maincont {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+        }
+
         .fr-slider .flex-control-paging li a{
             height: 7px;
         }
@@ -35,6 +46,25 @@
         .topmenu .mainmenu {
             padding: 0 10px 0 10px;
         }
+
+        /*sửa phần tin tức*/
+        .post-wrap {
+            padding-bottom: 0;
+        }
+
+        .post-share-wrap {
+            margin-bottom: 50px;
+        }
+
+        .post-artic img {
+            width: 879px !important;
+            height: auto !important;
+        }
+
+        .post-wrap p {
+            margin-bottom: 10px;
+        }
+        /*sửa phần tin tức end*/
 
         .f-menu-list {
             margin-bottom: 15px;
@@ -46,9 +76,71 @@
             padding: 30px;
 
         }
+        /*Thay đổi viền danh sách sản phẩm*/
 
+        .section-top {
+            border: 1px solid  rgb(224, 228, 246);;
+        }
+
+        .section-cont .section-sortby {
+            margin: 10px 10px 10px 9px;
+        }
+
+        .filter_sort {
+            padding: 5px 0 5px 0;
+            color: #373d54;
+        }
+
+        /*Bỏ phần thừa sb*/
+        .section-sb .section-filter .section-filter-cont {
+            padding-top: 0;
+        }
+
+        /*Thay đổi nút giỏ hàng*/
+
+        .h-cart:hover {
+            opacity: 90%;
+        }
+
+
+        /*Thay đổi nút chi tiết sản phẩm*/
+        .prod-items .prod-i-detail {
+            padding: 8px 3px;
+            display: block;
+            margin-bottom: 15px;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            transition: all 0.3s;
+            color: #373d54;
+        }
+
+        .prod-items .prod-i .prod-i-detail:hover {
+            background: #373d54;
+            color: #fff;
+        }
+
+        /*Thông tin trang web*/
+        .contactinfo li .fa {
+            color: #fff;
+        }
+
+        .contactinfo li {
+            color: #fff;
+        }
+
+        .social-icons li a i {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            background: #373d54;
+        }
         .footer-copyright{
-            margin: 10px 0 10px 0;
+            margin: 20px 0 20px 0;
+            color: #fff;
+        }
+        .footer-copyright p {
+            color: #fff;
         }
 
         /*Thanh phân trang*/
@@ -168,6 +260,17 @@
             color: #0a0a0a;
         }
 
+        .holas2 a {
+            border: none;
+            color: #333;
+        }
+
+        .holas2 a:hover {
+            text-decoration: none;
+            border: none;
+            color: royalblue;
+        }
+
         button.cart-update-btn {
             font-size: 12px;
             padding: 5px 6px 5px 5px;
@@ -237,6 +340,34 @@
 @yield('main_js')
 @yield('sub_js')
 @yield('my_js')
+@yield('my_javascript')
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "100728365658445");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml            : true,
+            version          : 'v11.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 </html>
 

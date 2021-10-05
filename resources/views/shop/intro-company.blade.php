@@ -5,7 +5,7 @@
         <section class="container stylization">
             <ul class="b-crumbs">
                 <li>
-                    <a href="index.html">
+                    <a href="/">
                         Trang Chủ
                     </a>
                 </li>
@@ -17,10 +17,10 @@
             <!-- About Start -->
             <div class="content-page rte">
 
-                <p id="lsht"><strong>I. Lịch sử hình thành&nbsp;</strong></p>
+                <h4>I. Lịch sử hình thành&nbsp;</h4>
                 <p><strong>{{ $settings->company }}</strong>&nbsp;là hệ thống kinh doanh nhượng quyền bán lẻ Smartphone, Phụ kiện chính hãng và sửa chữa dịch vụ, là đối tác của các hãng điện thoại chính hãng lớn tại Việt Nam như: Apple, Samsung, Oppo, Realme,&nbsp;Xiaomi,…</p>
                 <p>Hệ thống bán lẻ {{ $settings->company }} hiện có trụ sở chính tại địa chỉ:&nbsp;<strong>{{ $settings->address }}</strong>&nbsp;và chi nhánh tại&nbsp;<strong>{{ $settings->address2 }}</strong></p>
-                <p><strong>Thành lập từ năm 2020</strong>, trải qua gần <strong>1&nbsp;năm phát triển</strong>, {{ $settings->company }} đã trở thành điểm đến quen thuộc của khách hàng yêu công nghệ trên toàn quốc với các sản phẩm điện thoại, máy tính bảng, Smartphone chính hãng uy tín chất lượng. Thời điểm hiện tại hệ thống đã có&nbsp;<strong>20 cửa hàng nhượng quyền</strong>&nbsp;+&nbsp;<strong>4 trung tâm bảo hành</strong>&nbsp;trải dài khắp toàn quốc tạo sự thuận tiện cho khách hàng.</p>
+                <p><strong>Thành lập từ năm 2012</strong>, trải qua gần <strong>11 năm phát triển</strong>, {{ $settings->company }} đã trở thành điểm đến quen thuộc của khách hàng yêu công nghệ trên toàn quốc với các sản phẩm điện thoại, máy tính bảng, Smartphone chính hãng uy tín chất lượng. Thời điểm hiện tại hệ thống đã có&nbsp;<strong>20 cửa hàng nhượng quyền</strong>&nbsp;+&nbsp;<strong>4 trung tâm bảo hành</strong>&nbsp;trải dài khắp toàn quốc tạo sự thuận tiện cho khách hàng.</p>
                 <div class="facts-wrap">
                     <div class="row facts-list">
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
@@ -48,10 +48,40 @@
                     <li>Được sử dụng thương hiệu uy tín của {{ $settings->company }} trong lĩnh vực bán lẻ điện thoại chính hãng đã được khẳng định qua hơn 7 năm phát triển và được khách hàng tin tưởng.</li>
                 </ul>
 
-                <p><strong>II. Tầm nhìn – sứ mệnh</strong></p>
-                <p id="sm"><em><strong>&gt;&gt; Sứ mệnh:</strong></em></p>
+                <h4>II. Người sáng lập</h4>
+                <div class="team-wrap">
+                    <div class="row team-list">
+                        <div class="col-sm-4 team-i">
+                            <p class="team-i-img">
+                                <img src="https://vcdn-kinhdoanh.vnecdn.net/2019/10/13/thegioididong-bloom-6249-15288-3074-5157-1570943698.jpg" alt="NDT">
+                            </p>
+                            <h3 class="team-i-ttl">Nguyễn Đức Tài</h3>
+                            <p class="team-i-post">Director</p>
+                            "Muốn có được những điều mới mẻ cần phải chấp nhận thất bại. Nếu sợ thất bại sẽ không thể làm được gì, lúc đó chỉ lên núi gõ mõ là an toàn nhất".
+                        </div>
+                        <div class="col-sm-4 team-i">
+                            <p class="team-i-img">
+                                <img src="https://media.ex-cdn.com/EXP/media.nhadautu.vn/files/news/2020/09/18/shark-dzung-day-la-thoi-diem-san-sinh-nhung-doanh-nghiep-tro-thanh-diem-sang-hau-covid-19-162009.png" alt="NMD">
+                            </p>
+                            <h3 class="team-i-ttl">Nguyễn Mạnh Dũng</h3>
+                            <p class="team-i-post">Investor</p>
+                            "Startup nên có tham vọng lớn nhưng phải thực tế và bắt đầu từ những việc nhỏ nhất ,bình thường nhất".
+                        </div>
+                        <div class="col-sm-4 team-i">
+                            <p class="team-i-img">
+                                <img src="http://hellolaptrinh.com/template/hellolaptrinh.com/upload/images/lap-trinh-vien-hoat-dong-ban-dem-1.jpg" alt="TCD">
+                            </p>
+                            <h3 class="team-i-ttl">Trương Chí Đức</h3>
+                            <p class="team-i-post">Developer</p>
+                            "Muốn thành công trong công việc ta phải cố gắng hết sức mình, nếu lười biếng ta phải trả giá bằng cái kết tồi tệ nhất".
+                        </div>
+                    </div>
+                </div>
+
+                <h4>III. Tầm nhìn – sứ mệnh</h4>
+                <p><em><strong>&gt;&gt; Sứ mệnh:</strong></em></p>
                 <p>Chúng tôi lấy khách hàng làm trung tâm, lấy tổ chức chức chuyên nghiệp làm sức mạnh cạnh tranh, không ngừng nỗ lực cung cấp những sản phẩm, dịch vụ giá trị mới, chất lượng cao với giá hợp lý để đóng góp vào mục tiêu nâng cao chất lượng cuộc sống thông tin.</p>
-                <p id="tn"><em><strong>&gt;&gt; Tầm nhìn:</strong></em></p>
+                <p><em><strong>&gt;&gt; Tầm nhìn:</strong></em></p>
                 <p>Trở thành một công ty hàng đầu cung cấp sản phẩm, dịch vụ các thế hệ Di Động Thông Minh trong đó lấy chất lượng phục vụ khách hàng làm sự phát triển bền vững.</p>
                 <p id="gtcl"><strong>III. Những Giá Trị Cốt Lõi&nbsp;</strong></p>
                 <p>Giá trị cốt lõi của {{ $settings->company }}&nbsp; là các giá trị bền vững làm nên thành công,&nbsp; là tôn chỉ toàn bộ hành động của công ty , được hình thành qua những ngày tháng gian khổ đầu tiên của công ty, được xây dựng từ những kinh nghiệm và học hỏi, tôi luyện qua những thử thách trong suốt quá trình phát triển.</p>

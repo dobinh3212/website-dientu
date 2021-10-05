@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Category;
 use App\Product;
 use App\Vendor;
@@ -14,10 +15,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = Product::latest()->paginate(20);
         //$data = Product::all();
+        if($request->has('search')){
+
+            $data = Product::where('name','like',"%{$request->get('search')}%")->paginate(10);
+        }
 
         return view('admin.product.index', [
             'data' => $data
@@ -33,10 +38,12 @@ class ProductController extends Controller
     {
         $categories = Category::all(); // SELECT * FROM categories
         $vendors = Vendor::all(); // SELECT * FROM venders
+        $brands = Brand::all();
 
         return view('admin.product.create', [
             'categories' => $categories,
-            'vendors' => $vendors
+            'vendors' => $vendors,
+            'brands' => $brands
         ]);
     }
 
@@ -133,6 +140,7 @@ class ProductController extends Controller
         $product->price = $request->input('price'); // giá bán
         $product->sale = $request->input('sale'); // giá khuyến mại
         $product->category_id = $request->input('category_id');
+        $product->brand_id = $request->input('brand_id');
         $product->vendor_id = $request->input('vendor_id');
         $product->sku = $request->input('sku');
         $product->position = $request->input('position');
@@ -179,11 +187,13 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $categories = Category::all(); // SELECT * FROM categories
+        $brands = Brand::all();
         $vendors = Vendor::all(); // SELECT * FROM venders
 
         return view('admin.product.edit', [
             'product' => $product,
             'categories' => $categories,
+            'brands' => $brands,
             'vendors' => $vendors
         ]);
     }
@@ -283,6 +293,7 @@ class ProductController extends Controller
         $product->price = $request->input('price'); // giá bán
         $product->sale = $request->input('sale'); // giá khuyến mại
         $product->category_id = $request->input('category_id');
+        $product->brand_id = $request->input('brand_id');
         $product->vendor_id = $request->input('vendor_id');
         $product->sku = $request->input('sku');
         $product->position = $request->input('position');

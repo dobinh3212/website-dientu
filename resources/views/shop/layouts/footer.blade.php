@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="f-menu">
                     <h3 class="linebottom">
-                        <span>Trang của cửa hàng</span>
+                        <span>Thông tin chung</span>
                     </h3>
                     <ul class="nav nav-pills nav-stacked">
                         <li><a href="/">Trang Chủ</a></li>
@@ -15,13 +15,13 @@
                 </div>
                 <div class="f-menu">
                     <h3 class="linebottom">
-                        <span>Danh mục cửa hàng</span>
+                        <span>Thông tin khác </span>
                     </h3>
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="">Điện thoại</a></li>
-                        <li><a href="">Table</a></li>
-                        <li><a href="">Laptop</a></li>
-                        <li><a href="">Phụ Kiện</a></li>
+                        <li><a href="{{ route('shop.policy') }}">Chính sách bảo mật</a></li>
+                        <li><a href="{{ route('shop.warranty') }}">Chính sách bảo hành</a></li>
+                        <li><a href="{{ route('shop.backup') }}">Quy định sao lưu dữ liệu</a></li>
+                        <li><a href="{{ route('shop.question') }}">Câu hỏi thường gặp</a></li>
                     </ul>
                 </div>
                 <div class="f-menu">
@@ -29,15 +29,16 @@
                         <span>Kết nối với chúng tôi</span>
                     </h3>
                     <ul class="nav nav-pills nav-stacked">
-                        <li><i class="fa fa-facebook-square"><a href="https://www.facebook.com/truongchi.duc/">Facebook</a></i></li>
+                        <li><i class="fa fa-facebook-square"><a href="https://www.facebook.com/MobileShop12082021/">Facebook</a></i></li>
                         <li><i class="fa fa-twitter-square"><a href="https://twitter.com/Duc97228440">Twitter</a></i></li>
                         <li><i class="fa fa-github-square"><a href="https://github.com/ducchi1998">Github</a></i></li>
                         <li><i class="fa fa-instagram"><a href="https://www.instagram.com/hackerVN1st/">Instagram</a></i></li>
+                        <li><i class="fa fa-youtube-square"><a href="https://www.youtube.com/channel/UC-BHUfCvpXBZaYDiAPz9gGQ">Youtube</a></i></li>
                     </ul>
                 </div>
                 <div class="f-menu">
                     <h3 class="linebottom">
-                        <span>Thông tin cửa hàng</span>
+                        <span>Thông tin liên hệ</span>
                     </h3>
                     <ul class="nav nav-pills nav-stacked">
                         <li>
@@ -69,8 +70,10 @@
             <div class="row">
 
                 <div class="footer-copyright">
-                    <i><a href="https://themeforest.net/user/real-web?ref=real-web"></a></i>© 2021.Công ty CP Thần Long.GPDKKD: 0303217354 do sở KH & ĐT HN cấp ngày 28/01/2021.GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2021.
-                    <h2 class="text-center">Chịu trách nhiệm nội dung: Trương Chí Đức.</h2>
+                    <p>
+                        © 2021. Công ty CP Mobile Shop. GPDKKD: 0303217354 do sở KH ĐT TP.HN cấp ngày 02/01/2007. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020.<br></h2>
+                    </p>
+                    <h2 class="text-center">Designed By: Trương Chí Đức</h2>
                 </div>
             </div>
         </div>

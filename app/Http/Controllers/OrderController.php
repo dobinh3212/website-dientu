@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index()
     {
         // Lay toan bo don hang, sap sep mới -> cũ
-        $orders = Order::latest()->paginate(20);
+        $orders = Order::latest()->paginate(10);
 
         return view('admin.order.index', [
             'data' => $orders

@@ -227,28 +227,18 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="/backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                            @if(Auth::check())
+                                <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle" alt="User Image">
+                            @else
+                                <img src="/backend/dist/img/logo-admin.jpg" class="user-image" alt="User Image">
+                            @endif
                             <p>
-                                Alexander Pierce - Web Developer
+                                {{ Auth::user()->name }} - Web Developer
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-                        </li>
+
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">

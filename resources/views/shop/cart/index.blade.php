@@ -1,6 +1,16 @@
 @extends('shop.layouts.main')
 
 @section('content')
+    <style>
+        .cart-submit .cart-clear {
+            text-decoration: none;
+            border: none;
+        }
+        .cart-submit .cart-clear:hover {
+            border: none;
+            opacity: 99%;
+        }
+    </style>
     <main>
         <section class="container stylization maincont">
 
@@ -68,13 +78,14 @@
                 <div class="cart-submit">
                     <a href="{{ route('shop.cancelCart') }}" class="cart-submit-btn">Huỷ Đơn Hàng</a>
                     <a href="{{ route('shop.order') }}" class="cart-submit-btn">Tiến Hành Đặt Hàng</a>
-                    <a href="/" class="cart-clear pull-left"> Tiếp Tục mua hàng</a>
+                    <a href="/" class="cart-clear pull-left"><i class="fa fa-chevron-left"></i> Tiếp tục mua hàng</a>
                 </div>
             @else
                 <div style="text-align: center">
-                    <img src="https://sovaco.vn/image/empty_cart.jpg" alt="giỏ hàng trống" width="300px" height="300px">
+                    <img src="https://sieuchocokhi.vn/images/empty-cart.svg" alt="giỏ hàng trống" width="200px" height="200px">
                 </div>
-                <h3 class="text-center">Không có sản phẩm trong giỏ hàng!</h3>
+                <h3 class="text-center" style="font-size: 25px">Không có sản phẩm trong giỏ hàng!</h3>
+                <h5 class="text-center holas2" style="margin: 10px"><a href="/"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Về Trang Chủ</a></h5>
             @endif
             <!-- Cart Items - end -->
 

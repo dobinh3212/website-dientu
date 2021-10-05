@@ -24,14 +24,29 @@ Route::get('/danh-muc-san-pham/{slug}', 'ShopController@listProducts')->name('sh
 // Trang chi tiết sản phẩm
 Route::get('/chi-tiet-san-pham/{slug}', 'ShopController@detailProduct')->name('shop.detailProduct');
 
-// Trang danh sach tin tuc
+// Trang danh sách tin tức
 Route::get('/tin-tuc', 'ShopController@listArticles')->name('shop.listArticles');
 
-// Trang chi tiet tin tuc
+// Trang chi tiết tin tức
 Route::get('/chi-tiet-tin-tuc/{slug}', 'ShopController@detailArticle')->name('shop.detailArticle');
 
-// Trang gioi thieu
+// Trang giới thiệu
 Route::get('/gioi-thieu', 'ShopController@introCompany')->name('shop.intro');
+
+// Trang dịch vụ
+Route::get('/dich-vu', 'ShopController@serviceStore')->name('shop.service');
+
+// Trang Chính sách bảo mật
+Route::get('/chinh-sach-bao-mat', 'ShopController@privacyPolicy')->name('shop.policy');
+
+// Trang Chính sách bảo hành
+Route::get('/chinh-sach-bao-hanh', 'ShopController@warrantyPolicy')->name('shop.warranty');
+
+// Trang Quy định sao lưu dữ liệu
+Route::get('/quy-dinh-sao-luu-du-lieu', 'ShopController@backupRegulations')->name('shop.backup');
+
+// Trang Quy định sao lưu dữ liệu
+Route::get('/cau-hoi-thuong-gap', 'ShopController@fluentQuestion')->name('shop.question');
 
 // Thêm sản phẩm vào giỏ hàng
 Route::get('/them-san-pham-vao-gio/{id}', 'ShopController@addToCart')->name('shop.addToCart');
@@ -43,28 +58,41 @@ Route::get('/huy-don-hang', 'ShopController@cancelCart')->name('shop.cancelCart'
 Route::get('/xoa-san-pham-trong-gio-hang/{rowId}', 'ShopController@removeProductToCart')->name('shop.removeProductToCart');
 // Cập nhật số lượng
 Route::get('/cap-nhat-so-luong/{rowId}/{qty}', 'ShopController@updateCart')->name('shop.updateCart');
-// Màn hình thông tin Khách Hàng
+// Màn hình thông tin Khách Hàng và giỏ hàng
 Route::get('/dat-hang', 'ShopController@order')->name('shop.order');
-// Gửi dữ liệu về database
+// Gửi dữ liệu khách hàng về database
 Route::post('/dat-hang', 'ShopController@postOrder')->name('shop.postOrder');
-// Thông báo khách hàng
+// Thông báo khách hàng về đơn hàng
 Route::get('/dat-hang-thanh-cong', 'ShopController@orderSuccess')->name('shop.orderSuccess');
 
+// Trang tìm kiếm
 Route::get('/tim-kiem', 'ShopController@search')->name('shop.search');
 
+// Trang quản trị admin BackEnd
 Route::get('/admin/login', 'LoginController@index')->name('admin.login');
 Route::post('/admin/postLogin', 'LoginController@postLogin')->name('admin.postLogin');
 Route::get('/admin/logout', 'LoginController@logout')->name('admin.logout');
 
 // Gom nhóm route của trang admin thông qua hàm group
 Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'], function() {
-    //giúp cho chúng ta tạo các url  tương ứng với controller truyền vào
+    //Dashboard hiển thị số đơn hàng , số sản phẩm , số bài viết và số người dùng
+    Route::get('/', 'LoginController@dashBoard')->name('dashboard');
+    //QL Danh Mục
     Route::resource('category', 'CategoryController');
+    //QL Banner
     Route::resource('banner', 'BannerController');
+    //QL sản phẩm
     Route::resource('product', 'ProductController');
+    //QL Thương Hiệu
+    Route::resource('brand', 'BrandController');
+    //QL Nhà Cung Cấp
     Route::resource('vendor', 'VendorController');
+    //QL Người Dùng
     Route::resource('user', 'UserController');
+    //QL bài viết
     Route::resource('article', 'ArticleController');
+    //Cấu hình website
     Route::resource('setting', 'SettingController');
+    //QL đơn hàng
     Route::resource('order', 'OrderController');
 });

@@ -13,13 +13,25 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
+                    <div class="box-tools pull-right" style="padding: 10px">
+                        <form action="" method="get" accept-charset="utf-8">
+                            <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
+                                <input type="text" name="search" class="form-control pull-right" placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered">
                             <tr>
                                 <th>TT</th>
-                                <th width="38%">Tên</th>
+                                <th width="35%">Tên</th>
                                 <th class="text-center">Hình ảnh</th>
+                                <th class="text-center">Mã SKU</th>
+                                <th class="text-center">Thương Hiệu</th>
                                 <th>Số Lượng</th>
                                 <th class="text-center">Vị Trí</th>
                                 <th class="text-center">Giá Sale</th>
@@ -36,6 +48,8 @@
                                             <img width="100" src="{{ asset($item->image) }}">
                                         @endif
                                     </td>
+                                    <td class="text-center">{{ $item->sku }}</td>
+                                    <td class="text-center">{{ $item->brand_id }}</td>
                                     <td class="text-center">{{ $item->stock }}</td>
                                     <td class="text-center">{{ $item->position }}</td>
                                     <td class="text-center">{{ $item->sale }}</td>
@@ -57,7 +71,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer clearfix">
-                        {{ $data->links() }}
+                        {{ $data->appends(request()->all())->links() }}
                     </div>
                 </div>
                 <!-- /.box -->

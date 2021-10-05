@@ -28,7 +28,17 @@
         <!-- /.search form -->
 
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">TRANG ĐIỀU HƯỚNG CHÍNH</li>
+            <li>
+                <a href="{{route('admin.dashboard')}}">
+                    <i class="fa fa-fw fa-dashboard"></i> <span>Bảng điều khiển</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.order.index') }}">
+                    <i class="fa fa-fw fa-cart-plus"></i> <span>QL Đơn Hàng</span>
+                </a>
+            </li>
             <li>
                 <a href="{{ route('admin.category.index') }}">
                     <i class="fa fa-fw fa-folder-open-o"></i> <span>QL Danh Mục</span>
@@ -40,8 +50,18 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.article.index') }}">
+                    <i class="fa fa-fw fa-newspaper-o"></i> <span>QL Tin Tức</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.banner.index') }}">
                     <i class="fa fa-fw fa-image"></i> <span>QL Banner</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.brand.index') }}">
+                    <i class="fa fa-fw fa-fire"></i> <span>QL Thương Hiệu</span>
                 </a>
             </li>
             <li>
@@ -50,18 +70,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.order.index') }}">
-                    <i class="fa fa-cart-plus"></i><span>QL Đơn Hàng</span>
-                </a>
-            </li>
-            <li>
                 <a href="{{ route('admin.user.index') }}">
                     <i class="fa fa-fw fa-group"></i> <span>QL Người Dùng</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.article.index') }}">
-                    <i class="fa fa-fw fa-newspaper-o"></i> <span>QL Bài Viết</span>
                 </a>
             </li>
             <li>

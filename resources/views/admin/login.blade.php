@@ -80,24 +80,12 @@
                     </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
+                <div class="col-xs-12" style="margin: 10px 0 4px 0">
+                    <button type="submit" class="btn btn-success btn-block btn-flat">Đăng nhập</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
-
-        <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="btn btn-social-icon btn-google"><i class="fa fa-google-plus"></i></a>
-            <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
-        </div>
-        <!-- /.social-auth-links -->
-
-        <a href="#">Quên Mật Khẩu</a><br>
-        <a href="#" class="text-center">Đăng Ký</a>
-
     </div>
     <!-- /.login-box-body -->
 </div>

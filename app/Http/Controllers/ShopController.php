@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Banner;
+use App\Brand;
 use App\Order;
 use App\OrderProduct;
 use App\Setting;
 use App\Contact;
 use App\Category;
 use App\Product;
+use App\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Cart;
 
 class ShopController extends Controller
@@ -19,7 +22,7 @@ class ShopController extends Controller
 
     public function __construct()
     {
-        // lấy dữ liệu setting và chia sẻ global
+        // lấy dữ liệu setting và chia sẻ ra toàn bộ trang
         // 1. cấu hình website
         $settings = Setting::first();
 
@@ -29,22 +32,37 @@ class ShopController extends Controller
             'type' => 1, // lấy ra danh mục sản phẩm
         ])->get(); // bao gồm cả menu cha và con
 
-        // Chia sẻ dữ qua tất các layout
+        // 3. Lấy dữ liệu - Banner
+        $banners = Banner::where(['is_active' => 1,'type' => 1])->orderBy('id', 'asc')->get();
+
+        // 4. lấy dữ liệu tin tức mới nhất
+        $articlesNew = Article::where('is_active', 1)
+            ->orderBy('id', 'desc')
+            ->limit(3)
+            ->get();
+
+        // 5. lấy dữ liệu thương hiệu
+        $brandsNew = Brand::where('is_active', 1)
+            ->orderBy('id', 'asc')
+            ->get();
+
+
+        // Chia sẻ dữ qua các layout khác
         view()->share([
             'settings' => $settings,
-            'categories' => $this->categories
+            'categories' => $this->categories,
+            'banners' => $banners,
+            'articlesNew' => $articlesNew,
+            'brandsNew' => $brandsNew
         ]);
     }
 
-    // trang chu
+    // Trang Chủ
     public function index()
     {
-        $sliderBanners =  Banner::where(['is_active' => 1,'type' => 1])->get();
-        $leftBanners =  Banner::where(['is_active' => 1,'type' => 2])->get();
+        $listCategories = $this->categories; // lấy toàn bộ danh mục cho vào 1 biến
 
-        $listCategories = $this->categories; // lấy toàn bộ danh mục
-
-        $data = []; // chứa dữ liệu bao gồm danh muc và sản phẩm
+        $data = []; // biến data chứa dữ liệu bao gồm danh muc và sản phẩm
 
         foreach($listCategories as $key => $category) {
             if ($category->parent_id == 0) { // kiểm tra xem có phải danh mục cha
@@ -53,7 +71,7 @@ class ShopController extends Controller
 
 
                 $ids = []; // mảng các id của nhóm danh mục cha
-                $ids[] = $category->id;  // $ids : 1
+                $ids[] = $category->id;  // id danh muc cha
 
                 foreach ($listCategories as $key2 => $child) {
                     if ($child->parent_id == $category->id) {
@@ -80,45 +98,108 @@ class ShopController extends Controller
 
 
         return view('shop.index', [
-            'banners' => $sliderBanners,
-            'data' => $data,
-            'leftBanners' => $leftBanners
+              'data' => $data
         ]);
     }
 
-    // trang lien he
+    // Trang liên hệ với cửa hàng
     public function contact()
     {
         return view('shop.contact');
     }
 
-    // trang danh sach san pham
-    public function listProducts($slug)
+    // Trang danh sách sản phẩm
+    public function listProducts(request $request, $slug)
     {
-        $category = Category::where(['slug' => $slug, 'is_active' => 1])->firstOrFail();
+        $filter_brands = $request->query('thuong-hieu');
+        $filter_price = $request->query('gia');
+        $filter_sort = $request->query('sap-sep');
 
-        $ids = []; // chưa cả id cha và con
-        $ids[] = $category->id;
+        $branch_ids = []; // mảng id của các thương hiệu
+        if ($filter_brands) {
+            $arr_filter_brands = explode(',', $filter_brands); // chuyển đổi 1 chuỗi thành 1 mảng ngăn cách bằng dấu , ['apple', 'xiaomi', 'dell']
+            $arr_brands = Brand::whereIn('slug' , $arr_filter_brands)->get(); // lấy slug giống với các thương hiệu trong mảng
 
-        $listCategories = $this->categories; // lấy toàn bộ danh mục
-        foreach ($listCategories as $child) {
-            if ($child->parent_id == $category->id) {
-                $ids[] = $child->id;
-
-                foreach ($listCategories as $child2) {
-                    if ($child2->parent_id == $child->id) {
-                        $ids[] = $child2->id;
-                    }
-                }
+            foreach ($arr_brands as $item) {
+                $branch_ids[] = $item->id; // thêm phần tử vào mảng
             }
         }
 
-        $products = Product::where(['is_active' => 1, 'category_id' => $ids])->paginate(9);
+        // Thương hiệu sản phẩm
+        $branchs = Brand::all();
 
-        return view('shop.list-products',[
-            'category' => $category,
-            'products' => $products
-        ]);
+        // B1 : lấy chi tiết thể loại
+        $cate = Category::where(['slug' => $slug])->first();
+
+        if ($cate) {
+            // B1.1: Kiểm tra danh mục cha -> lấy toàn bộ danh mục con để where In
+            $ids = []; // mảng lưu toàn id của danh mục cha + id - danh mục con
+
+            $ids[] = $cate->id; // lấy id toàn bộ danh mục
+            $child_categories = []; // lưu danh mục con
+
+            foreach ($this->categories as $child) {
+                if ($child->parent_id == $cate->id) {
+                    $ids[] = $child->id; // thêm id của danh mục con vào mảng ids
+                    $child_categories[] = $child;
+                }
+            } // ids = 1,7,8,9,11
+
+            // Hàm query tác động tới bảng
+            $query = DB::table('products')->select('*')
+                ->whereIn('category_id', $ids)
+                ->where('is_active', '=', 1);
+
+            // Lọc theo thương hiệu
+            if (!empty($branch_ids)) {
+                $query->whereIn('brand_id', $branch_ids);
+            }
+
+            // Lọc theo giá cả
+            if ($filter_price) {
+                $arr_price = explode('-', $filter_price); // chuyển thành mảng [2000000, 4000000]
+                if ($arr_price) {
+                    $min_price = (int)$arr_price[0];
+                    $max_price = (int)$arr_price[1];
+
+                    if ($min_price > 0) {
+                        $query->where('sale', '>=' , $min_price);
+                    }
+
+                    if ($max_price > 0) {
+                        $query->where('sale', '<=' , $max_price);
+                    }
+                }
+            }
+
+            // Sắp sếp
+            if ($filter_sort) {
+                if ($filter_sort == 'noi-bat') {
+                    $query->orderBy('is_hot', 'DESC'); // xếp sản phẩm nổi bật theo độ hot
+                } elseif ($filter_sort == 'gia-thap-den-cao') {
+                    $query->orderBy('sale', 'ASC'); // xếp sản phẩm giá từ cao đến thấp
+                } elseif ($filter_sort == 'gia-cao-den-thap') {
+                    $query->orderBy('sale', 'DESC'); // xếp sản phẩm giá từ thấp đến cao
+                }
+
+            } else {
+                $query->orderBy('id', 'DESC');
+            }
+
+            $list_products = $query->paginate(9);
+
+            return view('shop.list-products',[
+                'category' => $cate,
+                'products' => $list_products,
+                'branchs' => $branchs, // thương hiệu
+                'filter_sort' => $filter_sort,
+                'filter_price' => $filter_price ? $filter_price : '',
+                'arr_filter_brands' => json_encode($branch_ids)
+            ]);
+
+        } else {
+            return $this->notfound();
+        }
     }
 
     // trang chi tiet san pham
@@ -180,7 +261,7 @@ class ShopController extends Controller
     // trang danh sach tin tuc
     public function listArticles()
     {
-        $articles = Article::where(['is_active' => 1 ])->latest()->simplePaginate(6);
+        $articles = Article::where(['is_active' => 1 ])->orderBy('id','desc')->simplePaginate(6);
 
         return view('shop.list-articles',[
             'articles' => $articles
@@ -191,7 +272,9 @@ class ShopController extends Controller
     {
         $article = Article::where(['slug' => $slug, 'is_active' => 1])->firstOrFail();
 
+        // lấy toàn bộ bài viết liên quan có chia thể loại rõ ràng : tin tức thường ngày, tin tức khuyến mại, tin tức nổi bật
         $relatedArticle = Article::where([ ['is_active' , '=', 1],
+                                            ['type' , '=' ,$article->type],
                                             ['id', '<>' , $article->id]
                                             ])->orderBy('id', 'desc')
                                             ->simplepaginate(4);
@@ -206,6 +289,36 @@ class ShopController extends Controller
     public function introCompany()
     {
         return view('shop.intro-company');
+    }
+
+    // trang dịch vụ cửa hàng
+    public function serviceStore()
+    {
+        return view('shop.service-store');
+    }
+
+    // trang chính sách bảo mật *sub*
+    public function privacyPolicy()
+    {
+        return view('shop.privacy-policy');
+    }
+
+    // trang chính sách bảo hành *sub*
+    public function warrantyPolicy()
+    {
+        return view('shop.warranty-policy');
+    }
+
+    // trang quy định sao lưu dữ liệu *sub*
+    public function backupRegulations()
+    {
+        return view('shop.backup-regulations');
+    }
+
+    // trang câu hỏi thường gặp *sub*
+    public function fluentQuestion()
+    {
+        return view('shop.faq');
     }
 
     // thêm dữ liệu khách hàng liên hệ vào bảng contact
@@ -321,6 +434,7 @@ class ShopController extends Controller
         $totalPrice = Cart::subtotal(0,",",'');
         $order->total = $totalPrice;
         $order->order_status_id = 1; // 1 = mới , 2 = đang xử lý , 3 = Hoàn Thành, 4 = Hủy
+        $order->code = 'DH-'.date('d').date('m').date('Y').'-'.time();
         //$order->save();
 
         if ($order->save()) {
@@ -347,19 +461,19 @@ class ShopController extends Controller
             Cart::destroy();
 
 
-            // Chuyen ve trang thong bao dat hang thanh cong
+            // Chuyển về trang thông báo đặt hàng thành công
             return redirect()->route('shop.orderSuccess');
 
         }
     }
 
-    // trang thong bao
+    // Trang Thông báo đơn hàng
     public function orderSuccess()
     {
         return view('shop.cart.orderSuccess');
     }
 
-    // Tìm kiếm
+    // Trang Tìm Kiếm
     public function search(Request $request)
     {
         // mục tiêu : lấy từ khóa + tìm trong bảng sản phẩm
@@ -374,7 +488,7 @@ class ShopController extends Controller
         $products = Product::where([
             ['is_active', '=', 1],
             ['slug', 'LIKE', '%' . $slug . '%']
-        ])->paginate(20);
+        ])->paginate(9);
 
         $totalResult = $products->total(); // số lượng kết quả tìm kiếm
 

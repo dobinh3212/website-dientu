@@ -38,7 +38,8 @@
                         <i class="fa fa-instagram"></i>
                     </a>
                 </li>
-            </ul>		</div>
+            </ul>
+        </div>
     </div>
     <!-- Topbar - end -->
 
@@ -55,21 +56,21 @@
 
 
 
-                    <li class="topauth">
-                        <a href="auth.html">
-                            <i class="fa fa-user-circle-o"></i>
-                            <span class="shop-menu-ttl">Đăng ký</span>
-                        </a>
-                        <a href="auth.html">
-                            <span class="shop-menu-ttl">Đăng nhập</span>
-                        </a>
-                    </li>
+{{--                    <li class="topauth">--}}
+{{--                        <a href="auth.html">--}}
+{{--                            <i class="fa fa-user-circle-o"></i>--}}
+{{--                            <span class="shop-menu-ttl">Đăng ký</span>--}}
+{{--                        </a>--}}
+{{--                        <a href="auth.html">--}}
+{{--                            <span class="shop-menu-ttl">Đăng nhập</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
                     <li>
                         <div class="h-cart">
-                            <a href="{{ route('shop.cart') }}">
-                                <i class="fa fa-cart-plus"></i>
-                                <span class="shop-menu-ttl">Giỏ Hàng</span>
+                            <a href="{{ route('shop.cart') }}" style="background: #373d54; padding: 15px">
+                                <i class="fa fa-shopping-cart" style="color: #fff; margin-right: 5px;font-size: 16px"></i>
+                                <span class="shop-menu-show" style="color: #fff">Giỏ Hàng</span>
                             </a>
                         </div>
                     </li>
@@ -87,7 +88,7 @@
 
                 <!-- Catalog menu - start -->
                 <div class="topcatalog">
-                    <a class="topcatalog-btn" href="/">Danh Mục</a>
+                    <a class="topcatalog-btn" href="/"><span>Tất cả</span> Danh Mục</a>
                     <ul class="topcatalog-list">
                         @if(!empty($categories))
                             @foreach($categories as $category)
@@ -157,13 +158,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            Khuyến Mại
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            Bảo Hành
+                        <a href="{{ route('shop.service') }}">
+                            Dịch Vụ
                         </a>
                     </li>
 

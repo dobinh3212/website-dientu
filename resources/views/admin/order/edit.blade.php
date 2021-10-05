@@ -2,10 +2,10 @@
 @section('content')
     <style>
         #thongbao {
-            position: absolute;
-            margin-bottom: 0px;
-            width: 350px;
-            z-index: 1000;
+            position: relative;
+            margin-bottom: 5px;
+            width: 400px;
+            z-index: 999;
             float: right;
             right: 15px;
         }
@@ -20,7 +20,7 @@
         </ol>
     </section>
     @if (session('msg'))
-        <div class="pad margin no-print">
+        <div class="no-print">
             <div class="alert alert-success alert-dismissible" style="" id="thongbao">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4><i class="icon fa fa-check"></i> Thông báo !</h4>
@@ -46,6 +46,12 @@
                         <div class="box-body">
                             <table class="table table-bordered">
                                 <tbody>
+                                <tr>
+                                    <td><label for="">Mã ĐH :</label></td>
+                                    <td>{{ $order->code }}</td>
+                                    <td><label>Ngày Đặt Hàng:</label></td>
+                                    <td>{{ $order->created_at }}</td>
+                                </tr>
                                 <tr>
                                     <td><label for="">Họ tên :</label></td>
                                     <td>{{ $order->fullname }}</td>
@@ -138,6 +144,7 @@
                                     <td>{{ number_format($item->price) }} đ</td>
 
                                     <td style="color:red;">{{ number_format($item->price * $item->qty) }} đ</td>
+                                    <td></td>
                                 </tr>
                             @endforeach
                         </table>
