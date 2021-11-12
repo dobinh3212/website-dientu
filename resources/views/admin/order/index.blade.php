@@ -3,7 +3,7 @@
     <style>tr td:first-child {max-width: 250px} .price {color: red}</style>
     <section class="content-header">
         <h1>
-            <i class="fa fa-fw fa-cart-arrow-down"></i> Danh Sách Đơn Hàng
+            <i class="fa fa-fw fa-cart-arrow-down"></i> Quản Lý Đơn Hàng
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"> Trang chủ</a></li>
@@ -13,11 +13,11 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="box box-primary">
                     <div class="box-tools pull-right" style="padding: 10px">
                         <form action="" method="get" accept-charset="utf-8">
                             <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
-                                <input type="text" name="search" class="form-control pull-right" placeholder="Search">
+                                <input type="text" name="search" class="form-control pull-right" placeholder="Tìm Kiếm....">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                 </div>
@@ -69,13 +69,19 @@
                                         </a>&nbsp;
                                     </td>
                             @endforeach
+                            @if($data->count() == 0)
+                                <tr>
+                                    <td colspan="8" class="text-center text-danger">Không tồn tại bản ghi nào</td>
+                                </tr>
+                            @endif
                         </table>
                     </div>
                     <!-- /.box-body -->
-
+                    <div class="box-footer clearfix">
+                        {{ $data->appends(request()->all())->links() }}
+                    </div>
                 </div>
                 <!-- /.box -->
-                {{ $data->links() }}
             </div>
         </div>
         <!-- /.row -->

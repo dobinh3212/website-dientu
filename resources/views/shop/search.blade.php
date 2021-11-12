@@ -25,9 +25,7 @@
         }
     </style>
     <main>
-        <section class="container maincont">
-
-
+        <section class="container stylization maincont">
             <ul class="b-crumbs">
                 <li>
                     <a href="/">
@@ -53,6 +51,11 @@
                             <div class="prod-i-top">
                                 <a href="{{ route('shop.detailProduct',['slug' => $product->slug]) }}" class="prod-i-img" title="{{ $product->name }}"><!-- NO SPACE --><img src="{{ asset($product->image) }}" alt="{{ $product->name }}"><!-- NO SPACE --></a>
                             </div>
+                            @if($product->is_hot == 1)
+                                <div class="prod-sticker">
+                                    <p class="prod-sticker-1">HOT</p>
+                                </div>
+                            @endif
                             <h3>
                                 <a href="{{ route('shop.detailProduct',['slug' => $product->slug]) }}" title="{{ $product->name }}">{{ $product->name }}</a>
                             </h3>

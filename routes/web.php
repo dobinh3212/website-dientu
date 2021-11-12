@@ -11,14 +11,14 @@
 |
 */
 
-// Trang chu
+// Trang chủ
 Route::get('/', 'ShopController@index');
 
 // Trang liên hệ
 Route::get('/lien-he', 'ShopController@contact')->name('shop.contact');
 Route::post('/postContact', 'ShopController@postContact')->name('shop.postContact');
 
-// Trang danh mục
+// Trang danh mục sản phẩm
 Route::get('/danh-muc-san-pham/{slug}', 'ShopController@listProducts')->name('shop.listProducts');
 
 // Trang chi tiết sản phẩm
@@ -45,7 +45,7 @@ Route::get('/chinh-sach-bao-hanh', 'ShopController@warrantyPolicy')->name('shop.
 // Trang Quy định sao lưu dữ liệu
 Route::get('/quy-dinh-sao-luu-du-lieu', 'ShopController@backupRegulations')->name('shop.backup');
 
-// Trang Quy định sao lưu dữ liệu
+// Trang Faq
 Route::get('/cau-hoi-thuong-gap', 'ShopController@fluentQuestion')->name('shop.question');
 
 // Thêm sản phẩm vào giỏ hàng
@@ -65,7 +65,7 @@ Route::post('/dat-hang', 'ShopController@postOrder')->name('shop.postOrder');
 // Thông báo khách hàng về đơn hàng
 Route::get('/dat-hang-thanh-cong', 'ShopController@orderSuccess')->name('shop.orderSuccess');
 
-// Trang tìm kiếm
+// Trang tìm kiếm sản phẩm
 Route::get('/tim-kiem', 'ShopController@search')->name('shop.search');
 
 // Trang quản trị admin BackEnd
@@ -75,24 +75,26 @@ Route::get('/admin/logout', 'LoginController@logout')->name('admin.logout');
 
 // Gom nhóm route của trang admin thông qua hàm group
 Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'], function() {
-    //Dashboard hiển thị số đơn hàng , số sản phẩm , số bài viết và số người dùng
+    //Bảng Dashboard (hiển thị số đơn hàng , số sản phẩm , số bài viết và số người dùng)
     Route::get('/', 'LoginController@dashBoard')->name('dashboard');
-    //QL Danh Mục
+    //Quản lý Danh Mục
     Route::resource('category', 'CategoryController');
-    //QL Banner
+    //Quản lý Banner
     Route::resource('banner', 'BannerController');
-    //QL sản phẩm
+    //Quản lý sản phẩm
     Route::resource('product', 'ProductController');
-    //QL Thương Hiệu
+    //Quản lý Thương Hiệu
     Route::resource('brand', 'BrandController');
-    //QL Nhà Cung Cấp
+    //Quản lý Nhà Cung Cấp
     Route::resource('vendor', 'VendorController');
-    //QL Người Dùng
+    //Quản lý Người Dùng
     Route::resource('user', 'UserController');
-    //QL bài viết
+    //Quản lý bài viết
     Route::resource('article', 'ArticleController');
     //Cấu hình website
     Route::resource('setting', 'SettingController');
-    //QL đơn hàng
+    //Quản Lý đơn hàng
     Route::resource('order', 'OrderController');
+    //Quản lý liên hệ
+    Route::resource('contact', 'ContactController');
 });

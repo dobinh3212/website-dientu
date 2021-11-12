@@ -261,7 +261,7 @@ class ShopController extends Controller
     // trang danh sach tin tuc
     public function listArticles()
     {
-        $articles = Article::where(['is_active' => 1 ])->orderBy('id','desc')->simplePaginate(6);
+        $articles = Article::where(['is_active' => 1 ])->orderBy('id','desc')->paginate(6);
 
         return view('shop.list-articles',[
             'articles' => $articles
@@ -339,7 +339,7 @@ class ShopController extends Controller
         $contact->save();
 
         // chuyển về trang chủ
-        return redirect('/');
+        return redirect()->route('shop.contact')->with('success','Cảm ơn bạn đã phản hồi cho chúng tôi');
     }
 
     // Thêm sản phẩm vào giỏ hàng

@@ -65,7 +65,7 @@
                                 </p>
                                 @foreach($branchs as $child)
                                 <p class="section-filter-field">
-                                    <input class="filter_category" data-text="{{ $child->slug }}" type="checkbox" name="category_id" value="{{ $child->id }}"id="section-filter-checkbox2-{{ $child->id }}" >
+                                    <input class="filter_category" data-text="{{ $child->slug }}" type="checkbox" name="category_id" value="{{ $child->id }}" id="section-filter-checkbox2-{{ $child->id }}" >
                                     <label class="section-filter-checkbox" for="section-filter-checkbox2-{{ $child->id }}"><a href="javascript:void(0)">{{ $child->name }}</a></label>
                                 </p>
                                 @endforeach
@@ -164,7 +164,7 @@
     <script type="text/javascript">
 
         var pathname = window.location.pathname; // danh-muc/dien-thoai , /danh-muc/tablet
-        var urlParams = new URLSearchParams(window.location.search); // khoi tao
+        var urlParams = new URLSearchParams(window.location.search); // khởi tạo đường link
 
         $(document).on('click', '.filter_category', function () {
             var slug = $(this).data('text');

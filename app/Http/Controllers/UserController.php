@@ -12,9 +12,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $listUsers = User::latest()->paginate(15); // sắp sếp theo thứ tự mới nhất && phân trang
+
+        if($request->has('search')){
+
+            $listUsers= User::where('name','like',"%{$request->get('search')}%")->orWhere('email','like',"%{$request->get('search')}%")->paginate(10);
+        }
 
         return view('admin.user.index',[
             'data' => $listUsers,

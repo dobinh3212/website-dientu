@@ -29,6 +29,9 @@
             font-size: 20px;
             color: #fff;
         }
+        .form-group > input[type=text]:hover, .form-group > textarea:hover {
+            border-bottom: 3px solid #373d54;
+        }
     </style>
     <main>
         <section class="container stylization maincont">

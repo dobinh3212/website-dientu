@@ -12,10 +12,15 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $banners = Banner::all(); // lấy toàn bộ dữ liệu
         $listBanners = Banner::latest()->paginate(5); // sắp sếp theo thứ tự mới nhất && phân trang
+
+        if($request->has('search')){
+
+            $listBanners = Banner::where('title','like',"%{$request->get('search')}%")->paginate(10);
+        }
 
         return view('admin.banner.index',[
             'data' => $listBanners,
@@ -57,11 +62,13 @@ class BannerController extends Controller
         // xác thực tính đúng đắn của dữ liệu
         $request->validate([
             'title' => 'required|max:255',
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg'
+            'image' => 'required|mimes:jpg,png,jpeg,gif,svg',
         ],[
-            'title.required' => 'Bạn chưa nhập tiêu đề',
-            'image.required' => 'Bạn chưa chọn ảnh',
-            'image.mimes' => 'Ảnh chỉ hỗ trợ các định dạng file : jpeg,png,jpg,gif,svg'
+            'title.required'=> 'Tiêu đề không được để trống !!!',
+            'title.unique' => 'Tiêu đề đã tồn tại !!!',
+            'title.max' => 'Tiêu đề không được quá 255 ký tự !!!',
+            'image.mimes' => 'Image không hợp lệ [ jpg , png , jpeg , gif , svg ]',
+            'image.required' => 'Bạn chưa tải ảnh lên',
         ]); // nếu có lỗi return back url create , kèm theo một danh sách ,lỗi lưu vào biên $errors
 
         // B2: khoi tao model
@@ -138,16 +145,16 @@ class BannerController extends Controller
         $target = $request->input('target'); // muc tieu
         $type = $request->input('type'); // loai
         $position = $request->input('position'); // vị trí
-        $description = $request->input('description');
+        $description = $request->input('description'); //mô tả
         $is_active = $request->input('is_active'); // hiển thị
 
         // xác thực tính đúng đắn của dữ liệu
         $request->validate([
             'title' => 'required|max:255',
-            //'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg'
+            'image' => 'mimes:jpg,png,jpeg,gif,svg',
         ],[
             'title.required' => 'Bạn chưa nhập tiêu đề',
-            //'image.mimes' => 'Ảnh chỉ hỗ trợ các định dạng file : jpeg,png,jpg,gif,svg'
+            'image.mimes' => 'Image không hợp lệ [ jpg , png , jpeg , gif , svg ]',
         ]); // nếu có lỗi return back url create , kèm theo một danh sách ,lỗi lưu vào biên $errors
 
         // B2: khoi tao model
@@ -162,11 +169,11 @@ class BannerController extends Controller
         $banner->is_active = $is_active ? $is_active : 0;
 
         // xử lý lưu ảnh
-        if ($request->hasFile('image')) { // dòng này Kiểm tra xem có image có được chọn
+        if ($request->hasFile('image')) {
             // get file
             $file = $request->file('image');
             // tên file image
-            $filename = $file->getClientOriginalName(); // tên ban đầu của image
+            $filename = $file->getClientOriginalName();
             // Định nghĩa đường dẫn sẽ upload lên
             $path_upload = 'uploads/banner/';
             // Thực hiện upload file

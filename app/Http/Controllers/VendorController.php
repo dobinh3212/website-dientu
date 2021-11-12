@@ -12,10 +12,15 @@ class VendorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $vendors = Vendor::all(); // lấy toàn bộ dữ liệu
         $listVendors = Vendor::latest()->paginate(10); // sắp sếp theo thứ tự mới nhất && phân trang
+
+        if($request->has('search')){
+
+            $listVendors = Vendor::where('name','like',"%{$request->get('search')}%")->paginate(5);
+        }
 
         return view('admin.vendor.index',[
             'data' => $listVendors,

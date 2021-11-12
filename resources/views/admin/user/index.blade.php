@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-fw fa-users"></i> QL Người Dùng <a href="{{ route('admin.user.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm</a>
+            <i class="fa fa-fw fa-users"></i> Quản Lý Người Dùng <a href="{{ route('admin.user.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm người dùng</a>
         </h1>
     </section>
 
@@ -12,15 +12,27 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="box">
+                <div class="box box-primary">
+                    <div class="box-tools pull-right" style="padding: 10px">
+                        <form action="" method="get" accept-charset="utf-8">
+                            <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
+                                <input type="text" name="search" class="form-control pull-right" placeholder="Tìm Kiếm....">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered">
                             <tr>
                                 <th style="width: 10px">STT</th>
-                                <th>Tên</th>
+                                <th>Họ và tên</th>
                                 <th class="text-center">Hình ảnh</th>
                                 <th class="text-center">Email</th>
+                                <th class="text-center">Ngày tạo</th>
+                                <th class="text-center">Ngày cập nhật</th>
                                 <th class="text-center">Trạng thái</th>
                                 <th class="text-center">Hành Động</th>
                             </tr>
@@ -30,10 +42,12 @@
                                     <td>{{ $item->name }}</td>
                                     <td class="text-center">
                                         @if($item->avatar)
-                                            <img width="100" src="{{ asset($item->avatar) }}">
+                                            <img width="100px" height="100px" src="{{ asset($item->avatar) }}">
                                         @endif
                                     </td>
                                     <td class="text-center">{{ $item->email }}</td>
+                                    <td class="text-center">{{ date('d/m/Y', strtotime($item->created_at)) }}</td> <!-- Ngày tạo ra tài khoản -->
+                                    <td class="text-center">{{ date('d/m/Y', strtotime($item->updated_at)) }}</td>  <!-- Ngày cập nhật thông tin tài khoản vd như tên, gmail ,.... có thể trùng với ngày tạo ra nếu thông tin giữ nguyên -->
                                     <td class="text-center">
                                         {!! ($item->is_active == 1) ? '<span class="badge bg-green"> kích hoạt </span>' : '<span class="badge bg-red">huỷ</span>'  !!}
                                     </td>
@@ -47,11 +61,16 @@
                                     </td>
                                 </tr>
                             @endforeach
+                            @if($data->count() == 0)
+                                <tr>
+                                    <td colspan="7" class="text-center text-danger" style="padding: 10px">Không tồn tại dữ liệu nào !!!</td>
+                                </tr>
+                            @endif
                         </table>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer clearfix">
-                        {{ $data->links() }}
+                        {{ $data->appends(request()->all())->links() }}
                     </div>
                 </div>
                 <!-- /.box -->

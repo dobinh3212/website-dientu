@@ -12,9 +12,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = Article::latest()->paginate(20);
+
+        if($request->has('search')){
+
+            $data = Article::where('title','like',"%{$request->get('search')}%")->paginate(10);
+        }
 
         return view('admin.article.index', [
             'data' => $data
@@ -44,11 +49,17 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
-            'summary' => 'required',
-            'description' => 'required',
-
+                'title' => 'required|max:255',
+                'image' => 'required|file|mimes:jpg,png,jpeg,gif,svg',
+                'summary'=>'required',
+                'description' => 'required'
+            ],
+            [
+                'title.required'=> 'Tên tiêu đề không được để trống !!!',
+                'title.max' => 'Tên tiêu đề không được quá 255 ký tự !!!',
+                'image.mimes' => 'Image không hợp lệ [ jpg , png , jpeg , gif , svg ]',
+                'summary.required' =>'Mô tả không được để trống',
+                'description.required' => 'Nội dung không được để trống '
         ]);
 
         $article = new Article(); // khởi tạo model
@@ -122,10 +133,17 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
-            'summary' => 'required',
-            'description' => 'required',
+                'title' => 'required|max:255',
+                'image' => 'mimes:jpg,png,jpeg,gif,svg',
+                'summary'=>'required',
+                'description' => 'required'
+            ],
+            [
+                'title.required'=> 'Tên tiêu đề không được để trống !!!',
+                'title.max' => 'Tên tiêu đề không được quá 255 ký tự !!!',
+                'image.mimes' => 'Image không hợp lệ [ jpg , png , jpeg , gif , svg ]',
+                'summary.required' =>'Mô tả không được để trống',
+                'description.required' => 'Nội dung không được để trống '
 
         ]);
 

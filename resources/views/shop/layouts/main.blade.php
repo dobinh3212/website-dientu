@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="/frontend/css/style.css">
     <link rel="stylesheet" href="/frontend/css/media.css">
     <style>
-        .fr-pop-tab-cont {height: 430px !important;}
+        .fr-pop-tab-cont {
+            height: 400px !important;
+        }
 
         .header-middle {
             padding: 0;
@@ -30,6 +32,11 @@
 
         .header_top {
             background: #373d54;
+        }
+
+        /*thay đổi vị trí thanh click của slider*/
+        .fr-slider .flex-control-nav {
+            left: 42%;
         }
 
         /*bố cục giữa*/
@@ -56,14 +63,19 @@
             margin-bottom: 50px;
         }
 
-        .post-artic img {
-            width: 879px !important;
-            height: auto !important;
+        .post-wrap p {
+            margin: 0 0 6px;
         }
 
-        .post-wrap p {
-            margin-bottom: 10px;
+        .post-artic img {
+
         }
+
+        .post-wrap img {
+            width: 100%;
+            height: auto;
+        }
+
         /*sửa phần tin tức end*/
 
         .f-menu-list {
@@ -177,12 +189,12 @@
         }
 
         body .component-ttl {
-            text-align: center;
+            text-align: left;
         }
 
-        body .component-ttl span:after {
-            width: 100%;
-        }
+        /*body .component-ttl span:after {*/
+        /*    width: 100%;*/
+        /*}*/
 
         .f-menu i a{
             margin: 0 5px;
@@ -289,10 +301,6 @@
             opacity: 99%;
         }
 
-        .prod-items .prod-i h3 {
-
-        }
-
         .topsearch .topsearch-form input[type=text] {
             border-radius: 50px;
         }
@@ -300,6 +308,80 @@
         .topsearch .topsearch-form button[type=submit] {
             border-top-right-radius: 50px;
             border-bottom-right-radius: 50px;
+        }
+
+        .scrollUp {
+            right: 30px;
+            bottom: 90px;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            border-radius: 100%;
+            text-align: center;
+            background: #373d54 none repeat scroll 0 0;
+            border: 1px solid #fff;
+            -webkit-animation: liSlideInUp 0.8s ease-in-out 1 both;
+            animation: liSlideInUp 0.8s ease-in-out 1 both;
+            z-index: 1000 !important;
+            overflow: hidden;
+            -webkit-box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+            box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+            display: none;
+        }
+
+        .scrollUp i {
+            color: #ffffff;
+            font-size: 20px;
+            line-height: 50px;
+            display: block;
+        }
+
+        {{--/*CSS nút cuộn lên*/--}}
+        {{--.btn-top {--}}
+        {{--    background-image: url('{{ '/frontend/img/BackToTop.png' }}');--}}
+        {{--    background-repeat: no-repeat;--}}
+        {{--    border: medium none;--}}
+        {{--    margin: 3px;--}}
+        {{--    bottom: 20px;--}}
+        {{--    cursor: pointer;--}}
+        {{--    display: none;--}}
+        {{--    height: 50px;--}}
+        {{--    outline: medium none;--}}
+        {{--    position: fixed;--}}
+        {{--    right: 20px;--}}
+        {{--    width: 50px;--}}
+        {{--    z-index: 9999;--}}
+        {{--}--}}
+
+        {{--/*làm nút cuộn trở nên trong suốt trên mobile*/--}}
+        {{--@media only screen and (max-width: 550px){--}}
+        {{--    .btn-top {--}}
+        {{--        opacity: 40%;--}}
+        {{--        margin-right: 0;--}}
+        {{--    }--}}
+        {{--}--}}
+
+        {{--@media only screen and (max-width: 750px) {--}}
+        {{--    .media-object {--}}
+        {{--        text-align: center;--}}
+        {{--    }--}}
+        {{--}--}}
+
+        /*bảng giỏ hàng*/
+        table {
+            table-layout: fixed;
+        }
+
+        tr > td > img{
+            height: 50px;
+        }
+
+        form {
+            margin: 0 auto;
+        }
+
+        .prod-slider li img {
+            height: 350px;
         }
     </style>
 </head>
@@ -333,7 +415,7 @@
 <script src="/frontend/js/jQuery.Brazzers-Carousel.js"></script>
 <script src="/frontend/js/plugins.js"></script>
 <script src="/frontend/js/main.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAYvx0GmLyN5hlf6Uv_e9pPvUT3YpozE"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQJSc6KbFZKnA3HCg8ld5fbDz8Hw8wE4Q"></script>
 <script src="/frontend/js/gmap.js"></script>
 <!-- jQuery plugins/scripts - end -->
 
@@ -341,6 +423,8 @@
 @yield('sub_js')
 @yield('my_js')
 @yield('my_javascript')
+@yield('sub_js')
+
 <!-- Messenger Plugin chat Code -->
 <div id="fb-root"></div>
 
@@ -356,7 +440,7 @@
     window.fbAsyncInit = function() {
         FB.init({
             xfbml            : true,
-            version          : 'v11.0'
+            version          : 'v12.0'
         });
     };
 
@@ -367,6 +451,26 @@
         js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+    jQuery(document).ready(function($){
+        if($(".scrollUp").length > 0){
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                if (e > 300) {
+                    $(".scrollUp").show()
+                } else {
+                    $(".scrollUp").hide()
+                }
+            });
+            $(".scrollUp").click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                },'500')
+            })
+        }
+    });
 </script>
 </body>
 </html>

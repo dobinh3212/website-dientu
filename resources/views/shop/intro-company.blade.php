@@ -1,6 +1,22 @@
 @extends('shop.layouts.main')
 
 @section('content')
+    <style>
+        .team-wrap {
+            margin-bottom: 0;
+        }
+        .team-list .team-i {
+            margin-bottom: 25px;
+        }
+
+        .facts-list .facts-i:after {
+            display: none;
+        }
+
+        .facts-wrap {
+            margin: 0;
+        }
+    </style>
     <main>
         <section class="container stylization">
             <ul class="b-crumbs">
@@ -17,26 +33,26 @@
             <!-- About Start -->
             <div class="content-page rte">
 
-                <h4>I. Lịch sử hình thành&nbsp;</h4>
+                <h4>I. Lịch sử hình thành:</h4>
                 <p><strong>{{ $settings->company }}</strong>&nbsp;là hệ thống kinh doanh nhượng quyền bán lẻ Smartphone, Phụ kiện chính hãng và sửa chữa dịch vụ, là đối tác của các hãng điện thoại chính hãng lớn tại Việt Nam như: Apple, Samsung, Oppo, Realme,&nbsp;Xiaomi,…</p>
                 <p>Hệ thống bán lẻ {{ $settings->company }} hiện có trụ sở chính tại địa chỉ:&nbsp;<strong>{{ $settings->address }}</strong>&nbsp;và chi nhánh tại&nbsp;<strong>{{ $settings->address2 }}</strong></p>
                 <p><strong>Thành lập từ năm 2012</strong>, trải qua gần <strong>11 năm phát triển</strong>, {{ $settings->company }} đã trở thành điểm đến quen thuộc của khách hàng yêu công nghệ trên toàn quốc với các sản phẩm điện thoại, máy tính bảng, Smartphone chính hãng uy tín chất lượng. Thời điểm hiện tại hệ thống đã có&nbsp;<strong>20 cửa hàng nhượng quyền</strong>&nbsp;+&nbsp;<strong>4 trung tâm bảo hành</strong>&nbsp;trải dài khắp toàn quốc tạo sự thuận tiện cho khách hàng.</p>
                 <div class="facts-wrap">
                     <div class="row facts-list">
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
-                            Lên tới<p data-num="5000" class="facts-i-num">5000</p>
+                            Lên tới<p data-num="1000" class="facts-i-num">1000</p>
                             <h3 class="facts-i-ttl">Nhân Viên</h3>
                         </div>
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
-                            Bao gồm<p data-num="24" class="facts-i-num">24</p>
-                            <h3 class="facts-i-ttl">Chuỗi cửa hàng và TTBH</h3>
+                            Bao gồm<p data-num="20" class="facts-i-num">20</p>
+                            <h3 class="facts-i-ttl">Chuỗi cửa hàng lớn nhỏ</h3>
                         </div>
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
                             Có tới<p data-num="200" class="facts-i-num">200</p>
                             <h3 class="facts-i-ttl">Mặt hàng các loại</h3>
                         </div>
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
-                            Được hơn<p data-num="1000" class="facts-i-num">1000</p>
+                            Được hơn<p data-num="2000" class="facts-i-num">2000</p>
                             <h3 class="facts-i-ttl">Khách hàng tin dùng</h3>
                         </div>
                     </div>
@@ -48,7 +64,7 @@
                     <li>Được sử dụng thương hiệu uy tín của {{ $settings->company }} trong lĩnh vực bán lẻ điện thoại chính hãng đã được khẳng định qua hơn 7 năm phát triển và được khách hàng tin tưởng.</li>
                 </ul>
 
-                <h4>II. Người sáng lập</h4>
+                <h4>II. Người sáng lập:</h4>
                 <div class="team-wrap">
                     <div class="row team-list">
                         <div class="col-sm-4 team-i">
@@ -78,7 +94,7 @@
                     </div>
                 </div>
 
-                <h4>III. Tầm nhìn – sứ mệnh</h4>
+                <h4>III. Tầm nhìn – sứ mệnh:</h4>
                 <p><em><strong>&gt;&gt; Sứ mệnh:</strong></em></p>
                 <p>Chúng tôi lấy khách hàng làm trung tâm, lấy tổ chức chức chuyên nghiệp làm sức mạnh cạnh tranh, không ngừng nỗ lực cung cấp những sản phẩm, dịch vụ giá trị mới, chất lượng cao với giá hợp lý để đóng góp vào mục tiêu nâng cao chất lượng cuộc sống thông tin.</p>
                 <p><em><strong>&gt;&gt; Tầm nhìn:</strong></em></p>

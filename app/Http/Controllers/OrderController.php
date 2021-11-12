@@ -13,10 +13,15 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // Lay toan bo don hang, sap sep mới -> cũ
         $orders = Order::latest()->paginate(10);
+
+        if($request->has('search')){
+
+            $orders = Order::where('fullname','like',"%{$request->get('search')}%")->orWhere('email','like',"%{$request->get('search')}%")->orderBy('id' , 'desc')->paginate(10);
+        }
 
         return view('admin.order.index', [
             'data' => $orders

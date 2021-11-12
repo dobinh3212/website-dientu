@@ -12,10 +12,15 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all(); // lấy toàn bộ dữ liệu
         $listCategories = Category::latest()->paginate(15); // sắp sếp theo thứ tự mới nhất && phân trang
+
+        if($request->has('search')){
+
+            $listCategories = Category::where('name','like',"%{$request->get('search')}%")->paginate(10);
+        }
 
         return view('admin.category.index',[
             'data' => $listCategories,

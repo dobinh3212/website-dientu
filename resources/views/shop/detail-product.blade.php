@@ -9,6 +9,8 @@
 
         .prod-tab-mob.active {
             font-size: 16px;
+            text-align: center;
+            color: #373d54;
         }
 
         .prod-tabs li a.active {
@@ -54,6 +56,8 @@
 
         .prod-cont .prod-add {
             font-size: 20px;
+            width: 350px;
+            text-align: center;
         }
 
         .prod-cont .prod-skucolor li:hover {
@@ -61,7 +65,12 @@
         }
 
         .prod2-related {
-            height: 210px;
+            height: auto;
+        }
+
+        .prod-cont .prod-cont-txt > ul > li {
+            list-style-type: circle;
+            margin-left: 15px;
         }
     </style>
     <main>
@@ -70,7 +79,7 @@
 
             <ul class="b-crumbs">
                 <li>
-                    <a href="index.html">
+                    <a href="/">
                         Trang Chủ
                     </a>
                 </li>
@@ -204,33 +213,33 @@
                             @endif
                         </p>
                         <br>
-                        <p class="prod-skuttl">Màu Sắc</p>
-                        <ul class="prod-skucolor">
-                            <li>
-                                <img src="/frontend/img/color/blue.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/red.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/green.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/yellow.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="/frontend/img/color/purple.jpg" alt="">
-                            </li>
-                        </ul>
-                        <p class="prod-skuttl">Bộ nhớ</p>
-                        <div class="offer-props-select">
-                            <p>Lựa chọn</p>
-                            <ul>
-                                <li><a href="#">32GB</a></li>
-                                <li><a href="#">64GB</a></li>
-                                <li><a href="#">128GB</a></li>
-                            </ul>
-                        </div>
+{{--                        <p class="prod-skuttl">Màu Sắc</p>--}}
+{{--                        <ul class="prod-skucolor">--}}
+{{--                            <li>--}}
+{{--                                <img src="/frontend/img/color/blue.jpg" alt="">--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <img src="/frontend/img/color/red.jpg" alt="">--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <img src="/frontend/img/color/green.jpg" alt="">--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <img src="/frontend/img/color/yellow.jpg" alt="">--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <img src="/frontend/img/color/purple.jpg" alt="">--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                        <p class="prod-skuttl">Bộ nhớ</p>--}}
+{{--                        <div class="offer-props-select">--}}
+{{--                            <p>Lựa chọn</p>--}}
+{{--                            <ul>--}}
+{{--                                <li><a href="#">32GB</a></li>--}}
+{{--                                <li><a href="#">64GB</a></li>--}}
+{{--                                <li><a href="#">128GB</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
                     </div>
 {{--                    <div class="prod-info">--}}
 {{--                        <div class="prod-qnt">--}}
@@ -239,7 +248,7 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
                     <div class="prod-addwrap">
-                        <a href="{{ route('shop.addToCart', ['id' => $product->id]) }}" class="prod-add" rel="nofollow" title="Mua Ngay"><b style="font-size: 20px">+  </b>Mua Ngay</a>
+                        <a href="{{ route('shop.addToCart', ['id' => $product->id]) }}" class="prod-add" rel="nofollow" title="Mua Ngay"><b style="font-size: 20px"></b>Mua Ngay</a>
                     </div>
                 </div>
 

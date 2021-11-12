@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Banner;
+use App\Brand;
+use App\Category;
 use App\Order;
 use App\Product;
 use App\User;
+use App\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,12 +22,20 @@ class LoginController extends Controller
         $numArticle = Article::count();
         $numProduct = Product::count();
         $numUser = User::count();
+        $numCategory = Category::count();
+        $numBanner = Banner::count();
+        $numVendor = Vendor::count();
+        $numBrand = Brand::count();
 
         return view('admin.dashboard', [
             'numOrder' => $numOrder,
             'numArticle' => $numArticle,
             'numProduct' => $numProduct,
-            'numUser' => $numUser
+            'numUser' => $numUser,
+            'numCategory' => $numCategory,
+            'numBanner' => $numBanner,
+            'numVendor' => $numVendor,
+            'numBrand' => $numBrand
         ]);
     }
 
@@ -54,7 +66,7 @@ class LoginController extends Controller
 
         // check success
         if (Auth::attempt($data, $remember)) {
-            return redirect()->route('admin.order.index');
+            return redirect()->route('admin.dashboard')->with('msg1','Đăng nhập thành công !!!');
         }
 
         return redirect()->back()->with('msg', 'Email hoặc Password không chính xác');

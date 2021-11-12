@@ -71,13 +71,14 @@
 
                 <div class="footer-copyright">
                     <p>
-                        © 2021. Công ty CP Mobile Shop. GPDKKD: 0303217354 do sở KH ĐT TP.HN cấp ngày 02/01/2007. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020.<br></h2>
+                        © 2021. Công ty CP Mobile Shop. GPDKKD: 0303217354 do sở KH ĐT TP.HN cấp ngày 02/01/2007. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020.<br>
                     </p>
                     <h2 class="text-center">Designed By: Trương Chí Đức</h2>
                 </div>
             </div>
         </div>
     </div>
-
+{{--    <a class="btn-top" href="javascript:void(0);" title="Top" style="display: none; border: 1px solid #373d54"></a>--}}
+    <a class="scrollUp" href="javascript:void(0)" title="Top" style="position: fixed; z-index: 2147483647;"><i class="fa fa-angle-double-up"></i></a>
 </footer>
 

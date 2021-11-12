@@ -11,15 +11,10 @@
                     @foreach($banners as $key => $banner)
                     <ul class="slides">
                         <li>
-                            <img src="{{ asset($banner->image) }}" alt="" >
-{{--                            <div class="fr-slider-cont">--}}
-{{--                                <h3>{{ $banner->title }}</h3>--}}
-{{--                                <p class="fr-slider-more-wrap">--}}
-{{--                                    <a class="fr-slider-more" href="{{ $banner->url }}">Xem Thêm</a>--}}
-{{--                                </p>--}}
-{{--                            </div>--}}
+                            <a href="{{ $banner->url }}">
+                                <img src="{{ asset($banner->image) }}" alt="" >
+                            </a>
                         </li>
-
                     </ul>
                     @endforeach
                 </div>
@@ -29,7 +24,7 @@
             <!-- danh sách sản phẩm -->
             <div class="fr-pop-wrap">
                 @foreach($data as $item)
-                    <h3 class="component-ttl"><span>⊰{{ $item['category']->name }}⊱</span></h3>
+                    <h3 class="component-ttl"><span>{{ $item['category']->name }}</span></h3>
 
                     <div class="fr-pop-tab-cont">
 
@@ -40,11 +35,6 @@
                                     <li class="prod-i">
                                         <div class="prod-i-top">
                                             <a href="{{ route('shop.detailProduct',['slug' => $product->slug]) }}" class="prod-i-img"><img src="{{ asset($product->image) }}" alt="Aspernatur excepturi rem"></a>
-{{--                                            <p class="prod-i-info">--}}
-{{--                                                <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>--}}
-{{--                                                <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>--}}
-{{--                                                <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>--}}
-{{--                                            </p>--}}
                                             <p class="prod-i-addwrap">
                                                 <a href="{{ route('shop.detailProduct',['slug' => $product->slug]) }}" class="prod-i-detail">Chi tiết</a>
                                                 <a href="{{ route('shop.addToCart', ['id' => $product->id]) }}" class="prod-i-add">Thêm Vào Giỏ</a>
@@ -124,7 +114,6 @@
                     </ul>
                 </div>
             </div>
-
         </section>
     </main>
 @endsection

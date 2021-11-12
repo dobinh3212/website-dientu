@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-database"></i> QL Sản Phẩm <a href="{{ route('admin.product.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
+            <i class="fa fa-database"></i> Quản Lý Sản Phẩm <a href="{{ route('admin.product.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
         </h1>
     </section>
 
@@ -12,16 +12,20 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="box">
-                    <div class="box-tools pull-right" style="padding: 10px">
-                        <form action="" method="get" accept-charset="utf-8">
-                            <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
-                                <input type="text" name="search" class="form-control pull-right" placeholder="Search">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title"><a href="http://webdev.local:8888/admin/product">Danh Sách sản phẩm</a></h3>
+
+                        <div class="box-tools pull-right">
+                            <form action="" method="get" accept-charset="utf-8">
+                                <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
+                                    <input type="text" name="search" class="form-control pull-right" placeholder="Tìm Kiếm...">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -45,7 +49,7 @@
                                     <td>{{ $item->name }}</td>
                                     <td class="text-center">
                                         @if($item->image)
-                                            <img width="100" src="{{ asset($item->image) }}">
+                                            <img width="100px" height="100px" src="{{ asset($item->image) }}">
                                         @endif
                                     </td>
                                     <td class="text-center">{{ $item->sku }}</td>

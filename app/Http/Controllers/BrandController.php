@@ -12,9 +12,14 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = Brand::latest()->paginate(20);
+
+        if($request->has('search')){
+
+            $data = Brand::where('name','like',"%{$request->get('search')}%")->paginate(10);
+        }
 
         return view('admin.brand.index', [
             'data' => $data

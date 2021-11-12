@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-folder-open"></i> QL Danh Mục <a href="{{ route('admin.category.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm danh mục</a>
+            <i class="fa fa-folder-open"></i> Quản Lý Danh Mục <a href="{{ route('admin.category.create') }}" type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm danh mục</a>
         </h1>
     </section>
 
@@ -12,7 +12,17 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="box">
+                <div class="box box-primary">
+                    <div class="box-tools pull-right" style="padding: 10px">
+                        <form action="" method="get" accept-charset="utf-8">
+                            <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
+                                <input type="text" name="search" class="form-control pull-right" placeholder="Tìm Kiếm....">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered">
@@ -65,11 +75,16 @@
                                     </td>
                                 </tr>
                             @endforeach
+                            @if($data->count() == 0)
+                                <tr>
+                                    <td colspan="8" class="text-center text-danger">Không tồn tại bản ghi nào</td>
+                                </tr>
+                            @endif
                         </table>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer clearfix">
-                        {{ $data->links() }}
+                        {{ $data->appends(request()->all())->links() }}
                     </div>
                 </div>
                 <!-- /.box -->

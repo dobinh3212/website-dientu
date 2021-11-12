@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-fire"></i> QL Thương Hiệu <a href="{{ route('admin.brand.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm thương hiệu</a>
+            <i class="fa fa-fire"></i> Quản Lý Thương Hiệu <a href="{{ route('admin.brand.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm thương hiệu</a>
         </h1>
     </section>
 
@@ -12,15 +12,25 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="box">
+                <div class="box box-primary">
+                    <div class="box-tools pull-right" style="padding: 10px">
+                        <form action="" method="get" accept-charset="utf-8">
+                            <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
+                                <input type="text" name="search" class="form-control pull-right" placeholder="Tìm Kiếm....">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered">
                             <tr>
                                 <th>TT</th>
-                                <th>Tên Thương Hiệu</th>
+                                <th width="15%">Tên Thương Hiệu</th>
                                 <th class="text-center">Hình Ảnh</th>
-                                <th class="text-center">Website</th>
+                                <th>Website</th>
                                 <th class="text-center">Vị Trí</th>
                                 <th class="text-center">Trạng thái</th>
                                 <th class="text-center">Hành Động</th>
@@ -34,7 +44,7 @@
                                             <img width="100" src="{{ asset($item->image) }}">
                                         @endif
                                     </td>
-                                    <td class="text-center">{{ $item->website }}</td>
+                                    <td>{{ $item->website }}</td>
                                     <td class="text-center">{{ $item->position }}</td>
                                     <td class="text-center">
                                         {!! ($item->is_active == 1) ? '<span class="badge bg-green"> hiển thị </span>' : '<span class="badge bg-red">ẩn</span>'  !!}
@@ -49,11 +59,16 @@
                                     </td>
                                 </tr>
                             @endforeach
+                            @if($data->count() == 0)
+                                <tr>
+                                    <td colspan="7" class="text-center text-danger">Không tồn tại bản ghi nào</td>
+                                </tr>
+                            @endif
                         </table>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer clearfix">
-                        {{ $data->links() }}
+                        {{ $data->appends(request()->all())->links() }}
                     </div>
                 </div>
                 <!-- /.box -->

@@ -82,7 +82,7 @@
 
                             <div class="form-group">
                                 <label>Mô tả</label>
-                                <textarea id="editor1" name="description" class="form-control" rows="10" placeholder="Enter ..."></textarea>
+                                <textarea id="editor1" name="description" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                             </div>
                         </div>
                         <!-- /.box-body -->

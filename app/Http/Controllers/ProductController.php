@@ -21,7 +21,7 @@ class ProductController extends Controller
         //$data = Product::all();
         if($request->has('search')){
 
-            $data = Product::where('name','like',"%{$request->get('search')}%")->paginate(10);
+            $data = Product::where('name','like',"%{$request->get('search')}%")->orWhere('sku','like',"%{$request->get('search')}%")->paginate(10);
         }
 
         return view('admin.product.index', [
