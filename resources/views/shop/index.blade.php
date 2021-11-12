@@ -73,7 +73,7 @@
 
             <!-- Tin Tức Mới nhất -->
             <div class="posts-wrap">
-                <h3 class="component-ttl"><span>⊰Tin mới nhất⊱</span></h3>
+                <h3 class="component-ttl"><span>Tin mới nhất</span></h3>
                 <div class="posts-list">
                     @foreach($articlesNew as $arcNew)
                     <div class="posts-i">
@@ -101,7 +101,7 @@
             </div>
             <!-- Tin tức mới nhất hết -->
             <div class="brands-wrap">
-                <h3 class="component-ttl"><span>⊰Thương Hiệu⊱</span></h3>
+                <h3 class="component-ttl"><span>Thương Hiệu</span></h3>
                 <div class="flexslider brands-list">
                     <ul class="slides">
                         @foreach($brandsNew as $brandN)
