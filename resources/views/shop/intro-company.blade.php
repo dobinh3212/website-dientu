@@ -16,6 +16,91 @@
         .facts-wrap {
             margin: 0;
         }
+
+        .facts-i .icon{
+            padding: 10px;
+            font-size: 36px;
+            color: #373d54;
+        }
+        .facts-list .facts-i {
+            margin-bottom: 30px;
+            padding-bottom: 0;
+        }
+
+        .team-area {
+            padding-bottom: 50px;
+        }
+
+        .team-member {
+            -webkit-transition: all 0.4s ease-out;
+            -moz-transition: all 0.4s ease-out;
+            -o-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
+        .team-member .team-thumb img {
+            width: 100%;
+        }
+        .team-member .team-content {
+            padding: 15px;
+            border: 1px solid #eeeeee;
+        }
+        .team-member .team-content h3 {
+            color: #292825;
+            font-size: 20px;
+            line-height: 28px;
+            text-transform: capitalize;
+        }
+        .team-member .team-content p {
+            color: #666666;
+            line-height: 20px;
+        }
+        .team-member .team-content a {
+            color: #666666;
+            line-height: 20px;
+        }
+        .team-member .team-content a:hover {
+            color: #3a89cf;
+        }
+        .team-member .team-content .team-social {
+            margin-top: 15px;
+        }
+        .team-member .team-content .team-social a {
+            color: #292825;
+            width: 34px;
+            height: 34px;
+            display: inline-block;
+            text-align: center;
+            line-height: 34px;
+            border: 1px solid #292825;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .team-member .team-content .team-social a:hover {
+            color: #ffffff;
+            background-color: #3a89cf;
+            border-color: #fed700;
+        }
+        .team-member:hover {
+            -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .stylization a {
+            border-bottom: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .team-member {
+                margin-bottom: 30px;
+            }
+        }
+
+        .li-section-title {
+            border-bottom: 1px solid #e1e1e1;
+            width: 100%;
+            display: inline-block;
+            position: relative;
+        }
     </style>
     <main>
         <section class="container stylization">
@@ -32,66 +117,122 @@
             <h1 class="main-ttl"><span>Giới Thiệu về cửa hàng</span></h1>
             <!-- About Start -->
             <div class="content-page rte">
+                <div class="show1">
+                    <h4>I. Lịch sử hình thành:</h4>
+                    <p><strong>{{ $settings->company }}</strong>&nbsp;là hệ thống kinh doanh nhượng quyền bán lẻ Smartphone, Phụ kiện chính hãng và sửa chữa dịch vụ, là đối tác của các hãng điện thoại chính hãng lớn tại Việt Nam như: Apple, Samsung, Oppo, Realme,&nbsp;Xiaomi,…</p>
+                    <p>Hệ thống bán lẻ {{ $settings->company }} hiện có trụ sở chính tại địa chỉ:&nbsp;<strong>{{ $settings->address }}</strong>&nbsp;và chi nhánh tại&nbsp;<strong>{{ $settings->address2 }}</strong></p>
+                    <p><strong>Thành lập từ năm 2012</strong>, trải qua gần <strong>11 năm phát triển</strong>, {{ $settings->company }} đã trở thành điểm đến quen thuộc của khách hàng yêu công nghệ trên toàn quốc với các sản phẩm điện thoại, máy tính bảng, Smartphone chính hãng uy tín chất lượng. Thời điểm hiện tại hệ thống đã có&nbsp;<strong>20 cửa hàng nhượng quyền</strong>&nbsp;+&nbsp;<strong>4 trung tâm bảo hành</strong>&nbsp;trải dài khắp toàn quốc tạo sự thuận tiện cho khách hàng.</p>
+                </div>
 
-                <h4>I. Lịch sử hình thành:</h4>
-                <p><strong>{{ $settings->company }}</strong>&nbsp;là hệ thống kinh doanh nhượng quyền bán lẻ Smartphone, Phụ kiện chính hãng và sửa chữa dịch vụ, là đối tác của các hãng điện thoại chính hãng lớn tại Việt Nam như: Apple, Samsung, Oppo, Realme,&nbsp;Xiaomi,…</p>
-                <p>Hệ thống bán lẻ {{ $settings->company }} hiện có trụ sở chính tại địa chỉ:&nbsp;<strong>{{ $settings->address }}</strong>&nbsp;và chi nhánh tại&nbsp;<strong>{{ $settings->address2 }}</strong></p>
-                <p><strong>Thành lập từ năm 2012</strong>, trải qua gần <strong>11 năm phát triển</strong>, {{ $settings->company }} đã trở thành điểm đến quen thuộc của khách hàng yêu công nghệ trên toàn quốc với các sản phẩm điện thoại, máy tính bảng, Smartphone chính hãng uy tín chất lượng. Thời điểm hiện tại hệ thống đã có&nbsp;<strong>20 cửa hàng nhượng quyền</strong>&nbsp;+&nbsp;<strong>4 trung tâm bảo hành</strong>&nbsp;trải dài khắp toàn quốc tạo sự thuận tiện cho khách hàng.</p>
                 <div class="facts-wrap">
                     <div class="row facts-list">
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
-                            Lên tới<p data-num="1000" class="facts-i-num">1000</p>
-                            <h3 class="facts-i-ttl">Nhân Viên</h3>
+                            <div class="icon">
+                                <i class="fa fa-history" aria-hidden="true"></i>
+                            </div>
+                            <p data-num="690" class="facts-i-num">690</p>
+                            <h3 class="facts-i-ttl">Thời Gian Làm Việc</h3>
                         </div>
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
-                            Bao gồm<p data-num="20" class="facts-i-num">20</p>
-                            <h3 class="facts-i-ttl">Chuỗi cửa hàng lớn nhỏ</h3>
+                            <div class="icon">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                            </div>
+                            <p data-num="100" class="facts-i-num">100</p>
+                            <h3 class="facts-i-ttl">Project Đã Hoàn Thành</h3>
                         </div>
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
-                            Có tới<p data-num="200" class="facts-i-num">200</p>
-                            <h3 class="facts-i-ttl">Mặt hàng các loại</h3>
+                            <div class="icon">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <p data-num="250" class="facts-i-num">250</p>
+                            <h3 class="facts-i-ttl">Đánh Giá Tốt Từ Khách Hàng</h3>
                         </div>
                         <div class="cf-xs-6 cf-sm-4 cf-md-4 cf-lg-3 col-xs-6 col-sm-4 col-lg-3 facts-i">
-                            Được hơn<p data-num="2000" class="facts-i-num">2000</p>
-                            <h3 class="facts-i-ttl">Khách hàng tin dùng</h3>
+                            <div class="icon">
+                                <i class="fa fa-trophy" aria-hidden="true"></i>
+                            </div>
+                            <p data-num="50" class="facts-i-num">50</p>
+                            <h3 class="facts-i-ttl">Giải Thưởng Đã Nhận</h3>
                         </div>
                     </div>
                 </div>
-                <p><em><strong>Quyền lợi khi được tham gia nhượng quyền:</strong></em></p>
-                <ul>
-                    <li>Ít rủi ro bởi các sản phẩm, dịch vụ của {{ $settings->company }} đều đã khẳng định được chất lượng, uy tín</li>
-                    <li>Được chuyển giao và đảm bảo các vấn đề xây dựng chiến lược quảng bá, tiếp thị, đào tạo, tận dụng nguồn nhân lực có sẵn 1 cách tối đa. Các quy trình vận hành đều sẽ được {{ $settings->company }} hỗ trợ và chuyển giao. Cửa hàng nhượng quyền chỉ cần tập trung cho việc bán hàng.</li>
-                    <li>Được sử dụng thương hiệu uy tín của {{ $settings->company }} trong lĩnh vực bán lẻ điện thoại chính hãng đã được khẳng định qua hơn 7 năm phát triển và được khách hàng tin tưởng.</li>
-                </ul>
 
-                <h4>II. Người sáng lập:</h4>
-                <div class="team-wrap">
-                    <div class="row team-list">
-                        <div class="col-sm-4 team-i">
-                            <p class="team-i-img">
-                                <img src="https://vcdn-kinhdoanh.vnecdn.net/2019/10/13/thegioididong-bloom-6249-15288-3074-5157-1570943698.jpg" alt="NDT">
-                            </p>
-                            <h3 class="team-i-ttl">Nguyễn Đức Tài</h3>
-                            <p class="team-i-post">Director</p>
-                            "Muốn có được những điều mới mẻ cần phải chấp nhận thất bại. Nếu sợ thất bại sẽ không thể làm được gì, lúc đó chỉ lên núi gõ mõ là an toàn nhất".
+                <h4>II. Đội Ngũ Của Tôi:</h4>
+                <div class="team-area">
+                    <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="team-member mb-60 mb-sm-30 mb-xs-30">
+                                    <div class="team-thumb">
+                                        <img src="/frontend/img/team/1.png" alt="Our Team Member">
+                                    </div>
+                                    <div class="team-content text-center">
+                                        <h3>Jonathan Adam</h3>
+                                        <p>IT Expert</p>
+                                        <a href="#">info@example.com</a>
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end single team member -->
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="team-member mb-60 mb-sm-30 mb-xs-30">
+                                    <div class="team-thumb">
+                                        <img src="/frontend/img/team/2.png" alt="Our Team Member">
+                                    </div>
+                                    <div class="team-content text-center">
+                                        <h3>Oliver Bastin</h3>
+                                        <p>Web Designer</p>
+                                        <a href="#">info@example.com</a>
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end single team member -->
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="team-member mb-30 mb-sm-60">
+                                    <div class="team-thumb">
+                                        <img src="/frontend/img/team/3.png" alt="Our Team Member">
+                                    </div>
+                                    <div class="team-content text-center">
+                                        <h3>Erik Jonson</h3>
+                                        <p>Web Developer</p>
+                                        <a href="#">info@example.com</a>
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end single team member -->
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="team-member mb-30 mb-sm-60 mb-xs-60">
+                                    <div class="team-thumb">
+                                        <img src="/frontend/img/team/4.png" alt="Our Team Member">
+                                    </div>
+                                    <div class="team-content text-center">
+                                        <h3>Maria Mandy</h3>
+                                        <p>Marketing officer</p>
+                                        <a href="#">info@example.com</a>
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end single team member -->
                         </div>
-                        <div class="col-sm-4 team-i">
-                            <p class="team-i-img">
-                                <img src="https://media.ex-cdn.com/EXP/media.nhadautu.vn/files/news/2020/09/18/shark-dzung-day-la-thoi-diem-san-sinh-nhung-doanh-nghiep-tro-thanh-diem-sang-hau-covid-19-162009.png" alt="NMD">
-                            </p>
-                            <h3 class="team-i-ttl">Nguyễn Mạnh Dũng</h3>
-                            <p class="team-i-post">Investor</p>
-                            "Startup nên có tham vọng lớn nhưng phải thực tế và bắt đầu từ những việc nhỏ nhất ,bình thường nhất".
-                        </div>
-                        <div class="col-sm-4 team-i">
-                            <p class="team-i-img">
-                                <img src="http://hellolaptrinh.com/template/hellolaptrinh.com/upload/images/lap-trinh-vien-hoat-dong-ban-dem-1.jpg" alt="TCD">
-                            </p>
-                            <h3 class="team-i-ttl">Trương Chí Đức</h3>
-                            <p class="team-i-post">Developer</p>
-                            "Muốn thành công trong công việc ta phải cố gắng hết sức mình, nếu lười biếng ta phải trả giá bằng cái kết tồi tệ nhất".
-                        </div>
-                    </div>
                 </div>
 
                 <h4>III. Tầm nhìn – sứ mệnh:</h4>

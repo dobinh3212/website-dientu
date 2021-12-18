@@ -13,10 +13,6 @@
             Bảng Điều Khiển
             <small>Control panel</small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
-            <li class="active">Bảng Theo Dõi</li>
-        </ol>
     </section>
 
     <!-- Main content -->

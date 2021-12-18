@@ -113,7 +113,7 @@
                                                 <div class="type-of-text">
                                                     <div class="form-group primary-form-group">
                                                         <label>Địa chỉ nhận hàng</label>
-                                                        <textarea style="height: auto" class="contact-text" name="address"></textarea>
+                                                        <textarea style="height: 50px" class="contact-text" name="address"></textarea>
                                                         @if ($errors->has('address'))
                                                             <span class="invalid-feedback" role="alert" style="color:red;">{{ $errors->first('address') }}</span>
                                                         @endif

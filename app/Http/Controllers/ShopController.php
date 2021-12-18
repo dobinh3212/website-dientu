@@ -488,7 +488,7 @@ class ShopController extends Controller
         $products = Product::where([
             ['is_active', '=', 1],
             ['slug', 'LIKE', '%' . $slug . '%']
-        ])->paginate(9);
+        ])->paginate(12);
 
         $totalResult = $products->total(); // số lượng kết quả tìm kiếm
 
@@ -497,5 +497,11 @@ class ShopController extends Controller
             'totalResult' => $totalResult,
             'keyword' => $keyword ? $keyword : ''
         ]);
+    }
+
+    // Báo lỗi link bị sai
+    public function errors($str)
+    {
+        return abort(404);
     }
 }

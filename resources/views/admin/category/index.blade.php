@@ -13,15 +13,19 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <div class="box-tools pull-right" style="padding: 10px">
-                        <form action="" method="get" accept-charset="utf-8">
-                            <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
-                                <input type="text" name="search" class="form-control pull-right" placeholder="Tìm Kiếm....">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    <div class="box-header" style="padding: 15px 10px 5px 10px">
+                        <h3 class="box-title" style="padding-top: 5px"><a href="{{ route('admin.category.index') }}" title="">Danh Sách Danh Mục</a></h3>
+
+                        <div class="box-tools" style="top: 12px">
+                            <form action="" method="get" accept-charset="utf-8">
+                                <div class="input-group input-group-sm hidden-xs" style="width: 250px;">
+                                    <input type="text" name="search" class="form-control pull-right" placeholder="Search" value="{{ request('search') }}">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -77,7 +81,7 @@
                             @endforeach
                             @if($data->count() == 0)
                                 <tr>
-                                    <td colspan="8" class="text-center text-danger">Không tồn tại bản ghi nào</td>
+                                    <td colspan="8" class="text-center text-danger" style="padding: 20px">Không tồn tại bản ghi nào phù hợp với kết quả tìm kiếm của bạn !!!</td>
                                 </tr>
                             @endif
                         </table>

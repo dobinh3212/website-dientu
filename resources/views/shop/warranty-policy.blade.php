@@ -65,13 +65,13 @@
                 <p><span style="font-size: small;">(*): Lỗi phần cứng từ phía nhà sản xuất</span></p>
                 <p class="mb-2"><span style="text-decoration: underline;"><em><strong><span style="font-size: small;">Điều kiện đổi trả:</span></strong></em></span></p>
                 <ul style="list-style: none;">
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Máy: Như mới, không xước xát, không dán decal, hình trang trí</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Máy cũ: có tình trạng sản phẩm như lúc mới mua</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Hộp: Như mới, không móp méo, rách, vỡ, bị viết, vẽ, quấn băng dính, keo; có Serial/IMEI trên hộp trùng với thân máy.</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Phụ kiện và quà tặng: Còn đầy đủ, nguyên vẹn, không móp méo xước xát hoặc bị hư hại trong quá trình sử dụng.</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Tài khoản: Máy đã đã được đăng xuất khỏi tất cả các tài khoản như: iCloud, Google Account, Mi Account…</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● (*) Lỗi từ phía Nhà sản xuất là các lỗi bao gồm: Lỗi nguồn, lỗi trên mainboard, ổ cứng, màn hình và các linh kiện phần cứng bên trong</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Ví dụ: Sọc màn hình, tràn màu, loa rè, màn hình có từ 3 điểm chết trở lên hoặc 1 điểm chết có kích thước lớn hơn 1mm</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Máy: Như mới, không xước xát, không dán decal, hình trang trí</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Máy cũ: có tình trạng sản phẩm như lúc mới mua</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Hộp: Như mới, không móp méo, rách, vỡ, bị viết, vẽ, quấn băng dính, keo; có Serial/IMEI trên hộp trùng với thân máy.</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Phụ kiện và quà tặng: Còn đầy đủ, nguyên vẹn, không móp méo xước xát hoặc bị hư hại trong quá trình sử dụng.</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Tài khoản: Máy đã đã được đăng xuất khỏi tất cả các tài khoản như: iCloud, Google Account, Mi Account…</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">(*) Lỗi từ phía Nhà sản xuất là các lỗi bao gồm: Lỗi nguồn, lỗi trên mainboard, ổ cứng, màn hình và các linh kiện phần cứng bên trong</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Ví dụ: Sọc màn hình, tràn màu, loa rè, màn hình có từ 3 điểm chết trở lên hoặc 1 điểm chết có kích thước lớn hơn 1mm</span></span></li>
                 </ul>                    <p><span id="docs-internal-guid-50932c38-7fff-3af3-c968-ffd847f1ca94" style="font-size: medium;"><strong><strong>II.Bảo hành tiêu chuẩn</strong></strong></span></p>
                 <p><span style="text-decoration: underline;"><strong><span style="font-size: small;">1. Điện Thoại, LapTop:</span></strong></span></p>
                 <p><span style="font-size: small;">Các sản phẩm chính hãng, Quý khách có thể tới các TTBH chính hãng hoặc trực tiếp tới các cửa hàng  Mobile Shop để được tiếp nhận gửi máy bảo hành chính hãng.</span></p>
@@ -103,14 +103,14 @@
                 </table>
                 <ul style="list-style: none;">
 
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Trong thời gian đợi bảo hành - sửa chữa, khách hàng sẽ được hỗ trợ miễn phí một điện thoại khác để sử dụng.</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● Khách hàng trả lại máy đã mượn sau khi nhận lại máy của mình.</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Trong thời gian đợi bảo hành - sửa chữa, khách hàng sẽ được hỗ trợ miễn phí một điện thoại khác để sử dụng.</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">Khách hàng trả lại máy đã mượn sau khi nhận lại máy của mình.</span></span></li>
                 </ul>
                 <p><strong><span style="font-size: small;">* Quy định bảo hành phụ kiện theo kèm máy:</span></strong></p>
                 <ul style="list-style: none;">
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● <strong>Vsmart</strong>: 6 tháng.</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● <strong>Asus</strong>: 6 tháng.</span></span></li>
-                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;">● <strong>Nokia</strong>: 6 tháng.</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;"><strong>Vsmart</strong>: 6 tháng.</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;"><strong>Asus</strong>: 6 tháng.</span></span></li>
+                    <li><span style="font-size: small;"><span style="font-size: small; line-height: 2;"><strong>Nokia</strong>: 6 tháng.</span></span></li>
                 </ul>
                 <p><em><span style="font-size: small;">Quyền lợi bảo hành (lỗi từ phía nhà sx): 1 đổi tất cả các lỗi</span></em></p>
                 <div class="content-sao-luu-du-lieu">

@@ -68,9 +68,9 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <div class="w-50 text-md-right">
-                                <a href="#">Quên mật khẩu</a>
-                            </div>
+{{--                            <div class="w-50 text-md-right">--}}
+{{--                                <a href="#">Quên mật khẩu</a>--}}
+{{--                            </div>--}}
                         </div>
                     </form>
                 </div>

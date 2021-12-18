@@ -72,6 +72,10 @@
             list-style-type: circle;
             margin-left: 15px;
         }
+
+        .prod-cont .prod-cont-txt {
+            text-align: justify;
+        }
     </style>
     <main>
         <section class="container">
@@ -204,14 +208,14 @@
                     </div>
                     <hr>
                     <div class="prod-skuwrap">
-                        <p class="product-stock" style="text-transform: uppercase">
-                            Số lượng hàng:
-                            @if ($product->stock > 0)
-                                <span>Còn hàng</span>
-                            @else
-                                <span style="color: red">Hết hàng</span>
-                            @endif
-                        </p>
+{{--                        <p class="product-stock" style="text-transform: uppercase">--}}
+{{--                            Số lượng hàng:--}}
+{{--                            @if ($product->stock > 0)--}}
+{{--                                <span>Còn hàng</span>--}}
+{{--                            @else--}}
+{{--                                <span style="color: red">Hết hàng</span>--}}
+{{--                            @endif--}}
+{{--                        </p>--}}
                         <br>
 {{--                        <p class="prod-skuttl">Màu Sắc</p>--}}
 {{--                        <ul class="prod-skucolor">--}}
@@ -256,15 +260,11 @@
                 <div class="prod-tabs-wrap">
                     <ul class="prod-tabs">
                         <li><a data-prodtab-num="1" class="active" data-prodtab="#prod-tab-1">Bài Viết đánh Giá về sản phẩm</a></li>
-{{--                        <li><a data-prodtab-num="2" id="prod-props" href="#" data-prodtab="#prod-tab-2">Thông Số</a></li>--}}
-{{--                        <li><a data-prodtab-num="3" href="#" data-prodtab="#prod-tab-3">Video</a></li>--}}
-{{--                        <li><a data-prodtab-num="4" href="#" data-prodtab="#prod-tab-4">Bài Viết</a></li>--}}
-{{--                        <li><a data-prodtab-num="5" href="#" data-prodtab="#prod-tab-5">Nhận Xét</a></li>--}}
                     </ul>
                     <div class="prod-tab-cont">
 
                         <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Bài Viết đánh Giá về sản phẩm</p>
-                        <div class="prod-tab stylization" id="prod-tab-1">
+                        <div class="prod-tab stylization" id="prod-tab-1" style="text-align: ">
                             {!! $product->description !!}
                         </div>
 {{--                        <p data-prodtab-num="2" class="prod-tab-mob" data-prodtab="#prod-tab-2">Features</p>--}}

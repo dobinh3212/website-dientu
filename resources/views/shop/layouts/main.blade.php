@@ -10,7 +10,7 @@
     <link rel="icon" href="/frontend/img/logoMS1.png" sizes="16x16" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700ii%7CRoboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
     <link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
     <link rel="stylesheet" href="/frontend/css/bootstrap.min.css">
     <link rel="stylesheet" href="/frontend/css/ion.rangeSlider.css">
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/frontend/css/swiper.css">
     <link rel="stylesheet" href="/frontend/css/style.css">
     <link rel="stylesheet" href="/frontend/css/media.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .fr-pop-tab-cont {
             height: 400px !important;
@@ -64,16 +65,22 @@
         }
 
         .post-wrap p {
-            margin: 0 0 6px;
+            margin: 0 0 10px;
+        }
+
+        .post-artic {
+            /*padding: 0 41px;*/
+            text-align: justify;
         }
 
         .post-artic img {
-
-        }
-
-        .post-wrap img {
-            width: 100%;
+            /*width: 100%;*/
+            /*height: auto;*/
+            display: block;
+            width: 600px;
             height: auto;
+            max-width: 100%;
+            margin: 0 auto;
         }
 
         /*sửa phần tin tức end*/
@@ -83,7 +90,6 @@
         }
 
         .customer-cart{
-            border: 2px solid #373d54;
             border-radius: 15px;
             padding: 30px;
 
@@ -99,6 +105,11 @@
         }
 
         .filter_sort {
+            padding: 5px 0 5px 0;
+            color: #373d54;
+        }
+
+        .filter_sort:hover {
             padding: 5px 0 5px 0;
             color: #373d54;
         }
@@ -182,6 +193,9 @@
         .companyinfo{
             margin-top: 0;
             padding-left: 0;
+            font-size: 13px;
+            text-align: justify;
+            font-weight: 400;
         }
 
         h3 .banner-i-ttl{
@@ -336,37 +350,27 @@
             display: block;
         }
 
-        {{--/*CSS nút cuộn lên*/--}}
-        {{--.btn-top {--}}
-        {{--    background-image: url('{{ '/frontend/img/BackToTop.png' }}');--}}
-        {{--    background-repeat: no-repeat;--}}
-        {{--    border: medium none;--}}
-        {{--    margin: 3px;--}}
-        {{--    bottom: 20px;--}}
-        {{--    cursor: pointer;--}}
-        {{--    display: none;--}}
-        {{--    height: 50px;--}}
-        {{--    outline: medium none;--}}
-        {{--    position: fixed;--}}
-        {{--    right: 20px;--}}
-        {{--    width: 50px;--}}
-        {{--    z-index: 9999;--}}
-        {{--}--}}
+        /*Media*/
+        @media only screen and (max-width: 600px) {
+            .scrollUp {
+                opacity: 0.5;
+            }
 
-        {{--/*làm nút cuộn trở nên trong suốt trên mobile*/--}}
-        {{--@media only screen and (max-width: 550px){--}}
-        {{--    .btn-top {--}}
-        {{--        opacity: 40%;--}}
-        {{--        margin-right: 0;--}}
-        {{--    }--}}
-        {{--}--}}
+            .post-artic {
+                padding: 0;
+            }
+        }
 
-        {{--@media only screen and (max-width: 750px) {--}}
-        {{--    .media-object {--}}
-        {{--        text-align: center;--}}
-        {{--    }--}}
-        {{--}--}}
+        @media only screen and (min-width: 480px) and (max-width: 639px) {
+            .companyinfo img {
+                margin: 0;
+            }
 
+            .summary-footer {
+                margin: 0 22px 0 14px;
+                text-align: justify;
+            }
+        }
         /*bảng giỏ hàng*/
         table {
             table-layout: fixed;
@@ -383,6 +387,20 @@
         .prod-slider li img {
             height: 350px;
         }
+        /*slick slider css*/
+        .slick-slide {
+            margin: 0 49px;
+        }
+
+        .slick-slide img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .brand-wrap {
+            margin-bottom: 50px;
+        }
+
     </style>
 </head>
 <body>
@@ -415,8 +433,12 @@
 <script src="/frontend/js/jQuery.Brazzers-Carousel.js"></script>
 <script src="/frontend/js/plugins.js"></script>
 <script src="/frontend/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQJSc6KbFZKnA3HCg8ld5fbDz8Hw8wE4Q"></script>
 <script src="/frontend/js/gmap.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 <!-- jQuery plugins/scripts - end -->
 
 @yield('main_js')
@@ -470,6 +492,48 @@
                 },'500')
             })
         }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.brands-logo').slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 1500,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            arrows:false,
+            pauseOnHover: false,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                },
+                {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
+{{--<script>--}}
+{{--    AOS.init();--}}
+{{--</script>--}}
+
+<script>
+    $(document).ready(function(){
+        $('.counter').counterUp({
+            delay: 5,
+            time: 6000
+        });
     });
 </script>
 </body>

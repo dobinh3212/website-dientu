@@ -8,6 +8,7 @@
 
         .content-service {
             padding: 25px 50px 0 50px;
+            text-align: justify;
         }
 
         .content-service p {
@@ -47,7 +48,7 @@
                 <div class="col-md-6">
                     <div class="content-service">
                         <h3 class="content-head1"> ⓵ SỬA CHỮA, VỆ SINH LẤY NGAY</h3>
-                        <p style="text-align: justify">
+                        <p>
                             - Chỉ cần nhấc máy lên và đặt lịch bạn sẽ có thể giải quyết mọi vấn đề trên sản phẩm của bạn với chi phí phải chăng.
                         </p>
                         <p>

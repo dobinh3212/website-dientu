@@ -29,11 +29,11 @@
                         <span>Kết nối với chúng tôi</span>
                     </h3>
                     <ul class="nav nav-pills nav-stacked">
-                        <li><i class="fa fa-facebook-square"><a href="https://www.facebook.com/MobileShop12082021/">Facebook</a></i></li>
-                        <li><i class="fa fa-twitter-square"><a href="https://twitter.com/Duc97228440">Twitter</a></i></li>
-                        <li><i class="fa fa-github-square"><a href="https://github.com/ducchi1998">Github</a></i></li>
-                        <li><i class="fa fa-instagram"><a href="https://www.instagram.com/hackerVN1st/">Instagram</a></i></li>
-                        <li><i class="fa fa-youtube-square"><a href="https://www.youtube.com/channel/UC-BHUfCvpXBZaYDiAPz9gGQ">Youtube</a></i></li>
+                        <li><i class="fa fa-facebook-square" style="font-size: 20px;"><a href="https://www.facebook.com/MobileShop12082021/">Facebook</a></i></li>
+                        <li><i class="fa fa-twitter-square" style="font-size: 20px;"><a href="https://twitter.com/Duc97228440">Twitter</a></i></li>
+                        <li><i class="fa fa-github-square" style="font-size: 20px;"><a href="https://github.com/ducchi1998">Github</a></i></li>
+                        <li><i class="fa fa-instagram" style="font-size: 20px;"><a href="https://www.instagram.com/hackerVN1st/">Instagram</a></i></li>
+                        <li><i class="fa fa-youtube-square" style="font-size: 20px;"><a href="https://www.youtube.com/channel/UC-BHUfCvpXBZaYDiAPz9gGQ">Youtube</a></i></li>
                     </ul>
                 </div>
                 <div class="f-menu">
@@ -58,8 +58,10 @@
                 <div class="companyinfo pull-right">
                     <a href="/">
                         <img src="/frontend/img/mbs2.png" alt="Mobile Shop khách hàng là thượng đế">
-                        {{ $settings->summary }}
                     </a>
+                    <div class="summary-footer">
+                        {{ $settings->summary }}
+                    </div>
                 </div>
             </div>
         </div>

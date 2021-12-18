@@ -14,7 +14,7 @@
             margin-bottom: 20px;
         }
         .single-contact-block {
-            padding-bottom: 8px;
+            padding-bottom: 4px;
             margin-bottom: 17px;
             border-bottom: 1px solid #e1e1e1;
         }
@@ -86,7 +86,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12 contact1">
                         <div class="contact-page-side-content">
-                            <h3 class="contact-page-title">Liên hệ chúng tôi</h3>
+                            <h3 class="contact-page-title" style="margin-top: 7px">Liên hệ chúng tôi</h3>
                             <p class="contact-page-message mb-25">
                                 Bạn gặp vấn đề khó khăn hãy để lại tin nhắn cùng tên,số điện thoại và email. <br>
                                 Chúng tôi sẽ sớm liên hệ với bạn để giải quyết vấn đề này.

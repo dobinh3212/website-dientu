@@ -98,3 +98,5 @@ Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'
     //Quản lý liên hệ
     Route::resource('contact', 'ContactController');
 });
+
+Route::get('/{str}', 'ShopController@errors')->name('error.URL');

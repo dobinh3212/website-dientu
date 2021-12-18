@@ -85,7 +85,7 @@
                     <!-- Sorting -->
 
                     <div class="section-sortby">
-                        <label style="font-size: 16px; margin-right: 10px; color: #373d54;"> Sắp Xếp </label>
+{{--                        <label style="font-size: 16px; margin-right: 10px; color: #373d54;"> Sắp Xếp </label>--}}
                         <select name="sortby" id="productShort" class="filter_sort">
                             <option value="tat-ca">--- Tất cả sản phẩm ---</option>
                             <option {{ ($filter_sort == 'noi-bat' ? 'selected' : '') }} value="noi-bat">Nổi bật</option>

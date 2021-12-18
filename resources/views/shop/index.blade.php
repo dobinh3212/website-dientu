@@ -99,21 +99,22 @@
                     @endforeach
                 </div>
             </div>
-            <!-- Tin tức mới nhất hết -->
-            <div class="brands-wrap">
+            <!-- Tin Tức mới hết -->
+
+            <!-- Thương hiệu Slider -->
+            <div class="brand-wrap">
                 <h3 class="component-ttl"><span>Thương Hiệu</span></h3>
-                <div class="flexslider brands-list">
-                    <ul class="slides">
-                        @foreach($brandsNew as $brandN)
-                        <li>
+                <section class="brands-logo slider">
+                    @foreach($brandsNew as $brandN)
+                        <div class="slide">
                             <a href="{{ $brandN->website }}">
                                 <img src="{{ asset($brandN->image) }}" alt="thương hiệu nổi tiếng">
                             </a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+                        </div>
+                    @endforeach
+                </section>
             </div>
+            <!-- Thương hiệu Slider -->
         </section>
     </main>
 @endsection

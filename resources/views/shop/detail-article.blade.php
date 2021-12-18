@@ -22,6 +22,10 @@
             opacity: 75%;
         }
 
+        /*.stylization h2 {*/
+        /*    padding: 0 41px;*/
+        /*}*/
+
     </style>
     <main>
         <section class="container">
@@ -48,7 +52,8 @@
                 @endif
                 </p>
                 <br>
-                <img class="post-img" src="{{ asset($article->image) }}" alt="ảnh đẹp" style="margin: 0 auto 30px">
+                <img class="post-img" src="{{ asset($article->image) }}" alt="ảnh đẹp" style="width: 100%">
+{{--                margin: 0 auto 30px;--}}
                 <div class="post-artic">
                     {!! $article->description !!}
                 </div>
