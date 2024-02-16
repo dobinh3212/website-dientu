@@ -68,7 +68,7 @@
 
                     <li>
                         <div class="h-cart">
-                            <a href="{{ route('shop.cart') }}" style="background: #373d54; padding: 15px">
+                            <a href="{{ route('shop.cart') }}" style="background: indianred; padding: 15px">
                                 <i class="fa fa-shopping-cart" style="color: #fff; margin-right: 5px;font-size: 16px"></i>
                                 <span class="shop-menu-show" style="color: #fff">Giỏ Hàng</span>
                             </a>
