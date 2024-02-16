@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 12, 2021 at 02:53 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- Máy chủ: db
+-- Thời gian đã tạo: Th2 16, 2024 lúc 10:30 AM
+-- Phiên bản máy phục vụ: 5.7.44
+-- Phiên bản PHP: 8.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webshop2`
+-- Cơ sở dữ liệu: `web_xekhach`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articles`
+-- Cấu trúc bảng cho bảng `articles`
 --
 
 CREATE TABLE `articles` (
@@ -32,8 +32,8 @@ CREATE TABLE `articles` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `summary` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `summary` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `type` int(11) DEFAULT NULL,
   `position` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `articles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `articles`
+-- Đang đổ dữ liệu cho bảng `articles`
 --
 
 INSERT INTO `articles` (`id`, `title`, `slug`, `image`, `summary`, `description`, `type`, `position`, `status`, `url`, `is_active`, `user_id`, `meta_title`, `meta_description`, `created_at`, `updated_at`) VALUES
@@ -59,16 +59,16 @@ INSERT INTO `articles` (`id`, `title`, `slug`, `image`, `summary`, `description`
 (19, 'Cách cập nhật giấy đi đường QR code trên điện thoại, giúp bạn khai báo nhanh gọn khi qua các chốt kiểm dịch', 'cach-cap-nhat-giay-di-duong-qr-code-tren-dien-thoai-giup-ban-khai-bao-nhanh-gon-khi-qua-cac-chot-kiem-dich', 'uploads/article/1632909894_12-thum_1280x720-800-resize.png', '<h2>Theo th&ocirc;ng tin m&igrave;nh mới đọc được tr&ecirc;n&nbsp;<a href=\"https://rd.zapps.vn/detail/1191640289962321181?id=4057269c6ad98387dac8&amp;pageId=1191640289962321181&amp;broadcastId=09188c15aa50430e1a41\" target=\"_blank\">Zalo 1022 Đ&agrave; Nẵng</a>&nbsp;th&igrave; từ ng&agrave;y 26/09 trở đi sẽ triển khai giấy đi đường QR Code tr&ecirc;n&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\">smartphone</a>&nbsp;thay thế cho giấy đi đường truyền thống. Sau đ&acirc;y, m&igrave;nh sẽ hướng dẫn&nbsp;<a href=\"https://www.thegioididong.com/tin-tuc/cach-cap-nhat-giay-di-duong-qr-code-tren-dien-thoai-1385556\" target=\"_blank\">c&aacute;ch cập nhật giấy đi đường QR code tr&ecirc;n điện thoại</a>&nbsp;cho người d&acirc;n cực đơn giản. H&atilde;y theo d&otilde;i ngay nh&eacute;.</h2>\r\n\r\n<p><em><strong>Lưu &yacute;:&nbsp;</strong>Đ&acirc;y l&agrave; hướng dẫn d&agrave;nh cho người d&acirc;n ở Đ&agrave; Nẵng. Những tỉnh th&agrave;nh kh&aacute;c sẽ được cập nhật th&ocirc;ng tin sau.</em></p>', '<h3><strong>C&aacute;ch cập nhật giấy đi đường QR code tr&ecirc;n điện thoại</strong></h3>\r\n\r\n<p>Cụ thể, với c&aacute;c giấy đi đường đ&atilde; cấp, ph&aacute;t h&agrave;nh đến hết 25-9-2021 được tiếp tục sử dụng. Hệ thống tự động cập nhật hiệu lực, c&aacute;c cơ quan, tổ chức, doanh nghiệp kh&ocirc;ng thực hiện ph&aacute;t h&agrave;nh v&agrave; in lại giấy đi đường mới m&agrave; đ&atilde; c&oacute; c&aacute;ch cập nhật tr&ecirc;n hệ thống.</p>\r\n\r\n<p><strong>Để cập nhật giấy đi đường QR code tr&ecirc;n điện thoại bạn l&agrave;m như sau:</strong></p>\r\n\r\n<p><strong>Bước 1:</strong>&nbsp;<strong>Tải ứng dụng&nbsp;E-Ticket Đ&agrave; Nẵng&nbsp;</strong>về smartphone của m&igrave;nh.</p>\r\n\r\n<ul>\r\n	<li><a href=\"https://apps.apple.com/us/app/eticket-%C4%91%C3%A0-n%E1%BA%B5ng/id1563856876\" target=\"_blank\">E-Ticket Đ&agrave; Nẵng cho IOS</a></li>\r\n	<li><a href=\"https://play.google.com/store/apps/details?id=com.astraler.checkin19&amp;hl=vi&amp;gl=US\" target=\"_blank\">E-Ticket Đ&agrave; Nẵng cho Android</a></li>\r\n</ul>\r\n\r\n<p><img alt=\"Cách cập nhật giấy đi đường QR code trên điện thoại\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385556/ung-dung_1288x779-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 2:&nbsp;</strong>Mở ứng dụng&nbsp;<strong>E-Ticket Đ&agrave; Nẵng</strong>&nbsp;mới tải về l&ecirc;n &gt; Tiến h&agrave;nh&nbsp;<strong>qu&eacute;t m&atilde; QR</strong>&nbsp;để qu&eacute;t kiểm tra thời hạn mới. Sau đ&oacute; bạn h&atilde;y lưu m&atilde; QR giấy đi đường tr&ecirc;n thiết bị di động để sử dụng khi lưu th&ocirc;ng.</p>\r\n\r\n<p><img alt=\"Cách cập nhật giấy đi đường QR code trên điện thoại\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385556/app-cai_1280x1280-800-resize.jpg\" /></p>\r\n\r\n<p>Khi đến c&aacute;c chốt kiểm tra, bạn chỉ cần mở ứng dụng v&agrave; nhấn v&agrave;o mục<strong>&nbsp;Giấy đi đường của t&ocirc;i&nbsp;</strong>để xuất tr&igrave;nh m&atilde; QR đi đường của m&igrave;nh l&agrave; xong.</p>\r\n\r\n<p><img alt=\"Cách cập nhật giấy đi đường QR code trên điện thoại\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385556/di-duong_1280x1744-800-resize.jpg\" /></p>\r\n\r\n<p>Tr&ecirc;n đ&acirc;y l&agrave; c&aacute;ch cập nhật giấy đi đường QR code tr&ecirc;n điện thoại cực nhanh. Hy vọng b&agrave;i viết c&oacute; thể gi&uacute;p &iacute;ch được cho bạn.</p>', 1, 6, NULL, NULL, 1, NULL, 'Nguyễn Thị Như Phượng', NULL, '2021-09-29 03:04:54', '2021-09-29 03:04:54'),
 (20, 'App xanh là gì? Cách để có app xanh, app vàng, app đỏ Covid-19 cực kỳ đơn giản trên điện thoại của bạn', 'app-xanh-la-gi-cach-de-co-app-xanh-app-vang-app-do-covid-19-cuc-ky-don-gian-tren-dien-thoai-cua-ban', 'uploads/article/1632910231_cach-de-co-app-xanh-app-vang-app-do-covid_1280x720-800-resize.png', '<h2>Văn ph&ograve;ng Ch&iacute;nh phủ đ&atilde; c&oacute; văn bản y&ecirc;u cầu Bộ TT-TT sớm thống nhất một app ch&iacute;nh thức phục vụ c&ocirc;ng t&aacute;c ph&ograve;ng chống dịch Covid-19 duy nhất,&nbsp;quy định r&otilde; cho người c&oacute; app xanh, app v&agrave;ng v&agrave; app đỏ. Vậy app xanh l&agrave; g&igrave;?&nbsp;<a href=\"https://www.thegioididong.com/tin-tuc/cach-de-co-app-xanh-app-vang-app-do-covid-19-1385431\" target=\"_blank\">C&aacute;ch để c&oacute; app xanh, app v&agrave;ng, app đỏ Covid-19</a>&nbsp;tr&ecirc;n&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\">điện thoại</a>? Mời bạn theo d&otilde;i b&agrave;i viết nh&eacute;.</h2>', '<h3><strong>1. App xanh, app v&agrave;ng, app đỏ l&agrave; g&igrave;?</strong></h3>\r\n\r\n<p>Theo chỉ đạo của&nbsp;Thủ tướng Ch&iacute;nh phủ tại&nbsp;<a href=\"http://vpcp.chinhphu.vn/Home/Quy-dinh-ro-nguoi-co-app-xanh-duoc-di-chuyen/20219/30520.vgp\" target=\"_blank\">Th&ocirc;ng b&aacute;o số 242 ng&agrave;y 13/9/2021</a>&nbsp;của Văn ph&ograve;ng Ch&iacute;nh phủ,&nbsp;giao Bộ Th&ocirc;ng tin v&agrave; Truyền th&ocirc;ng thống nhất với Bộ C&ocirc;ng an, Bộ Y tế ph&aacute;t triển một ứng dụng ch&iacute;nh thức của Ban Chỉ đạo quốc gia ph&ograve;ng, chống dịch Covid-19, để người d&acirc;n sử dụng thuận tiện, tạm gọi l&agrave; ứng dụng ph&ograve;ng, chống COVID - PcCOVID. Trong đ&oacute;.</p>\r\n\r\n<ul>\r\n	<li>Người c&oacute; app xanh được di chuyển.</li>\r\n	<li>Người c&oacute; app v&agrave;ng hạn chế di chuyển.</li>\r\n	<li>Người c&oacute; app đỏ th&igrave; kh&ocirc;ng được di chuyển (Ở nh&agrave;).</li>\r\n</ul>\r\n\r\n<p><img alt=\"Cách để có app xanh, app vàng, app đỏ Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385431/cach-de-co-app-xanh-app-vang-app-do-covid-6_1280x720-800-resize.jpg\" /></p>\r\n\r\n<h3><strong>2. C&aacute;ch để c&oacute; app xanh, app v&agrave;ng, app đỏ Covid-19</strong></h3>\r\n\r\n<p><strong>*Ch&uacute; th&iacute;ch</strong>: Sổ Sức Khỏe Điện Tử l&agrave; ứng dụng của Văn ph&ograve;ng Bộ Y Tế Việt Nam. Tất cả th&ocirc;ng tin người d&acirc;n đ&atilde; khai b&aacute;o trước đ&acirc;y tr&ecirc;n c&aacute;c ứng dụng do c&aacute;c Bộ chỉ đạo x&acirc;y dựng, sẽ được tự động cập nhật chuyển sang ứng dụng ch&iacute;nh thức mới, m&agrave; kh&ocirc;ng bắt buộc bạn phải khai b&aacute;o lại từ đầu.</p>\r\n\r\n<p><strong>Bước 1</strong>. Để xem bạn c&oacute; app xanh, app v&agrave;ng hay app đỏ, bạn tải ứng dụng Sổ Sức Khỏe Điện tử về điện thoại của m&igrave;nh.</p>\r\n\r\n<ul>\r\n	<li><a href=\"https://play.google.com/store/apps/details?id=com.mohviettel.sskdt&amp;hl=vi&amp;gl=US\" target=\"_blank\">Sổ Sức Khỏe Điện Tử d&agrave;nh cho Android</a></li>\r\n	<li><a href=\"https://apps.apple.com/vn/app/s%E1%BB%95-s%E1%BB%A9c-kh%E1%BB%8Fe-%C4%91i%E1%BB%87n-t%E1%BB%AD/id1555911794?l=vi\" target=\"_blank\">Sổ Sức Khỏe Điện Tử d&agrave;nh cho iOS</a></li>\r\n</ul>\r\n\r\n<p><img alt=\"Cách để có app xanh, app vàng, app đỏ Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385431/cach-de-co-app-xanh-app-vang-app-do-covid-1_2213x2333-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 2</strong>. Bạn tiến h&agrave;nh&nbsp;<strong>Đăng nhập</strong>&nbsp;v&agrave;o ứng dụng. Nếu chưa c&oacute; t&agrave;i khoản, nhấn&nbsp;<strong>Đăng k&yacute;</strong>.</p>\r\n\r\n<p><img alt=\"Cách để có app xanh, app vàng, app đỏ Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385431/cach-de-co-app-xanh-app-vang-app-do-covid-2_2225x2333-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 3</strong>. Trong giao diện ứng dụng, bạn chọn mục&nbsp;<strong>C&aacute; nh&acirc;n</strong>&nbsp;&gt;&nbsp;<strong>Chứng nhận ngừa Covid</strong>.</p>\r\n\r\n<p><img alt=\"Cách để có app xanh, app vàng, app đỏ Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385431/cach-de-co-app-xanh-app-vang-app-do-covid-4_2213x2339-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 4</strong>. Bạn sẽ thấy Chứng nhận ti&ecirc;m chủng của m&igrave;nh k&egrave;m theo m&agrave;u sắc tương ứng l&agrave; Xanh, V&agrave;ng v&agrave; biểu tượng Đỏ nếu bạn chưa ti&ecirc;m vaccine.</p>\r\n\r\n<p><strong>*Lưu &yacute;</strong>:&nbsp;Nếu bạn đ&atilde; ti&ecirc;m vaccine COVID-19 m&agrave; ứng dụng vẫn chưa cập nhật chứng nhận ti&ecirc;m, h&atilde;y tham khảo:&nbsp;<a href=\"https://www.thegioididong.com/tin-tuc/cach-sua-thong-tin-tiem-vaccine-covid-19-bi-sai-1378434\" target=\"_blank\">C&aacute;ch sửa th&ocirc;ng tin ti&ecirc;m vaccine COVID-19 bị sai, thiếu khi đ&atilde; ti&ecirc;m vaccine</a>&nbsp;n&agrave;y nh&eacute;.</p>\r\n\r\n<p><img alt=\"Cách để có app xanh, app vàng, app đỏ Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/25/1385431/cach-de-co-app-xanh-app-vang-app-do-covid-5-_3486x2429-800-resize.jpg\" /></p>', 1, 7, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-29 03:10:31', '2021-09-29 03:10:31'),
 (21, 'Cách đăng ký mã QR địa điểm cho quán ăn của bạn bằng điện thoại, cực kỳ đơn giản và nhanh chóng', 'cach-dang-ky-ma-qr-dia-diem-cho-quan-an-cua-ban-bang-dien-thoai-cuc-ky-don-gian-va-nhanh-chong', 'uploads/article/1632910398_quet-ma_1280x721-800-resize.png', '<h2>Theo văn bản mới nhất của UBND TP.HCM y&ecirc;u cầu c&aacute;c hệ thống ph&acirc;n phối hiện đại như si&ecirc;u thị, cửa h&agrave;ng tiện lợi, c&aacute;c cửa h&agrave;ng kinh doanh... 100% phải trang bị camera v&agrave; m&atilde; QR để kh&aacute;ch h&agrave;ng đến khai b&aacute;o y tế. Gi&uacute;p quản l&yacute; th&ocirc;ng tin kh&aacute;ch mua h&agrave;ng để phục vụ ph&ograve;ng, chống dịch Covid-19 tốt nhất. Sau đ&acirc;y, m&igrave;nh sẽ hướng dẫn bạn&nbsp;<a href=\"https://www.thegioididong.com/tin-tuc/cach-dang-ky-ma-qr-dia-diem-cho-quan-an-1385237\" target=\"_blank\">c&aacute;ch đăng k&yacute; m&atilde; QR địa điểm cho qu&aacute;n ăn</a>&nbsp;bằng&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\">smartphone</a>&nbsp;tại nh&agrave; si&ecirc;u đơn giản nh&eacute;.</h2>', '<h3><strong>C&aacute;ch đăng k&yacute; m&atilde; QR địa điểm cho qu&aacute;n ăn</strong></h3>\r\n\r\n<p>Th&agrave;nh phố bắt buộc c&aacute;c cơ sở kinh doanh qu&aacute;n ăn khi mở lại phải tạo điểm qu&eacute;t m&atilde; QR để quản l&yacute; th&ocirc;ng tin người ra v&agrave;o, từ đ&oacute; cung cấp cho cơ quan chức năng trong trường hợp cần thiết để truy vết dịch bệnh dễ d&agrave;ng nhất.</p>\r\n\r\n<p><strong>Để đăng k&yacute; m&atilde; QR địa điểm cho qu&aacute;n ăn bạn l&agrave;m như sau:</strong></p>\r\n\r\n<p><strong>Bước 1:</strong>&nbsp;Bạn truy cập v&agrave;o hệ thống&nbsp;<strong>Trung t&acirc;m C&ocirc;ng nghệ ph&ograve;ng chống dịch Covid-19</strong>&nbsp;quốc gia theo link ph&iacute;a dưới.</p>\r\n\r\n<ul>\r\n	<li><a href=\"https://qr.tokhaiyte.vn/dkdd\" target=\"_blank\">Trung t&acirc;m C&ocirc;ng nghệ ph&ograve;ng chống dịch Covid-19</a></li>\r\n</ul>\r\n\r\n<p><strong>Bước 2:</strong>&nbsp;Tại đ&acirc;y bạn h&atilde;y&nbsp;<strong>điền th&ocirc;ng tin cơ sở kinh doanh</strong>&nbsp;của m&igrave;nh &gt; Chọn<strong>&nbsp;Tiếp tục bước 2.</strong></p>\r\n\r\n<p><img alt=\"Cách đăng ký mã QR địa điểm cho quán ăn\" src=\"https://cdn.tgdd.vn/Files/2021/09/24/1385237/b2_1280x1280-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 3:</strong>&nbsp;Một m&atilde; OTP sẽ được gửi về số điện thoại của bạn &gt; h&atilde;y<strong>&nbsp;nhập m&atilde; OTP</strong>&nbsp;v&agrave;o để tiến h&agrave;nh tạo m&atilde; nh&eacute;.</p>\r\n\r\n<p><img alt=\"Cách đăng ký mã QR địa điểm cho quán ăn\" src=\"https://cdn.tgdd.vn/Files/2021/09/24/1385237/b1_1280x1280-800-resize.jpg\" /></p>\r\n\r\n<p>Sau khi đ&atilde; c&oacute; m&atilde;, bạn h&atilde;y tải m&atilde; n&agrave;y xuống v&agrave; in ra để d&aacute;n ở cửa qu&aacute;n ăn của m&igrave;nh nhằm thuận tiện cho kh&aacute;ch h&agrave;ng thực hiện khai b&aacute;o nh&eacute;.</p>\r\n\r\n<p><img alt=\"Cách đăng ký mã QR địa điểm cho quán ăn\" src=\"https://cdn.tgdd.vn/Files/2021/09/24/1385237/quet_1280x2058-800-resize.jpg\" /></p>\r\n\r\n<p>Mỗi khi c&oacute; kh&aacute;ch h&agrave;ng n&agrave;o đến địa chỉ qu&aacute;n của bạn, chỉ cần mở ứng dụng Bluezone hoặc c&aacute;c ứng dụng được cấp ph&eacute;p kh&aacute;c để khai b&aacute;o y tế. Th&ocirc;ng tin địa điểm v&agrave; kh&aacute;ch h&agrave;ng sẽ được ghi lại để phục vụ c&ocirc;ng t&aacute;c điều tra dịch tễ khi cần thiết.</p>', 3, 8, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-29 03:13:18', '2021-09-29 03:13:18'),
-(22, 'Cách nhắn tin đăng ký tiêm vaccine Covid-19 trên điện thoại, cực nhanh chóng và thuận tiện cho bạn', 'cach-nhan-tin-dang-ky-tiem-vaccine-covid-19-tren-dien-thoai-cuc-nhanh-chong-va-thuan-tien-cho-ban', 'uploads/article/1632910556_thum_1280x720-800-resize.png', '<h2>Hiện nay, đ&atilde; c&oacute; rất nhiều c&aacute;ch đăng k&yacute; ti&ecirc;m vaccine được triển khai đến người d&acirc;n để việc ti&ecirc;m chủng được hiệu quả nhất. Mới đ&acirc;y, Sở Th&ocirc;ng Tin - Truyền Th&ocirc;ng TP.HCM vừa c&oacute; văn bản triển khai tổng đ&agrave;i tiếp nhận tin nhắn đăng k&yacute; ti&ecirc;m vắc xin ph&ograve;ng Covid-19 đối với người d&acirc;n chưa ti&ecirc;m mũi 1 theo chỉ đạo của Chủ tịch UBND TP.HCM. Sau đ&acirc;y l&agrave;&nbsp;<a href=\"https://www.thegioididong.com/tin-tuc/cach-nhan-tin-dang-ky-tiem-vaccine-covid-19-1384457\" target=\"_blank\">c&aacute;ch nhắn tin đăng k&yacute; ti&ecirc;m vaccine Covid-19</a>&nbsp;tr&ecirc;n&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\">smartphone</a>&nbsp;ngay tại nh&agrave;. H&atilde;y theo d&otilde;i b&agrave;i viết nh&eacute;.</h2>', '<h3><strong>C&aacute;ch nhắn tin đăng k&yacute; ti&ecirc;m vaccine Covid-19</strong></h3>\r\n\r\n<p>Theo Sở Th&ocirc;ng Tin - Truyền Th&ocirc;ng, từ&nbsp;<strong>10h ng&agrave;y 21-9</strong>, người từ 18 tuổi trở l&ecirc;n, chưa ti&ecirc;m mũi 1 vắc xin ph&ograve;ng Covid-19 v&agrave; đang ở tại TP.HCM c&oacute; thể gửi<strong>&nbsp;tin nhắn SMS cho tổng đ&agrave;i 8066</strong>&nbsp;để đăng k&yacute; ti&ecirc;m vaccine Covid-19.</p>\r\n\r\n<p>UBND c&aacute;c quận, huyện v&agrave; TP HCM tiếp nhận th&ocirc;ng tin đăng k&yacute; ti&ecirc;m vaccine từ hệ thống Tổng đ&agrave;i v&agrave; tổ chức ti&ecirc;m theo Kế hoạch ti&ecirc;m chủng của TP.HCM.</p>\r\n\r\n<p><img alt=\"Cách nhắn tin đăng ký tiêm vaccine Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/21/1384457/chich-vaccine_1280x720-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Để nhắn tin đăng k&yacute; ti&ecirc;m vaccine Covid-19 bạn h&atilde;y l&agrave;m như sau:</strong></p>\r\n\r\n<p>Đầu ti&ecirc;n bạn h&atilde;y&nbsp;<strong>mở ứng dụng tin nhắn</strong>&nbsp;tr&ecirc;n điện thoại của m&igrave;nh l&ecirc;n, soạn tin nhắn theo c&uacute; ph&aacute;p:&nbsp;<strong>MUI1 HoTen NamSinh Quan/Huyen</strong>&nbsp;gửi&nbsp;<strong>8066</strong>.</p>\r\n\r\n<p><strong>V&iacute; dụ:</strong>&nbsp;Đăng k&yacute; ti&ecirc;m vaccine cho người t&ecirc;n&nbsp;<strong>Nguyễn Văn A,&nbsp;</strong>sinh năm<strong>&nbsp;2000,&nbsp;</strong>sống tại<strong>&nbsp;T&acirc;n Ph&uacute;</strong>&nbsp;m&igrave;nh sẽ nhắn tin theo c&uacute; ph&aacute;p:&nbsp;<strong>MUI1 NGUYENVANA 2000 TANPHU</strong>&nbsp;gửi&nbsp;<strong>8066</strong>.</p>\r\n\r\n<p><img alt=\"Cách nhắn tin đăng ký tiêm vaccine Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/21/1384457/12_1280x1280-800-resize.jpg\" /></p>\r\n\r\n<p>Danh s&aacute;ch đăng k&yacute; ti&ecirc;m vaccine sẽ được chuyển qua thư điện tử đến UBND c&aacute;c quận, huyện v&agrave; TP Thủ Đức. Tần suất gửi danh s&aacute;ch đăng k&yacute; ti&ecirc;m vắc xin l&agrave; 1 giờ/lần.&nbsp;</p>', 1, 9, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-29 03:15:56', '2021-09-29 03:15:56'),
-(23, 'Mua điện thoại Xiaomi – Cơ hội trúng bộ quà Mieco cực khủng giá trị lên tới 20 triệu đồng', 'mua-dien-thoai-xiaomi-co-hoi-trung-bo-qua-mieco-cuc-khung-gia-tri-len-toi-20-trieu-dong', 'uploads/article/1632911286_1629544587_Mua-Xiaomi-trung-qua-20-trieu-803x420.png', '<h2>Trong th&aacute;ng 10 n&agrave;y, khi mua điện thoại Xiaomi bất kỳ, bạn sẽ c&oacute; cơ hội tr&uacute;ng thưởng bộ qu&agrave; Mieco gi&aacute; trị l&ecirc;n tới 20 triệu đồng. Nếu c&oacute; &yacute; định sắm điện thoại mới th&igrave; đừng bỏ lỡ minigame n&agrave;y nh&eacute;!</h2>', '<h2><strong>Sắm điện thoại Xiaomi &ndash; Cơ hội tr&uacute;ng bộ qu&agrave; trị gi&aacute; 20 triệu đồng</strong></h2>\r\n\r\n<p>Kh&aacute;ch h&agrave;ng mua điện thoại Xiaomi bất kỳ, chụp ảnh check in đăng tr&ecirc;n c&aacute;c phương tiện truyền th&ocirc;ng (Facebook, Insta&hellip;) hoặc lưu giữ h&igrave;nh ảnh sản phẩm trong điện thoại c&oacute; thể hiện ng&agrave;y giờ trong th&aacute;ng 8 đều c&oacute; cơ hội nhận được&nbsp;<strong>bộ qu&agrave; Mieco trị gi&aacute; 20 triệu đồng</strong>&nbsp;bao gồm:</p>\r\n\r\n<ul>\r\n	<li>01 Robot h&uacute;t bụi Xiaomi Vacuum Mop Pro</li>\r\n	<li>01 M&aacute;y lọc kh&ocirc;ng kh&iacute; Xiaomi Mi Air Purifier Pro/EU</li>\r\n	<li>01 Camera Mi 360 Home Security Camera 2K Pro</li>\r\n</ul>\r\n\r\n<p>Thời gian diễn ra chương tr&igrave;nh:&nbsp;<strong>01/10/2021 &ndash; 29/10/2021</strong></p>\r\n\r\n<p>Mobile Shop sẽ quay số trực tiếp tr&ecirc;n&nbsp;<strong><a href=\"https://www.facebook.com/hoanghamobilecom\">Fanpage</a></strong>&nbsp;th&ocirc;ng qua trang web&nbsp;<a href=\"https://www.random.org/\">random.org</a>&nbsp;để t&igrave;m ra vị kh&aacute;ch h&agrave;ng may mắn tr&uacute;ng thưởng.</p>\r\n\r\n<p>*Lưu &yacute;:</p>\r\n\r\n<ul>\r\n	<li>Chương tr&igrave;nh chỉ &aacute;p dụng cho điện thoại Xiaomi, kh&ocirc;ng &aacute;p dụng cho đồng hồ Xiaomi, tai nghe Xiaomi v&agrave; gia dụng th&ocirc;ng minh MiEco.</li>\r\n	<li>Qu&agrave; tặng kh&ocirc;ng c&oacute; gi&aacute; trị quy đổi th&agrave;nh tiền mặt.</li>\r\n	<li>Chương tr&igrave;nh kh&ocirc;ng &aacute;p dụng cho nh&acirc;n vi&ecirc;n tại Mobile Shop&nbsp;v&agrave; Xiaomi.</li>\r\n	<li>Trong t&igrave;nh huống tranh chấp quyết định cuối c&ugrave;ng thuộc về Mobile Shop.</li>\r\n</ul>', 2, 10, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-29 03:28:06', '2021-09-29 03:28:06');
+(22, 'Cách nhắn tin đăng ký tiêm vaccine Covid-19 trên điện thoại, cực nhanh chóng và thuận tiện cho bạn', 'cach-nhan-tin-dang-ky-tiem-vaccine-covid-19-tren-dien-thoai-cuc-nhanh-chong-va-thuan-tien-cho-ban', 'uploads/article/1632910556_thum_1280x720-800-resize.png', '<h2>Hiện nay, đ&atilde; c&oacute; rất nhiều c&aacute;ch đăng k&yacute; ti&ecirc;m vaccine được triển khai đến người d&acirc;n để việc ti&ecirc;m chủng được hiệu quả nhất. Mới đ&acirc;y, Sở Th&ocirc;ng Tin - Truyền Th&ocirc;ng TP.HCM vừa c&oacute; văn bản triển khai tổng đ&agrave;i tiếp nhận tin nhắn đăng k&yacute; ti&ecirc;m vắc xin ph&ograve;ng Covid-19 đối với người d&acirc;n chưa ti&ecirc;m mũi 1 theo chỉ đạo của Chủ tịch UBND TP.HCM. Sau đ&acirc;y l&agrave;&nbsp;<a href=\"https://www.thegioididong.com/tin-tuc/cach-nhan-tin-dang-ky-tiem-vaccine-covid-19-1384457\" target=\"_blank\">c&aacute;ch nhắn tin đăng k&yacute; ti&ecirc;m vaccine Covid-19</a>&nbsp;tr&ecirc;n&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\">smartphone</a>&nbsp;ngay tại nh&agrave;. H&atilde;y theo d&otilde;i b&agrave;i viết nh&eacute;.</h2>', '<h3><strong>C&aacute;ch nhắn tin đăng k&yacute; ti&ecirc;m vaccine Covid-19</strong></h3>\r\n\r\n<p>Theo Sở Th&ocirc;ng Tin - Truyền Th&ocirc;ng, từ&nbsp;<strong>10h ng&agrave;y 21-9</strong>, người từ 18 tuổi trở l&ecirc;n, chưa ti&ecirc;m mũi 1 vắc xin ph&ograve;ng Covid-19 v&agrave; đang ở tại TP.HCM c&oacute; thể gửi<strong>&nbsp;tin nhắn SMS cho tổng đ&agrave;i 8066</strong>&nbsp;để đăng k&yacute; ti&ecirc;m vaccine Covid-19.</p>\r\n\r\n<p>UBND c&aacute;c quận, huyện v&agrave; TP HCM tiếp nhận th&ocirc;ng tin đăng k&yacute; ti&ecirc;m vaccine từ hệ thống Tổng đ&agrave;i v&agrave; tổ chức ti&ecirc;m theo Kế hoạch ti&ecirc;m chủng của TP.HCM.</p>\r\n\r\n<p><img alt=\"Cách nhắn tin đăng ký tiêm vaccine Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/21/1384457/chich-vaccine_1280x720-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Để nhắn tin đăng k&yacute; ti&ecirc;m vaccine Covid-19 bạn h&atilde;y l&agrave;m như sau:</strong></p>\r\n\r\n<p>Đầu ti&ecirc;n bạn h&atilde;y&nbsp;<strong>mở ứng dụng tin nhắn</strong>&nbsp;tr&ecirc;n điện thoại của m&igrave;nh l&ecirc;n, soạn tin nhắn theo c&uacute; ph&aacute;p:&nbsp;<strong>MUI1 HoTen NamSinh Quan/Huyen</strong>&nbsp;gửi&nbsp;<strong>8066</strong>.</p>\r\n\r\n<p><strong>V&iacute; dụ:</strong>&nbsp;Đăng k&yacute; ti&ecirc;m vaccine cho người t&ecirc;n&nbsp;<strong>Nguyễn Văn A,&nbsp;</strong>sinh năm<strong>&nbsp;2000,&nbsp;</strong>sống tại<strong>&nbsp;T&acirc;n Ph&uacute;</strong>&nbsp;m&igrave;nh sẽ nhắn tin theo c&uacute; ph&aacute;p:&nbsp;<strong>MUI1 NGUYENVANA 2000 TANPHU</strong>&nbsp;gửi&nbsp;<strong>8066</strong>.</p>\r\n\r\n<p><img alt=\"Cách nhắn tin đăng ký tiêm vaccine Covid-19\" src=\"https://cdn.tgdd.vn/Files/2021/09/21/1384457/12_1280x1280-800-resize.jpg\" /></p>\r\n\r\n<p>Danh s&aacute;ch đăng k&yacute; ti&ecirc;m vaccine sẽ được chuyển qua thư điện tử đến UBND c&aacute;c quận, huyện v&agrave; TP Thủ Đức. Tần suất gửi danh s&aacute;ch đăng k&yacute; ti&ecirc;m vắc xin l&agrave; 1 giờ/lần.&nbsp;</p>', 1, 9, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-29 03:15:56', '2021-09-29 03:15:56');
 INSERT INTO `articles` (`id`, `title`, `slug`, `image`, `summary`, `description`, `type`, `position`, `status`, `url`, `is_active`, `user_id`, `meta_title`, `meta_description`, `created_at`, `updated_at`) VALUES
-(24, 'Mua Galaxy Buds2 tặng ngay gói ưu đãi VIP Zing MP3 sử dụng trong 1 năm', 'mua-galaxy-buds2-tang-ngay-goi-uu-dai-vip-zing-mp3-su-dung-trong-1-nam', 'uploads/article/1632911694_uu-dai-mua-Galaxy-Buds2-1-768x476.png', '<h2>Tại sự kiện Galaxy Unpacked, Samsung đ&atilde; ra mắt tai nghe Galaxy Buds2 với nhiều cải tiến vượt trội. Sản phẩm sẽ được mở b&aacute;n tại Mobile Shop v&agrave;o ng&agrave;y 2/10. Những kh&aacute;ch h&agrave;ng đầu ti&ecirc;n sở hữu Galaxy Buds2 sẽ nhận được ưu đ&atilde;i mua h&agrave;ng đặc biệt.</h2>', '<h2><strong>Ưu đ&atilde;i d&agrave;nh ri&ecirc;ng cho những kh&aacute;ch h&agrave;ng đầu ti&ecirc;n mua Galaxy Buds2</strong></h2>\r\n\r\n<p>Kh&aacute;ch h&agrave;ng mua Galaxy Buds2 tại Ho&agrave;ng H&agrave; Mobile trong thời gian từ&nbsp;<strong>2/10/2021 &ndash; 10/10/2021</strong>&nbsp;đều sẽ nhận được:</p>\r\n\r\n<ul>\r\n	<li><strong>01 Ốp lưng Buds2</strong>&nbsp;trị gi&aacute; 500.000đ (Số lượng c&oacute; hạn).</li>\r\n	<li><strong>01 G&oacute;i ưu đ&atilde;i VIP Zing MP3&nbsp;</strong>sử dụng l&ecirc;n đến 1 năm trị gi&aacute; 499.000đ.</li>\r\n</ul>\r\n\r\n<p>Hoặc chọn&nbsp;<strong>ưu đ&atilde;i giảm th&ecirc;m 10% khi mua Galaxy Buds2</strong>&nbsp;c&ugrave;ng với&nbsp;<strong>Galaxy Z Fold3 5G</strong>&nbsp;hoặc&nbsp;<strong>Galaxy Z Flip3 5G.</strong></p>', 2, 11, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-29 03:34:54', '2021-10-11 01:12:24'),
-(25, 'Hướng dẫn cách khóa ứng dụng trên iPhone bằng Face ID hoặc bằng vân tay của bạn cực kỳ đơn giản', 'huong-dan-cach-khoa-ung-dung-tren-iphone-bang-face-id-hoac-bang-van-tay-cua-ban-cuc-ky-don-gian', 'uploads/article/1635345019_faceid.png', '<h2>Khi ai đ&oacute; mượn&nbsp;<a href=\"https://www.thegioididong.com/dtdd-apple-iphone\" target=\"_blank\">iPhone</a>&nbsp;của bạn v&agrave; c&oacute; một v&agrave;i ứng dụng m&agrave; bạn kh&ocirc;ng muốn người kh&aacute;c truy cập v&agrave;o. Vậy th&igrave; h&atilde;y xem ngay b&agrave;i viết hướng dẫn n&agrave;y, gi&uacute;p c&aacute;c bạn&nbsp;<a href=\"http://www.thegioididong.com/tin-tuc/cach-khoa-ung-dung-tren-iphone-bang-face-id-1391566\" target=\"_blank\">c&aacute;ch kh&oacute;a ứng dụng tr&ecirc;n iPhone bằng Face ID</a>&nbsp;hoặc bằng v&acirc;n tay (Touch ID) cực kỳ đơn giản để bảo mật c&aacute;c th&ocirc;ng tin c&aacute; nh&acirc;n tr&ecirc;n&nbsp;<a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\">điện thoại</a>&nbsp;của bạn hơn.</h2>', '<h3><strong>C&aacute;ch kh&oacute;a ứng dụng bằng Face ID hoặc v&acirc;n tay tr&ecirc;n iPhone</strong></h3>\r\n\r\n<p>Đầu ti&ecirc;n, để thiết lập được t&iacute;nh năng n&agrave;y bạn cần sử dụng ứng dụng Ph&iacute;m tắt. Đ&acirc;y l&agrave; ứng dụng mặc định tr&ecirc;n những chiếc iPhone. Nếu bạn lỡ tay x&oacute;a đi th&igrave; c&oacute; thể tải lại bằng đường link b&ecirc;n dưới nh&eacute;.</p>\r\n\r\n<ul>\r\n	<li><a href=\"https://apps.apple.com/vn/app/ph%C3%ADm-t%E1%BA%AFt/id915249334?l=vi\" target=\"_blank\">Link tải ứng dụng Ph&iacute;m tắt</a></li>\r\n</ul>\r\n\r\n<p><img alt=\"Cách khóa ứng dụng trên iPhone bằng Face ID hoặc Touch ID cực đơn giản\" src=\"https://cdn.tgdd.vn/Files/2021/10/19/1391566/cachkhoaungdungtreniphonebangfaceidhoactouchidcucdongian2-_1366x768-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 1:</strong>&nbsp;Bạn mở ứng dụng Ph&iacute;m tắt l&ecirc;n v&agrave; chọn v&agrave;o mục&nbsp;<strong>Tự động h&oacute;a &gt; Tạo mục tự động h&oacute;a c&aacute; nh&acirc;n.</strong>&nbsp;Ở mục tiếp theo bạn chọn v&agrave;o&nbsp;<strong>d&ograve;ng ứng dụng.</strong></p>\r\n\r\n<p><img alt=\"Cách khóa ứng dụng trên iPhone bằng Face ID hoặc Touch ID cực đơn giản\" src=\"https://cdn.tgdd.vn/Files/2021/10/19/1391566/cachkhoaungdungtreniphonebangfaceid1_2277x2436-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 2:</strong>&nbsp;Ở phần n&agrave;y bạn c&oacute; thể&nbsp;<strong>chọn v&agrave;o d&ograve;ng ứng dụng như trong h&igrave;nh để chọn app m&agrave; bạn muốn kh&oacute;a</strong>, bạn c&oacute; thể chọn nhiều app c&ugrave;ng l&uacute;c.&nbsp;</p>\r\n\r\n<p><img alt=\"Cách khóa ứng dụng trên iPhone bằng Face ID hoặc Touch ID cực đơn giản\" src=\"https://cdn.tgdd.vn/Files/2021/10/19/1391566/cachkhoaungdungtreniphonebangfaceid5_2283x2436-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 3:</strong>&nbsp;Ở phần tiếp, bạn chọn v&agrave;o mục&nbsp;<strong>Th&ecirc;m t&aacute;c vụ &gt; T&igrave;m kiếm v&agrave; chọn Bắt đầu hẹn giờ.</strong></p>\r\n\r\n<p><img alt=\"Cách khóa ứng dụng trên iPhone bằng Face ID hoặc Touch ID cực đơn giản\" src=\"https://cdn.tgdd.vn/Files/2021/10/19/1391566/cachkhoaungdungtreniphonebangfaceid4_2273x2436-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 4:</strong>&nbsp;Tiếp theo bạn chọn thời gian l&agrave;&nbsp;<strong>1 gi&acirc;y</strong>&nbsp;th&ocirc;i nh&eacute;, v&igrave; 1 gi&acirc;y người kh&aacute;c vẫn chưa kịp l&agrave;m g&igrave; ứng dụng của bạn.</p>\r\n\r\n<p><img alt=\"Cách khóa ứng dụng trên iPhone bằng Face ID hoặc Touch ID cực đơn giản\" src=\"https://cdn.tgdd.vn/Files/2021/10/19/1391566/cachkhoaungdungtreniphonebangfaceid3_2292x2436-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 5:&nbsp;</strong>Cuối c&ugrave;ng bạn&nbsp;<strong>tắt mục hỏi trước khi chạy v&agrave; chọn x&aacute;c nhận</strong>&nbsp;kh&ocirc;ng hỏi nữa l&agrave; xong.</p>\r\n\r\n<p><img alt=\"Cách khóa ứng dụng trên iPhone bằng Face ID hoặc Touch ID cực đơn giản\" src=\"https://cdn.tgdd.vn/Files/2021/10/19/1391566/cachkhoaungdungtreniphonebangfaceid2_2262x2436-800-resize.jpg\" /></p>\r\n\r\n<p><strong>Bước 6:</strong>&nbsp;B&acirc;y giờ bạn&nbsp;<strong>truy cập v&agrave;o ứng dụng bị kh&oacute;a&nbsp;</strong>tr&ecirc;n iPhone. Ngay 1 gi&acirc;y sau,&nbsp;<strong>iPhone sẽ tự động kh&oacute;a m&agrave;n h&igrave;nh</strong>&nbsp;v&agrave; bạn cần mở kh&oacute;a bằng Face ID hoặc Touch ID (V&acirc;n tay) để v&agrave;o được ứng dụng nh&eacute;.</p>\r\n\r\n<p><img alt=\"khóa ứng dụng cho iPhone bằng shortcut\" src=\"https://cdn.tgdd.vn/Files/2021/10/19/1391566/khoaungdungchoiphonebangshortcut_1000x972-800-resize.jpg\" /></p>\r\n\r\n<p>Bạn đ&atilde; kh&oacute;a ứng dụng bằng Face ID hoặc Touch ID tr&ecirc;n iPhone chưa? Nếu thấy b&agrave;i viết hữu &iacute;ch cho m&igrave;nh xin một like v&agrave; một share nh&eacute;. Rất cảm ơn c&aacute;c bạn đ&atilde; xem b&agrave;i viết.</p>', 1, 12, NULL, 'https://www.thegioididong.com/tin-tuc/cach-khoa-ung-dung-tren-iphone-bang-face-id-1391566', 1, NULL, NULL, NULL, '2021-10-27 02:59:28', '2021-10-27 07:30:19');
+(23, 'TỔNG HỢP CÁC MẪU ÁO BÓNG ĐÁ NAM ĐẸP CHÍNH HÃNG EGAN | CP SPORT 2023', 'tong-hop-cac-mau-ao-bong-da-nam-dep-chinh-hang-egan-cp-sport-2023', 'uploads/article/1708079325_tintuc3.png', '<h2>Nếu bạn đang t&igrave;m đồ một bộ đồ đ&aacute; b&oacute;ng&nbsp;nam chất lượng ch&iacute;nh h&atilde;ng th&igrave; Egan ch&iacute;nh l&agrave; sự lựa chọn h&agrave;ng đầu. C&ugrave;ng xem một số bộ sưu tập b&oacute;ng đ&aacute;&nbsp;của Egan&nbsp;ở dưới để chọn cho m&igrave;nh một bộ đồ&nbsp;đẹp để ra s&acirc;n nh&eacute;:</h2>', '<p>1.&nbsp;<strong>BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; NAM&nbsp;FANTASY</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/334052896_135033779487957_8400423857189901950_n_357336c8cf264ea4946ba280a34d3bbc_grande.jpg\" /></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-bong-da-fantasy\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<ul>\r\n	<li>Chất liệu&nbsp;<strong><em>vải c&aacute; sấu</em></strong>&nbsp;đem đến sự trải nghiệm tuyệt vời với sự mềm mại, độ co gi&atilde;n, thấm h&uacute;t mồ h&ocirc;i cực tốt.</li>\r\n	<li>Họa tiết trẻ trung, ph&aacute; c&aacute;ch, kết hợp phối sườn hai b&ecirc;n độc đ&aacute;o, tạo điểm nhấn đặc biệt cho bộ trang phục.</li>\r\n	<li>C&ocirc;ng nghệ in chuyển nhiệt mang lại chất lượng h&igrave;nh in cao, bền bỉ, ch&acirc;n thực, bền m&agrave;u theo thời gian.</li>\r\n	<li>Logo c&oacute; m&agrave;u sắc r&otilde; n&eacute;t, độ chi tiết cao, bền đẹp.</li>\r\n	<li>Hoạt chất kh&aacute;ng khuẩn cao đạt&nbsp;<em><strong>99,8%</strong></em>, chỉ số chống nắng ưu việt đạt&nbsp;<em><strong>UV/UPF 70+</strong></em>, bảo vệ làn da của bạn an to&agrave;n khi hoạt động ngo&agrave;i trời.</li>\r\n	<li>6 m&agrave;u nổi bật: Trắng - B&iacute;ch - V&agrave;ng - Đỏ - Biển - Cam.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>2. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; NAM VICTOR</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/z4070364242308_9814b9ce5f2124108282d2073329402b_6e05baa94df746f2b119ce16c7120bba_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-bong-da-victor\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>Với những cải tiến về chất lượng, BST VICTOR đ&aacute;p ứng mọi t&iacute;nh năng vượt trội v&agrave; mang đến cho bạn một trải nghiệm tuyệt vời:</p>\r\n\r\n<ul>\r\n	<li>C&ocirc;ng nghệ vải&nbsp;<strong><em>E-COOLDRY</em></strong>&nbsp;độc quyền của EGAN, được dệt từ sợi đặc biệt mang lại chất vải mềm mại dễ chịu, thấm h&uacute;t mồ h&ocirc;i cực tốt, tho&aacute;t nhiệt thật nhanh, chống nhiễm lạnh v&agrave;o cơ thể.</li>\r\n	<li>Bo dệt được sản xuất từ d&ograve;ng m&aacute;y nhập khẩu t&acirc;n tiến nhất, tạo ra chất bo co gi&atilde;n thoải m&aacute;i, gi&uacute;p bạn tự tin vận động.</li>\r\n	<li>Ch&uacute; trọng sức khỏe người d&ugrave;ng l&agrave; yếu tố h&agrave;ng đầu của h&atilde;ng thể thao Egan, trang phục Victor c&oacute; th&ecirc;m hoạt chất kh&aacute;ng khuẩn cao đạt 99,8%, chỉ số chống nắng ưu việt đạt UV/UPF 70+, bảo vệ làn da của bạn an to&agrave;n khi hoạt động ngo&agrave;i trời.</li>\r\n	<li>Điểm nhấn của BST lần n&agrave;y l&agrave; logo Egan được l&agrave;m từ chất liệu Silicon cao cấp, hiệu ứng 3D sang trọng ( l&agrave; c&ocirc;ng nghệ độc quyền tại Việt Nam).</li>\r\n	<li>VICTOR gi&uacute;p bạn dễ d&agrave;ng lựa chọn với 6 t&ocirc;ng m&agrave;u: Trắng - V&agrave;ng kem - Hồng - Đỏ - Xanh da - T&iacute;m.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>3. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; NAM SPIRIT&nbsp;</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/z4070364238317_04edb1913a25455074eaeaea6c9ff3c6_5961816740d549d29aba87451e7b57f5_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-bong-da-egan-spirit-san-pham-tu-soi-tai-che\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>SPIRIT l&agrave; d&ograve;ng sản phẩm cao cấp của Egan được l&agrave;m từ sợi t&aacute;i chế&nbsp;<strong><em>Recycled Polyester</em></strong>&nbsp;hướng đến xu hướng thời trang bền vững. Kh&ocirc;ng chỉ l&agrave; l&agrave; một sản phẩm th&acirc;n thiện với m&ocirc;i trường, SPIRIT c&ograve;n sở hữu nhiều đặc điểm nổi bật:</p>\r\n\r\n<ul>\r\n	<li>Chất liệu vải từ sợi t&aacute;i chế -&nbsp;<em><strong>Recycled Polyester</strong></em>, bền bỉ với thời gian c&ugrave;ng khả năng thấm h&uacute;t mồ h&ocirc;i tốt nhưng tho&aacute;t hơi nhanh gi&uacute;p bạn lu&ocirc;n cảm thấy nhẹ nh&agrave;ng v&agrave; thoải m&aacute;i tr&ecirc;n s&acirc;n.</li>\r\n	<li>Bo cổ v&agrave; tay &aacute;o với c&ocirc;ng nghệ dệt họa tiết độc quyền, điểm nhấn ấn tượng cho bộ đồ.</li>\r\n	<li>Quần được may đắp ch&eacute;o tinh tế l&agrave;m tăng th&ecirc;m t&iacute;nh thẩm mỹ cho BST, tiếp sức cho đ&ocirc;i ch&acirc;n kiến tạo b&agrave;n thắng.</li>\r\n	<li>Khả năng chống nắng đạt UV/UPF 70+, khả năng kh&aacute;ng khuẩn đạt 99,8% theo ti&ecirc;u chuẩn AATCC 100-2012, bảo vệ l&agrave;n da v&agrave; sức khỏe qua từng cơn nắng n&oacute;ng.</li>\r\n	<li>M&agrave;u sắc dễ mặc v&agrave; ph&ugrave; hợp với nhiều v&oacute;c d&aacute;ng: Trắng - Đỏ - Cam - Ngọc - Biển - Đen.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>4. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; NAM ZENOS</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/214450089_1901392206692450_5099314017574254049_n_8d3e46274040479293f9b8d4a0b17ffd_grande.jpg\" /></p>\r\n\r\n<p><a href=\"https://cp-sport.vn/products/quan-ao-bong-da-egan-zenos-hoa-tiet-van-noi-sang-bong-bat-mat-va-manh-me-tao-su-tu-tin-cho-nguoi-dung-bd07\">Xem th&ecirc;m</a></p>\r\n\r\n<p>ZENOS l&agrave; d&ograve;ng sản phẩm lấy cảm hứng từ sự thanh tho&aacute;t trong thiết kế, tinh tế từ sợi vải, sự khao kh&aacute;t chứng tỏ bản lĩnh tr&ecirc;n s&acirc;n cỏ v&agrave; quyết t&acirc;m gi&agrave;nh chiến thắng.</p>\r\n\r\n<ul>\r\n	<li>Chống tia UV UPF 50+</li>\r\n	<li>Bảo vệ tối đa l&agrave;n da bạn khỏi c&aacute;i nắng h&egrave; gay gắt</li>\r\n	<li>Kh&aacute;ng khuẩn đến 99.8% theo chuẩn AATCC an to&agrave;n cho l&agrave;n da của bạn.</li>\r\n	<li>Thiết kế thời trang mang phong c&aacute;ch hiện đại, tinh tế thể hiện niềm đam m&ecirc; kh&aacute;t khao vượt qua th&aacute;ch thức:</li>\r\n	<li>Họa tiết nổi bật, ph&aacute; c&aacute;ch, độc lạ gi&uacute;p bạn trở n&ecirc;n mạnh mẽ, tự tin thể hiện m&igrave;nh.</li>\r\n	<li>C&ocirc;ng nghệ &eacute;p cao tần t&ocirc;n sản phẩm vừa tinh tế vừa hiện đại khi mặc.</li>\r\n	<li>Vải lưới th&acirc;n &aacute;o sau gi&uacute;p bạn tho&aacute;ng m&aacute;t, h&uacute;t mồ h&ocirc;i trong hoạt động thể thao cường độ lớn.</li>\r\n	<li>Trang phục đa dạng với c&aacute;c gam m&agrave;u thời thượng: Đỏ - Ngọc - V&agrave;ng - Da - Trắng.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>5. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute;&nbsp;NAM ALPHA - TD04</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/130301484_1197177130679730_638898245181160666_n_1247d82541f548ca9f3986d2cfb26b9e_grande.jpg\" /></p>\r\n\r\n<p><a href=\"https://cp-sport.vn/products/quan-ao-bong-da-alpha-egan-hoa-tiet-camo-thoang-mat-de-mac-phu-hop-luyen-tap-the-thao-td04\">Xem th&ecirc;m</a></p>\r\n\r\n<p>Bộ sưu tập 𝐀𝐋𝐏𝐇𝐀-𝐓𝐃𝟎𝟒 l&agrave; sự kết hợp mới mẻ giữa Egan v&agrave; cầu thủ B&ugrave;i Tiến Dũng. Ngo&agrave;i thiết kế tinh tế với chất liệu vải dệt camo độc quyền, c&ocirc;ng nghệ &eacute;p cao tần tinh tế tr&ecirc;n sườn quần, sản phẩm c&ograve;n mang lại cảm gi&aacute;c thoải m&aacute;i tối đa nhờ c&ocirc;ng nghệ E-coolmax, gi&uacute;p người mặc c&oacute; thể tự tin nhất để tỏa s&aacute;ng trong từng khoảnh khắc ri&ecirc;ng của m&igrave;nh.</p>\r\n\r\n<ul>\r\n	<li>Sản phẩm được dệt họa tiết camo độc quyền theo c&ocirc;ng nghệ&nbsp;<strong><em>E-coolmax</em></strong>, sợi vải co gi&atilde;n 4 chiều, mang lại cảm gi&aacute;c tho&aacute;ng m&aacute;t, thấm h&uacute;t mồ h&ocirc;i.</li>\r\n	<li>Chống tia UV đạt UPF 50+ theo ti&ecirc;u chuẩn AATCC 183-2016.</li>\r\n	<li>T&iacute;nh kh&aacute;ng khuẩn đạt 99% theo ti&ecirc;u chuẩn AATCC 100-2012.</li>\r\n	<li>Mực in theo ti&ecirc;u chuẩn Ch&acirc;u &Acirc;u (chứng nhận Eco Passport) an to&agrave;n cho người ti&ecirc;u d&ugrave;ng.</li>\r\n	<li>M&agrave;u sắc: Trắng phối Ngọc &ndash; Biển &ndash; Hồng - Đỏ - Chuối - V&agrave;ng</li>\r\n</ul>\r\n\r\n<p><em><strong>EGAN</strong></em>&nbsp;là thương hiệu thuộc ph&acirc;n khúc trang phục th&ecirc;̉ thao cao c&acirc;́p&nbsp;<em><strong>&ldquo;Made in Vietnam&rdquo;</strong></em>, các sản ph&acirc;̉m&nbsp;<em><strong>EGAN</strong></em>&nbsp;nhanh chóng được sự đón nhận của các khách hàng và chi&ecirc;́m nhi&ecirc;̀u thị ph&acirc;̀n trong nước vì tính năng, ch&acirc;́t lượng, m&acirc;̃u mã đẹp,&nbsp;được sử dụng ch&acirc;́t liệu vải ch&ocirc;́ng được tia UV giúp bảo vệ&nbsp;sức khỏe cho người sử dụng.</p>\r\n\r\n<p><em><strong>CP SPORT</strong></em>&nbsp;l&agrave;&nbsp;cửa h&agrave;ng sản xu&acirc;́t đ&ocirc;̀ th&ecirc;̉ thao chuy&ecirc;n nghiệp&nbsp;tại Việt Nam bao gồm đa dạng&nbsp;trang phục b&oacute;ng đ&aacute;, b&oacute;ng chuyền, đồ thể thao v&agrave; phụ kiện,...Với ch&acirc;́t lượng, uy tín và năng su&acirc;́t cao đến với&nbsp;<em><strong>CP SPORT</strong></em>, kh&aacute;ch h&agrave;ng sẽ t&igrave;m thấy những mẫu m&atilde; đa dạng v&agrave; mới nhất, ph&ugrave; hợp với nhu cầu của mỗi người. Nhắn tin ngay với<em><strong>&nbsp;<a href=\"https://www.facebook.com/CongtythethaoCPSPORT\">CP SPORT</a></strong></em>&nbsp;để mua h&agrave;ng nh&eacute;!</p>', 2, 10, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-29 03:28:06', '2024-02-16 10:28:45'),
+(24, 'TỔNG HỢP CÁC MẪU ÁO BÓNG ĐÁ NAM ĐẸP CHÍNH HÃNG CP | CP SPORT 2023', 'tong-hop-cac-mau-ao-bong-da-nam-dep-chinh-hang-cp-cp-sport-2023', 'uploads/article/1708079232_tintuc2.png', '<h2>Nếu bạn đang t&igrave;m đồ đ&aacute; b&oacute;ng&nbsp;nam chất lượng ch&iacute;nh h&atilde;ng th&igrave;&nbsp;<a href=\"https://www.facebook.com/CongtythethaoCPSPORT\"><strong>CP SPORT</strong></a>&nbsp;ch&iacute;nh l&agrave; sự lựa chọn h&agrave;ng đầu. Đ&aacute;p ứng một số y&ecirc;u cầu như: chất liệu cao cấp, m&agrave;u sắc đẹp, form &aacute;o&nbsp;vừa vặn v&agrave; thoải m&aacute;i cho người mặc. C&ugrave;ng xem một số bộ sưu tập b&oacute;ng đ&aacute;&nbsp;ch&iacute;nh h&atilde;ng CP uy t&iacute;n, chất lượng được liệt k&ecirc; ở dưới đ&acirc;y nh&eacute;:</h2>', '<p><strong>1. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; JUPITER&nbsp;</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/z4070363940527_2b23453df71fefec4cb69dcc6a98dd70_ba0855ed0bb5487f86965fbad8142026_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-bong-da-jupiter\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>Trang phục được l&agrave;m từ chất vải thun lạnh, tạo cảm gi&aacute;c mềm mại, vận động thoải m&aacute;i.</li>\r\n	<li>Th&acirc;n &aacute;o được &eacute;p ch&igrave;m hoa văn s&aacute;ng b&oacute;ng, vừa bắt mắt v&agrave; mạnh mẽ với c&ocirc;ng nghệ &eacute;p cao tần hiện đại.</li>\r\n	<li>Hoa văn tr&ecirc;n tay &aacute;o được thiết kế theo phong c&aacute;ch c&aacute; t&iacute;nh, trẻ trung gi&uacute;p bạn nổi bật tr&ecirc;n s&acirc;n.</li>\r\n	<li>Trang phục form d&aacute;ng chuẩn, t&ocirc;n l&ecirc;n những đường n&eacute;t khỏe mạnh của cơ thể. Thiết kế &aacute;o dạng cổ tim hiện đại với m&agrave;u sắc đồng bộ với quần.</li>\r\n	<li>Sản phẩm an to&agrave;n cho l&agrave;n da, th&acirc;n thiện cho người d&ugrave;ng khi sử dụng mực in theo ti&ecirc;u chuẩn Ch&acirc;u &Acirc;u.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>2. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; ARCA</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/z4070388661232_69c48a223e058663ac777b9e6bb1c4e5_6af33650e2044e1a94edde77c929b8c1_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-bong-da-arca-nam-1\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>BST trang phục b&oacute;ng đ&aacute; ARCA được l&agrave;m từ vải m&egrave; sọc độc quyền. Đ&acirc;y l&agrave; d&ograve;ng vải thể thao chuy&ecirc;n dụng, mang lại cho bạn sự thoải m&aacute;i khi tập luyện. Với cấu tr&uacute;c dệt tho&aacute;ng kh&iacute;, tho&aacute;t nhiệt cực tốt, gi&uacute;p bạn tự tin v&agrave; tập trung trong thi đấu.</li>\r\n	<li>Form d&aacute;ng hơi &ocirc;m nhẹ, t&ocirc;n l&ecirc;n những đường n&eacute;t mạnh mẽ, khỏe khoắn khi bạn chơi thể thao.</li>\r\n	<li>Trang phục sử dụng mực in theo ti&ecirc;u chuẩn Ch&acirc;u &Acirc;u ( đạt chứng nhận Eco Passport ) gi&uacute;p cho m&agrave;u &aacute;o lu&ocirc;n bền đẹp v&agrave; an to&agrave;n cho người d&ugrave;ng.</li>\r\n	<li>Logo CP được n&acirc;ng cấp th&agrave;nh decal phản quang nhiều m&agrave;u, 6 bộ l&agrave; 6 m&agrave;u decal kh&aacute;c nhau, c&oacute; phản quang ph&aacute;t s&aacute;ng v&agrave;o ban đ&ecirc;m.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>3.&nbsp;BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; NITRO</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/z4070363940519_61aa09fa7427c22f72a52ba56383175f_70df4733bb924690b9fc96112f85f16c_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-bong-da-nitro\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>Chất vải: mềm mỏng, tho&aacute;ng m&aacute;t, thấm mồ h&ocirc;i tốt v&agrave; nhanh kh&ocirc;.</li>\r\n	<li>Cổ &aacute;o, lai tay, hoa văn: được phối c&aacute;c t&ocirc;ng m&agrave;u độc đ&aacute;o, ph&aacute;t huy sự mạnh mẽ từ những hoa văn tia s&eacute;t.</li>\r\n	<li>Trang phục mang phong c&aacute;ch c&aacute; t&iacute;nh, thể thao gi&uacute;p kh&aacute;ch h&agrave;ng tự tin tr&agrave;n đầy năng lượng.</li>\r\n	<li>T&iacute;nh năng chuy&ecirc;n dụng trong thể thao: chống nhăn, kh&ocirc;ng b&aacute;m d&iacute;nh gi&uacute;p cơ thể thoải m&aacute;i, dễ chịu.</li>\r\n	<li>Logo CP SPORT được n&acirc;ng cấp với c&ocirc;ng nghệ silicone mới, t&ocirc; điểm cho trang phục th&ecirc;m bắt mắt, ấn tượng.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>4. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; RYDER</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/z4070363949828_cbb3c9ceb9a8621b2646de446efedca3_ffa14805efa240218a3f9a9316659a4a_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-the-thao-da-bong-nam-cp-sport-ryder-thiet-ke-manh-me-chat-lieu-cao-cap-thoai-mai-thoat-nhiet-nhanh-bd11\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>Chất liệu vải tho&aacute;ng m&aacute;t gi&uacute;p tho&aacute;t nhiệt nhanh khi chơi thể thao.</li>\r\n	<li>Khi vận động tốc độ cao trang phục sẽ kh&ocirc;ng b&aacute;m d&iacute;nh v&agrave;o người v&igrave; chất liệu được khử tĩnh điện từ trong quy tr&igrave;nh sản xuất.</li>\r\n	<li>T&iacute;nh năng chống nhăn, giặt nhanh kh&ocirc; v&agrave; gọn nhẹ tiện lợi khi đi du đấu.</li>\r\n	<li>Giặt nhanh kh&ocirc; kết hợp c&ugrave;ng t&iacute;nh năng chống nhăn tiện dụng cho c&aacute;c trận du đấu.</li>\r\n	<li>Bảo vệ an to&agrave;n cho l&agrave;n da của bạn với c&ocirc;ng nghệ in hiện đại, mực in cao cấp theo ti&ecirc;u chuẩn Ch&acirc;u &Acirc;u.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>5. BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; MECKA</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/277351827_1512662512464522_3091547729949062889_n_4cf4ae0fd0ca4d36bddc4d706ea742ff_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-the-thao-da-bong-mecka-egan-chat-vai-mem-mai-thoang-mat-phu-hop-choi-the-thao-van-dong-manh-bd08\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>Nổi bật c&aacute;c đường n&eacute;t tr&ecirc;n cơ thể của bạn nhờ thiết kế t&ocirc;n d&aacute;ng v&agrave; chuẩn form.</li>\r\n	<li>Sản phẩm an to&agrave;n cho l&agrave;n da, th&acirc;n thiện cho người d&ugrave;ng khi sử dụng mực in theo ti&ecirc;u chuẩn Ch&acirc;u &Acirc;u.</li>\r\n	<li>Tăng hiệu quả tập luyện, thi đấu với trang phục l&agrave;m bằng chất liệu vải si&ecirc;u nhẹ v&agrave; co gi&atilde;n tốt, dễ d&agrave;ng vận động tốc độ cao.</li>\r\n	<li>Tiết kiệm thời gian với việc giặt ủi nhờ v&agrave;o chất vải kh&ocirc;ng nhăn v&agrave; nhanh kh&ocirc;.</li>\r\n	<li>&nbsp;</li>\r\n</ul>\r\n\r\n<p><strong>6.&nbsp;BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; VIDOR</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/273420387_1478704979193609_1378336563264257845_n_c7d210955f38490593a2d8e1ec51cdbe_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-the-thao-da-bong-nam-cp-sport-vidor-chat-lieu-thoang-mat-mau-kho-thoai-mai-van-dong-the-thao-bd10\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>Trang phục tạo cảm gi&aacute;c thoải m&aacute;i với chất vải mềm m&aacute;t, đặc biệt tho&aacute;t hơi 1 c&aacute;ch nhanh ch&oacute;ng v&agrave; mau kh&ocirc;, gi&uacute;p bạn tăng cường sự tập trung khi tập luyện v&agrave; thi đấu.</li>\r\n	<li>Với t&iacute;nh năng chống nhăn v&agrave; được xử l&yacute; khử tĩnh điện trong qu&aacute; tr&igrave;nh dệt vải, trang phục sẽ kh&ocirc;ng b&aacute;m v&agrave;o da khi ra nhiều mồ h&ocirc;i.</li>\r\n	<li>Điểm nhấn của bộ sưu tập l&agrave; phần họa tiết sọc vằn, uy quyền v&agrave; mạnh mẽ như một m&atilde;nh hổ, gi&uacute;p bạn tự tin tỏa s&aacute;ng mỗi khi ra s&acirc;n.</li>\r\n	<li>C&aacute;c sản phẩm lu&ocirc;n được ch&uacute; trọng về sự an to&agrave;n cho người ti&ecirc;u d&ugrave;ng v&agrave; đảm bảo độ bền m&agrave;u, được sản xuất với mực in ti&ecirc;u chuẩn Ch&acirc;u &Acirc;u.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>7.&nbsp;BỘ SƯU TẬP B&Oacute;NG Đ&Aacute; RASTER</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><img src=\"https://file.hstatic.net/200000247969/file/248699672_1410213956042712_3990776556876274138_n_3318a9de13fa4df7afa06ca8418cdaee_grande.jpg\" /></strong></p>\r\n\r\n<p><strong><a href=\"https://cp-sport.vn/products/bo-quan-ao-the-thao-da-bong-raster-mau-trang-chat-vai-mem-mai-thoang-mat-phu-hop-choi-the-thao-van-dong-manh-bd09\">Xem th&ecirc;m</a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>Tạo cảm gi&aacute;c thoải m&aacute;i dễ chịu khi vận động với chất liệu mềm mại co gi&atilde;n tốt.</li>\r\n	<li>Bạn sẽ lu&ocirc;n cảm thấy tho&aacute;ng m&aacute;t do bề mặt vải được dệt với cấu tr&uacute;c tho&aacute;t hơi cực nhanh v&agrave; được khử tĩnh điện ho&agrave;n to&agrave;n.</li>\r\n	<li>Tăng hiệu quả khi thi đấu v&agrave; tập luyện nhờ v&agrave;o trang phục si&ecirc;u nhẹ, mau kh&ocirc;, kh&ocirc;ng b&aacute;m d&iacute;nh v&agrave;o người khi ra mồ h&ocirc;i, được cải tiến từ th&agrave;nh phần sợi đặc biệt si&ecirc;u nhuyễn.</li>\r\n	<li>Gi&uacute;p bạn trở n&ecirc;n tự tin, thu h&uacute;t nhờ sự đổi mới trong phần thiết kế, cổ &aacute;o được may tinh tế tạo sự nổi bật với phong c&aacute;ch thể thao mạnh mẽ.</li>\r\n	<li>Bạn dễ d&agrave;ng chọn được trang phục m&igrave;nh y&ecirc;u th&iacute;ch với 5 m&agrave;u sắc mới nhất m&agrave; CP Sport sưu tập.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>CP SPORT l&agrave;&nbsp;cửa h&agrave;ng sản xu&acirc;́t đ&ocirc;̀ th&ecirc;̉ thao chuy&ecirc;n nghiệp&nbsp;tại Việt Nam bao gồm đa dạng&nbsp;trang phục b&oacute;ng đ&aacute;, b&oacute;ng chuyền, đồ thể thao v&agrave; phụ kiện,...Với ch&acirc;́t lượng sản phẩm v&agrave;&nbsp;uy tín đến với CP SPORT, kh&aacute;ch h&agrave;ng sẽ t&igrave;m thấy những mẫu m&atilde; đa dạng,&nbsp;mới nhất, ph&ugrave; hợp với nhu cầu của mỗi người.&nbsp;</p>', 2, 11, NULL, 'https://cp-sport.vn/blogs/news/tong-hop-cac-mau-ao-bong-da-dep-cua-cp-sport-2023', 1, NULL, NULL, NULL, '2021-09-29 03:34:54', '2024-02-16 10:27:12'),
+(25, 'LỄ KÝ KẾT TÀI TRỢ TRANG PHỤC GIỮA CÔNG TY THỂ THAO CP SPORT VÀ BAN TRỌNG TÀI LIÊN ĐOÀN BÓNG ĐÁ TP HCM', 'le-ky-ket-tai-tro-trang-phuc-giua-cong-ty-the-thao-cp-sport-va-ban-trong-tai-lien-doan-bong-da-tp-hcm', 'uploads/article/1708079077_tintuc1.png', '<h2><strong>Chiều ng&agrave;y 6/7, tại Trung t&acirc;m Thể dục thể thao Thống Nhất, TP HCM, Đại diện L&atilde;nh đạo Li&ecirc;n đo&agrave;n b&oacute;ng đ&aacute; TP HCM (HFF) v&agrave;&nbsp;C&ocirc;ng ty Thể thao CP Sport đ&atilde; c&oacute; buổi lễ k&yacute; kết hợp đồng t&agrave;i trợ trang phục.</strong></h2>', '<p>Theo đ&oacute;, c&oacute; mặt tại buổi t&agrave;i trợ k&yacute; kết hợp đồng ph&iacute;a L&atilde;nh đạo Li&ecirc;n đo&agrave;n b&oacute;ng đ&aacute; TP HCM gồm: Ph&oacute; Chủ tịch HFF &ndash; &ocirc;ng Ng&ocirc; L&ecirc; Bằng; &Ocirc;ng Ho&agrave;ng Ngọc Tuấn &ndash; Ph&oacute; tổng thư k&yacute; HFF; &ocirc;ng Nguyễn Duy Th&igrave;n &ndash; Ch&aacute;nh văn ph&ograve;ng HFF. Đại diện nh&agrave; t&agrave;i trợ gồm: &Ocirc;ng Trần Văn Ho&agrave;n &ndash; Gi&aacute;m đốc C&ocirc;ng Ty thể thao CP Sport v&agrave; b&agrave; Nghi&ecirc;m Tạ Anh Đ&agrave;o &ndash; Gi&aacute;m đốc kinh doanh C&ocirc;ng ty thể thao CP Sport.</p>\r\n\r\n<p>Tại buổi lễ k&yacute; kết, đại diện ph&iacute;a C&ocirc;ng ty Thể thao CP Sport đ&atilde; tại trợ 70 bộ trang phục với gi&aacute; trị hơn 200 triệu đồng cho trọng tại Li&ecirc;n đo&agrave;n b&oacute;ng đ&aacute; TP HCM từ năm 2023 đến 2025. Chia sẻ tại buổi lễ k&yacute; kết, &ocirc;ng Ng&ocirc; L&ecirc; Bằng &ndash; Ph&oacute; Chủ tịch HFF n&oacute;i: &ldquo;Li&ecirc;n đo&agrave;n b&oacute;ng đ&aacute; TP HCM vui mừng v&agrave; vinh hạnh nhận được sự quan t&acirc;m của C&ocirc;ng ty Thể thao CP Sport. Chắc chắn đ&acirc;y l&agrave; tin vui cho b&oacute;ng đ&aacute; TP HCM, bởi trong ho&agrave;n cảnh nguồn chi của cả nước n&oacute;i chung v&agrave; của b&oacute;ng đ&aacute; TP HCM n&oacute;i ri&ecirc;ng c&ograve;n nhiều kh&oacute; khăn. Tuy nhi&ecirc;n, với sự chung tay g&oacute;p sức của C&ocirc;ng ty thể thao CP Sport đ&acirc;y cũng l&agrave; động lực để Li&ecirc;n đo&agrave;n b&oacute;ng đ&aacute; TP HCM, ban trọng t&agrave;i HFF ho&agrave;n th&agrave;nh tốt nhiệm vụ.</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/0eae578fa5bc75e22cad_67249ee796484544b1ee7e83b282e9f0_grande.jpg\" /></p>\r\n\r\n<p><em>&Ocirc;ng Ng&ocirc; L&ecirc; Bằng &ndash; Ph&oacute; Chủ tịch HFF ph&aacute;t biểu tại Lễ k&yacute; kết.</em></p>\r\n\r\n<p>Hy vọng rằng trong thời gian tới ph&iacute;a Li&ecirc;n đo&agrave;n b&oacute;ng đ&aacute; TP HCM v&agrave; C&ocirc;ng ty Thể thao CP Sport tiếp tục gắn hợp t&aacute;c nhiều hơn nữa để b&oacute;ng đ&aacute; phong tr&agrave;o TP HCM c&ugrave;ng ph&aacute;t triển. Một lần nữa thay mặt HFF cảm ơn C&ocirc;ng ty thể thao CP Sport, cảm ơn Ph&oacute;ng vi&ecirc;n &ndash; B&aacute;o đ&agrave;i đến dự v&agrave; đưa tin&rdquo;.&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/3fdfabb8598b89d5d09a_5ee71535a7ae4ec89107e9e61849af30_grande.jpg\" /></p>\r\n\r\n<p>Về ph&iacute;a nh&agrave; t&agrave;i trợ, &Ocirc;ng Trần Văn Ho&agrave;n chia sẻ: &ldquo;Thay mặt C&ocirc;ng ty Thể thao CP Sport, t&ocirc;i xin cảm ơn HFF đ&atilde; tin tưởng lựa chọn, đồng h&agrave;nh c&ugrave;ng ch&uacute;ng t&ocirc;i trong thời gian trước đ&oacute; v&agrave; hợp đồng hiện tại 2023-2025. Trong suốt 6 năm qua, ch&uacute;ng t&ocirc;i &yacute; thức r&otilde; trọng tr&aacute;ch m&igrave;nh phải đảm nhiệm. Trọng t&agrave;i kh&ocirc;ng chỉ l&agrave; người điều phối trận đấu, tr&ecirc;n s&acirc;n họ c&ograve;n l&agrave; những người cầm c&acirc;n nảy mực, cho thấy sự ch&iacute;nh trực &ndash; c&ocirc;ng t&acirc;m. V&igrave; vậy, ch&uacute;ng t&ocirc;i kh&ocirc;ng ngừng nỗ lực để mang đến những trang phục chất lượng, đảm bảo sự chuy&ecirc;n nghiệp, thoải m&aacute;i nhất cho c&aacute;c trọng t&agrave;i.</p>\r\n\r\n<p><em><img src=\"https://file.hstatic.net/200000247969/file/17240b36f905295b7014_89afea3aeea446ffadf0160e135ce36d_grande.jpg\" /></em></p>\r\n\r\n<p><em>Đại diện C&ocirc;ng ty Thể thao CP Sport &ndash; Gi&aacute;m đốc Trần Văn Ho&agrave;n chia sẻ.</em></p>\r\n\r\n<p>Hợp đồng giữa C&ocirc;ng ty thể thao CP Sport v&agrave; Ban trọng t&agrave;i HFF kh&ocirc;ng chỉ l&agrave; t&agrave;i ch&iacute;nh, điều tất yếu ch&uacute;ng t&ocirc;i mong muốn l&agrave; sự trải nghiệm, cam kết của sản phẩm tr&ecirc;n con đường ph&aacute;t triển của m&ocirc;n thể thao Vua. Ch&uacute;ng t&ocirc;i kh&ocirc;ng chỉ đồng h&agrave;nh c&ugrave;ng trọng t&agrave;i TP HCM ở c&aacute;c sự kiện lớn, ngay cả chương tr&igrave;nh đ&agrave;o tạo, đ&aacute;nh gi&aacute; n&acirc;ng cao nghiệp vụ C&ocirc;ng ty thể thao CP Sport sẵn s&agrave;ng chia sẻ hợp t&aacute;c.</p>\r\n\r\n<p>Cuối c&ugrave;ng, t&ocirc;i muốn cảm ơn sự ủng hộ, hợp t&aacute;c tin tưởng của HFF với C&ocirc;ng ty Thể thao CP Sport. Ch&uacute;ng t&ocirc;i sẵn s&agrave;ng v&agrave; mong muốn đ&oacute;ng g&oacute;p phần nhỏ v&agrave;o sự ph&aacute;t triển bền vững th&agrave;nh c&ocirc;ng của m&ocirc;n Thể thao vua. Ch&uacute;ng t&ocirc;i tin rằng với sự hợp t&aacute;c chặt chẽ v&agrave; sự đồng l&ograve;ng của c&aacute;c b&ecirc;n ch&uacute;ng ta sẽ c&oacute; một m&ocirc;i trường thi đấu c&ocirc;ng t&acirc;m, chuy&ecirc;n nghiệp cho b&oacute;ng đ&aacute; TP HCM&rdquo;.</p>\r\n\r\n<p><strong>Một số h&igrave;nh ảnh tại buổi lễ k&yacute; kết</strong></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/0c21f7120521d57f8c30_62d55d468a9b478babd20c0aae3aa41a_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/12eeab9b58a888f6d1b9_e839b6c647a84458a3c0b11f76bd7a23_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/75c9e9851ab6cae893a7_53a940c176384be7ba9266b6e7a6c7b5_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/79a13affc9cc199240dd_0c9e97aef4524d4b823b35944f0daf60_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/a18a0f64fd572d097446_d72399f2ed3b436499d30760ce9372a8_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/a9512f6add590d075448_a6ff9e3d0f24436c92a956e16304ce63_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/c291086ffa5c2a02734d_d10294fbc0f74058ac3c269d001dfcd0_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/dc261183e3b033ee6aa1_01f2520eff144176ad1f2d39ba2ad51a_grande.jpg\" /></p>\r\n\r\n<p><img src=\"https://file.hstatic.net/200000247969/file/e70d72368005505b0914__1__70562cdbe3fb4520b09828606a45a327_grande.jpg\" /></p>', 1, 12, NULL, 'https://cp-sport.vn/blogs/news/le-ky-ket-tai-tro-trang-phuc-giu-cong-ty-the-thao-cp-sport-va-ban-tron', 1, NULL, NULL, NULL, '2021-10-27 02:59:28', '2024-02-16 10:24:37');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banners`
+-- Cấu trúc bảng cho bảng `banners`
 --
 
 CREATE TABLE `banners` (
@@ -78,30 +78,26 @@ CREATE TABLE `banners` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `target` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `type` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `banners`
+-- Đang đổ dữ liệu cho bảng `banners`
 --
 
 INSERT INTO `banners` (`id`, `title`, `slug`, `image`, `url`, `target`, `description`, `type`, `position`, `is_active`, `created_at`, `updated_at`) VALUES
-(3, 'Tuần Lễ Bùng Nổ', 'tuan-le-bung-no', 'uploads/banner/banner sp1.png', 'http://webdev.local:8888/danh-muc-san-pham/xiaomi', '1', NULL, 1, 3, 1, '2020-03-22 20:05:40', '2021-10-19 02:26:05'),
-(4, 'Siêu Sale 5 Triệu Đồng', 'sieu-sale-5-trieu-dong', 'uploads/banner/banner 2.png', 'https://didongthongminh.vn/', '1', NULL, 1, 4, 1, '2020-03-05 06:35:23', '2021-09-23 07:40:48'),
-(5, 'Galaxy S21 Plus', 'galaxy-s21-plus', 'uploads/banner/Galaxy-S21-Plus.png', 'https://cellphones.com.vn/huawei-nova-7i.html', '1', NULL, 1, 5, 1, '2020-03-22 20:06:48', '2021-09-23 07:40:22'),
-(6, 'LÊN ĐỜI NOTE 10 - NOTE 10 Plus', 'len-doi-note-10-note-10-plus', 'uploads/banner/1584932903_lendoi_nte10.png', 'https://cellphones.com.vn/mobile/samsung/galaxy-note.html', '1', NULL, 1, 6, 1, '2020-03-22 20:08:23', '2020-03-22 20:08:23'),
-(7, 'JBL T600BTNC GIÁ ĐỘC QUYỀN', 'jbl-t600btnc-gia-doc-quyen', 'uploads/banner/1584932951_JBL_T600BTNC_home.png', 'http://webdev.local:8888/chi-tiet-san-pham/tai-nghe-bluetooth-chup-tai-jbl-t600btnc', '1', NULL, 1, 7, 1, '2020-03-22 20:09:11', '2021-10-19 02:16:23'),
-(12, 'Xiaomi Mi Mix 3', 'xiaomi-mi-mix-3', 'uploads/banner/Xiaomi mi mix 3.jpg', '....', '1', NULL, 1, 0, 1, '2020-07-20 06:45:54', '2021-10-27 02:43:18');
+(13, 'Giảm giá ngày tết', 'giam-gia-ngay-tet', 'uploads/banner/banner1.png', NULL, '1', NULL, 1, 1, 1, '2024-02-16 10:00:27', '2024-02-16 10:00:27'),
+(14, 'Banner 2', 'banner-2', 'uploads/banner/banner2.png', NULL, '1', NULL, 1, 1, 1, '2024-02-16 10:01:07', '2024-02-16 10:01:07');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brands`
+-- Cấu trúc bảng cho bảng `brands`
 --
 
 CREATE TABLE `brands` (
@@ -110,36 +106,28 @@ CREATE TABLE `brands` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `brands`
+-- Đang đổ dữ liệu cho bảng `brands`
 --
 
 INSERT INTO `brands` (`id`, `name`, `slug`, `image`, `website`, `position`, `is_active`, `created_at`, `updated_at`) VALUES
-(5, 'Samsung', 'samsung', 'uploads/brand/logo-samsung.png', 'https://www.samsung.com/vn/', 2, 1, '2020-03-04 06:47:49', '2021-10-05 02:30:34'),
-(6, 'Apple', 'apple', 'uploads/brand/1583409648_apple icon.jpg', 'apple.com', 1, 1, '2020-03-05 05:00:48', '2020-03-05 05:00:48'),
-(7, 'Xiaomi', 'xiaomi', 'uploads/brand/1584935820_1200px-Xiaomi_logo.svg.png', 'https://www.mi.com/global', 3, 1, '2020-03-22 20:57:00', '2020-03-22 20:57:00'),
-(8, 'Dell', 'dell', 'uploads/brand/1584935886_1024px-Dell_Logo.svg.png', 'dell.com', 4, 1, '2020-03-22 20:58:06', '2020-03-22 20:58:06'),
-(9, 'Oppo', 'oppo', 'uploads/brand/logo vuong.jpg', 'https://www.oppo.com/vn/', 5, 1, '2020-03-22 20:58:58', '2021-10-05 02:31:14'),
-(10, 'Sony', 'sony', 'uploads/brand/1584936029_sonyview1.jpg', 'https://www.sony.com/', 6, 1, '2020-03-22 21:00:29', '2020-03-22 21:00:29'),
-(11, 'Logitech', 'logitech', 'uploads/brand/1584936072_bab78b1ab6202c17519384fb90b06412.png', 'https://www.logitech.com/vi-vn', 7, 1, '2020-03-22 21:01:12', '2020-03-22 21:01:12'),
-(12, 'Asus', 'asus', 'uploads/brand/1584936126_1_NwfoiV9f96_MhpmJwdinPA.png', 'https://www.asus.com/vn/', 8, 1, '2020-03-22 21:02:06', '2020-03-22 21:02:06'),
-(13, 'Vsmart', 'vsmart', 'uploads/brand/1584946458_Vsmart-logo.jpg', 'https://vsmart.net/eu-vi/', 9, 1, '2020-03-22 23:54:18', '2020-03-22 23:54:18'),
-(15, 'Canon', 'canon', 'uploads/brand/logo-canon.png', 'https://vn.canon/', 10, 1, '2020-04-11 21:52:35', '2021-09-28 02:25:25'),
-(18, 'HP', 'hp', 'uploads/brand/logo-hp.png', 'https://www.hp.com/vn-en/home.html', 1, 1, '2020-07-17 05:38:27', '2021-09-28 02:01:16'),
-(19, 'Masstel', 'masstel', 'uploads/brand/masstel.png', 'https://masstel.vn/', 11, 1, '2021-09-27 03:16:12', '2021-09-27 03:16:12'),
-(20, 'Lenovo', 'lenovo', 'uploads/brand/lenovo.png', 'https://www.lenovo.com/vn/vn/', 4, 1, '2021-09-27 03:42:49', '2021-09-27 03:42:49'),
-(21, 'Brother', 'brother', 'uploads/brand/sns_brotherlogoicon.png', 'https://www.brother.com.vn/vi-vn', 12, 1, '2021-09-28 02:55:12', '2021-09-28 02:55:52');
+(15, 'thươnghieu5', 'thuonghieu5', 'uploads/brand/thuonghieu5.png', 'https://vn.canon/', 10, 1, '2020-04-11 21:52:35', '2024-02-16 10:19:18'),
+(18, 'thuonghieu4', 'thuonghieu4', 'uploads/brand/thuonghieu4.png', 'https://www.hp.com/vn-en/home.html', 1, 1, '2020-07-17 05:38:27', '2024-02-16 10:18:57'),
+(19, 'thuonghieu3', 'thuonghieu3', 'uploads/brand/thuonghieu3.png', 'https://masstel.vn/', 11, 1, '2021-09-27 03:16:12', '2024-02-16 10:18:37'),
+(20, 'thuonghieu2', 'thuonghieu2', 'uploads/brand/thuonghieu2.png', 'https://www.lenovo.com/vn/vn/', 4, 1, '2021-09-27 03:42:49', '2024-02-16 10:18:17'),
+(21, 'thuonghieu1', 'thuonghieu1', 'uploads/brand/thuonghieu1.png', 'https://www.brother.com.vn/vi-vn', 12, 1, '2021-09-28 02:55:12', '2024-02-16 10:17:55'),
+(22, 'thuonghieu6', 'thuonghieu6', 'uploads/brand/thuonghieu5.png', NULL, 1, 1, '2024-02-16 10:21:35', '2024-02-16 10:21:35');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Cấu trúc bảng cho bảng `categories`
 --
 
 CREATE TABLE `categories` (
@@ -148,39 +136,27 @@ CREATE TABLE `categories` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` int(10) UNSIGNED DEFAULT NULL,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `type` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `categories`
+-- Đang đổ dữ liệu cho bảng `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `image`, `parent_id`, `position`, `is_active`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'Điện thoại', 'dien-thoai', NULL, 0, 1, 1, 1, '2020-03-22 20:17:22', '2021-09-23 07:09:44'),
-(2, 'Tablet', 'tablet', NULL, 0, 2, 1, 1, '2020-03-22 20:17:43', '2021-09-23 07:46:38'),
-(4, 'Laptop', 'laptop', NULL, 0, 4, 1, 1, '2020-03-22 20:18:00', '2021-09-23 07:50:45'),
-(6, 'Đồng hồ', 'dong-ho', NULL, 0, 6, 1, 1, '2020-03-22 20:18:33', '2021-09-28 03:10:06'),
-(7, 'Apple', 'apple', NULL, 6, 11, 0, 1, '2020-03-22 20:20:33', '2021-09-23 09:20:55'),
-(8, 'Samsung', 'samsung', NULL, 1, 12, 1, 1, '2020-03-22 20:20:43', '2021-09-23 07:10:09'),
-(9, 'Oppo', 'oppo', NULL, 1, 13, 1, 1, '2020-03-22 20:20:53', '2021-09-23 07:10:17'),
-(11, 'Vsmart', 'vsmart', NULL, 1, 15, 1, 1, '2020-03-22 20:22:15', '2021-09-23 07:46:52'),
-(13, 'Xiaomi', 'xiaomi', NULL, 1, 62, 1, 1, '2020-03-22 20:29:10', '2021-09-23 08:00:27'),
-(15, 'Macbook', 'macbook', NULL, 4, 41, 1, 1, '2020-03-22 20:30:59', '2021-09-23 07:48:11'),
-(16, 'Asus', 'asus', NULL, 4, 42, 1, 1, '2020-03-22 20:31:15', '2021-09-23 07:48:07'),
-(17, 'Dell', 'dell', NULL, 4, 43, 1, 1, '2020-03-22 20:31:26', '2021-09-23 07:48:03'),
-(18, 'Lenovo', 'lenovo', NULL, 4, 44, 1, 1, '2020-03-22 20:32:00', '2021-09-23 07:47:46'),
-(51, 'Iphone', 'iphone', NULL, 1, 1, 1, 1, '2021-09-23 07:59:24', '2021-09-28 00:12:01'),
-(52, 'Máy in', 'may-in', NULL, 0, 21, 1, 1, '2021-09-28 02:26:28', '2021-09-28 03:10:19'),
-(54, 'Phụ Kiện', 'phu-kien', NULL, 0, 1, 1, 1, '2021-09-28 03:16:21', '2021-09-28 03:16:21');
+(1, 'Gang Tay Thủ Môn', 'gang-tay-thu-mon', NULL, 0, 22, 1, 1, '2020-03-22 20:17:22', '2024-02-16 10:13:25'),
+(2, 'Phụ kiện bóng đá', 'phu-kien-bong-da', NULL, 0, 2, 1, 1, '2020-03-22 20:17:43', '2024-02-16 10:12:15'),
+(52, 'Quần áo đá bóng', 'quan-ao-da-bong', NULL, 0, 21, 1, 1, '2021-09-28 02:26:28', '2024-02-16 10:10:55'),
+(54, 'Giày đá bóng', 'giay-da-bong', NULL, 0, 1, 1, 1, '2021-09-28 03:16:21', '2024-02-16 10:10:35');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacts`
+-- Cấu trúc bảng cho bảng `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -188,13 +164,13 @@ CREATE TABLE `contacts` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `contacts`
+-- Đang đổ dữ liệu cho bảng `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `content`, `created_at`, `updated_at`) VALUES
@@ -224,7 +200,7 @@ INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `content`, `created_at`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `coupons`
+-- Cấu trúc bảng cho bảng `coupons`
 --
 
 CREATE TABLE `coupons` (
@@ -238,7 +214,7 @@ CREATE TABLE `coupons` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `coupons`
+-- Đang đổ dữ liệu cho bảng `coupons`
 --
 
 INSERT INTO `coupons` (`id`, `code`, `type`, `value`, `percent`, `created_at`, `updated_at`) VALUES
@@ -248,7 +224,7 @@ INSERT INTO `coupons` (`id`, `code`, `type`, `value`, `percent`, `created_at`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Cấu trúc bảng cho bảng `member`
 --
 
 CREATE TABLE `member` (
@@ -261,7 +237,7 @@ CREATE TABLE `member` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Cấu trúc bảng cho bảng `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -271,7 +247,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `migrations`
+-- Đang đổ dữ liệu cho bảng `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -290,7 +266,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
@@ -301,19 +277,19 @@ CREATE TABLE `orders` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `discount` int(11) DEFAULT 0,
-  `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `discount` int(11) DEFAULT '0',
+  `note` text COLLATE utf8mb4_unicode_ci,
   `coupon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
-  `total` int(11) DEFAULT 0,
-  `user_id` int(11) DEFAULT 0,
-  `order_status_id` int(11) DEFAULT 0,
-  `payment_id` int(11) DEFAULT 0,
+  `total` int(11) DEFAULT '0',
+  `user_id` int(11) DEFAULT '0',
+  `order_status_id` int(11) DEFAULT '0',
+  `payment_id` int(11) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `orders`
+-- Đang đổ dữ liệu cho bảng `orders`
 --
 
 INSERT INTO `orders` (`id`, `code`, `fullname`, `email`, `address`, `address2`, `phone`, `discount`, `note`, `coupon`, `total`, `user_id`, `order_status_id`, `payment_id`, `created_at`, `updated_at`) VALUES
@@ -323,7 +299,7 @@ INSERT INTO `orders` (`id`, `code`, `fullname`, `email`, `address`, `address2`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_products`
+-- Cấu trúc bảng cho bảng `order_products`
 --
 
 CREATE TABLE `order_products` (
@@ -339,7 +315,7 @@ CREATE TABLE `order_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `order_products`
+-- Đang đổ dữ liệu cho bảng `order_products`
 --
 
 INSERT INTO `order_products` (`id`, `name`, `image`, `sku`, `user_id`, `order_id`, `product_id`, `price`, `qty`) VALUES
@@ -349,7 +325,7 @@ INSERT INTO `order_products` (`id`, `name`, `image`, `sku`, `user_id`, `order_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_status`
+-- Cấu trúc bảng cho bảng `order_status`
 --
 
 CREATE TABLE `order_status` (
@@ -358,7 +334,7 @@ CREATE TABLE `order_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `order_status`
+-- Đang đổ dữ liệu cho bảng `order_status`
 --
 
 INSERT INTO `order_status` (`id`, `name`) VALUES
@@ -370,7 +346,7 @@ INSERT INTO `order_status` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Cấu trúc bảng cho bảng `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -382,7 +358,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
@@ -390,31 +366,31 @@ CREATE TABLE `products` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `stock` int(11) NOT NULL DEFAULT 0,
-  `price` int(11) NOT NULL DEFAULT 0,
-  `sale` int(11) NOT NULL DEFAULT 0,
-  `position` int(11) NOT NULL DEFAULT 0,
-  `is_active` int(11) NOT NULL DEFAULT 1,
-  `is_hot` int(11) NOT NULL DEFAULT 0,
-  `views` int(11) NOT NULL DEFAULT 0,
-  `category_id` int(11) NOT NULL DEFAULT 0,
+  `stock` int(11) NOT NULL DEFAULT '0',
+  `price` int(11) NOT NULL DEFAULT '0',
+  `sale` int(11) NOT NULL DEFAULT '0',
+  `position` int(11) NOT NULL DEFAULT '0',
+  `is_active` int(11) NOT NULL DEFAULT '1',
+  `is_hot` int(11) NOT NULL DEFAULT '0',
+  `views` int(11) NOT NULL DEFAULT '0',
+  `category_id` int(11) NOT NULL DEFAULT '0',
   `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `memory` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `brand_id` int(11) NOT NULL DEFAULT 0,
-  `vendor_id` int(11) NOT NULL DEFAULT 0,
-  `summary` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `brand_id` int(11) NOT NULL DEFAULT '0',
+  `vendor_id` int(11) NOT NULL DEFAULT '0',
+  `summary` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_id` int(11) NOT NULL DEFAULT 0,
+  `meta_description` text COLLATE utf8mb4_unicode_ci,
+  `user_id` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `products`
+-- Đang đổ dữ liệu cho bảng `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `image`, `stock`, `price`, `sale`, `position`, `is_active`, `is_hot`, `views`, `category_id`, `url`, `sku`, `color`, `memory`, `brand_id`, `vendor_id`, `summary`, `description`, `meta_title`, `meta_description`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -586,7 +562,7 @@ INSERT INTO `products` (`id`, `name`, `slug`, `image`, `stock`, `price`, `sale`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_images`
+-- Cấu trúc bảng cho bảng `product_images`
 --
 
 CREATE TABLE `product_images` (
@@ -603,7 +579,7 @@ CREATE TABLE `product_images` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings`
+-- Cấu trúc bảng cho bảng `settings`
 --
 
 CREATE TABLE `settings` (
@@ -620,20 +596,20 @@ CREATE TABLE `settings` (
   `introduce` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `summary` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `summary` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `settings`
+-- Đang đổ dữ liệu cho bảng `settings`
 --
 
 INSERT INTO `settings` (`id`, `company`, `address`, `address2`, `image`, `phone`, `hotline`, `tax`, `facebook`, `email`, `introduce`, `created_at`, `updated_at`, `summary`) VALUES
-(1, 'Mobile Shop', 'Tầng 6 - Tòa nhà Viện Công Nghệ 25 Vũ Ngọc Phan - Láng Hạ - Đống Đa - Hà Nội', 'Tẩng 4 - Số 140 - Đường Cầu Diễn - Nguyên Xá - P. Minh Khai - Q. Bắc Từ Liêm - Tp. Hà Nội', 'uploads/setting/1632407543_1627809745_shopmobile2.png', '0856319027', '19001856', '000010', 'https://www.facebook.com/truongchi.duc/', 'truongduchubt145@gmail.com', NULL, NULL, '2021-09-23 07:32:23', 'Mobile Shop là hệ thống cửa hàng nhượng quyền bán lẻ Smartphone, Phụ kiện chính hãng và sửa chữa dịch vụ, là đối tác của các hãng điện thoại chính hãng lớn tại Việt Nam như: Apple, Samsung, Oppo, Realme, Xiaomi,…');
+(1, 'DucSport', 'Tầng 6 - Tòa nhà Viện Công Nghệ 25 Vũ Ngọc Phan - Láng Hạ - Đống Đa - Hà Nội', 'Tẩng 4 - Số 140 - Đường Cầu Diễn - Nguyên Xá - P. Minh Khai - Q. Bắc Từ Liêm - Tp. Hà Nội', 'uploads/setting/1708077280_sport.png', '0999999999', '19001856', '000010', 'https://www.facebook.com/', 'trananhduc@gmail.com', NULL, NULL, '2024-02-16 09:54:40', 'Công ty TNHH YOUSPORT. GPKD số 031743751 cấp bởi Sở kế hoạch và đầu tư TP.HCM. Địa chỉ văn phòng: 90 Huỳnh Văn Một, Phường Hiệp Tân, Quận Tân Phú, Thành phố Hồ Chí Minh.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -646,22 +622,22 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `role_id` int(11) NOT NULL,
   `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int(1) NOT NULL DEFAULT 0
+  `is_active` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `role_id`, `avatar`, `is_active`) VALUES
-(4, 'Trương Chí Đức', 'truongduchubt145@gmail.com', '$2y$10$6TfK19xwt0aMcbUOXF4Thu/lRAqtocMBlUpjFhUMRxjfWmc2DpqXq', 'CR90CK4enFta06y2QcPhQN1NlGoBr89DoQBpKfUedieQOO9IcaB7BCIlQWl7', '2021-09-23 07:21:00', '2021-10-26 04:02:06', 1, 'uploads/user/istockphoto-1250000899-612x612.jpg', 1),
-(5, 'Admin Nữ', 'admin@gmail.com', '$2y$10$CFyY7nnlbFGgEh9a8VNX1uJom/t3Oi6VTY4/XywmUsmF9DGx4odHi', 'sqAhFoCpsxet9Ii6diW5SqnhCeXWYY1LjKP3FCjlxyQ6xORB2p6lzppZ3ITT', '2021-10-05 02:24:18', '2021-10-05 02:24:18', 1, 'uploads/user/avatar-nu.png', 1),
-(6, 'Admin Nam', 'admin2@gmail.com', '$2y$10$n/evguKyIUyNzf/BSXb5eO18lPzG/0J/MKG9oKm5C0pShH0jvSyZi', NULL, '2021-10-05 02:27:37', '2021-10-05 02:27:37', 1, 'uploads/user/avatar-nam.png', 1);
+(4, 'admin', 'admin duc@gmail.com', '$2y$10$PJ57.XU74czLPMqPF/61sOgl0dPVgv.z8dgP0ERwc.otahfwegm1u', 'CR90CK4enFta06y2QcPhQN1NlGoBr89DoQBpKfUedieQOO9IcaB7BCIlQWl7', '2021-09-23 07:21:00', '2021-10-26 04:02:06', 1, 'uploads/user/istockphoto-1250000899-612x612.jpg', 1),
+(5, 'Admin 1', 'admin@gmail.com', '$2y$10$PJ57.XU74czLPMqPF/61sOgl0dPVgv.z8dgP0ERwc.otahfwegm1u', 'sqAhFoCpsxet9Ii6diW5SqnhCeXWYY1LjKP3FCjlxyQ6xORB2p6lzppZ3ITT', '2021-10-05 02:24:18', '2021-10-05 02:24:18', 1, 'uploads/user/avatar-nu.png', 1),
+(6, 'Admin 2', 'admin2@gmail.com', '$2y$10$PJ57.XU74czLPMqPF/61sOgl0dPVgv.z8dgP0ERwc.otahfwegm1u', NULL, '2021-10-05 02:27:37', '2021-10-05 02:27:37', 1, 'uploads/user/avatar-nam.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendors`
+-- Cấu trúc bảng cho bảng `vendors`
 --
 
 CREATE TABLE `vendors` (
@@ -672,15 +648,15 @@ CREATE TABLE `vendors` (
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `vendors`
+-- Đang đổ dữ liệu cho bảng `vendors`
 --
 
 INSERT INTO `vendors` (`id`, `name`, `slug`, `email`, `phone`, `image`, `website`, `address`, `position`, `is_active`, `created_at`, `updated_at`) VALUES
@@ -696,86 +672,86 @@ INSERT INTO `vendors` (`id`, `name`, `slug`, `email`, `phone`, `image`, `website
 (13, 'Hanoicomputer', 'hanoicomputer', 'kinhdoanh@hanoicomputer.com', '19001903', 'uploads/vendor/hanoicomputer-logo-15284837823775.png', 'https://www.hanoicomputer.vn/', '131 Lê Thanh Nghị - Hai Bà Trưng - Hà Nội', 0, 1, '2021-10-05 01:52:58', '2021-10-05 01:54:05');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `articles`
+-- Chỉ mục cho bảng `articles`
 --
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `banners`
+-- Chỉ mục cho bảng `banners`
 --
 ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `banners_slug_unique` (`slug`) USING BTREE;
 
 --
--- Indexes for table `brands`
+-- Chỉ mục cho bảng `brands`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `brands_slug_unique` (`slug`) USING BTREE;
 
 --
--- Indexes for table `categories`
+-- Chỉ mục cho bảng `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `categories_slug_unique` (`slug`) USING BTREE;
 
 --
--- Indexes for table `contacts`
+-- Chỉ mục cho bảng `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `coupons`
+-- Chỉ mục cho bảng `coupons`
 --
 ALTER TABLE `coupons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `member`
+-- Chỉ mục cho bảng `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_products`
+-- Chỉ mục cho bảng `order_products`
 --
 ALTER TABLE `order_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_status`
+-- Chỉ mục cho bảng `order_status`
 --
 ALTER TABLE `order_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Chỉ mục cho bảng `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`) USING BTREE;
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`) USING BTREE,
@@ -784,127 +760,127 @@ ALTER TABLE `products`
   ADD KEY `slug` (`slug`);
 
 --
--- Indexes for table `product_images`
+-- Chỉ mục cho bảng `product_images`
 --
 ALTER TABLE `product_images`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `settings`
+-- Chỉ mục cho bảng `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `users_email_unique` (`email`) USING BTREE;
 
 --
--- Indexes for table `vendors`
+-- Chỉ mục cho bảng `vendors`
 --
 ALTER TABLE `vendors`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `vendors_slug_unique` (`slug`) USING BTREE;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `articles`
+-- AUTO_INCREMENT cho bảng `articles`
 --
 ALTER TABLE `articles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `banners`
+-- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `brands`
+-- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT for table `contacts`
+-- AUTO_INCREMENT cho bảng `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `coupons`
+-- AUTO_INCREMENT cho bảng `coupons`
 --
 ALTER TABLE `coupons`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `member`
+-- AUTO_INCREMENT cho bảng `member`
 --
 ALTER TABLE `member`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `order_products`
+-- AUTO_INCREMENT cho bảng `order_products`
 --
 ALTER TABLE `order_products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `order_status`
+-- AUTO_INCREMENT cho bảng `order_status`
 --
 ALTER TABLE `order_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
--- AUTO_INCREMENT for table `product_images`
+-- AUTO_INCREMENT cho bảng `product_images`
 --
 ALTER TABLE `product_images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `settings`
+-- AUTO_INCREMENT cho bảng `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `vendors`
+-- AUTO_INCREMENT cho bảng `vendors`
 --
 ALTER TABLE `vendors`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;

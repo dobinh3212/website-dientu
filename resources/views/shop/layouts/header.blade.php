@@ -48,7 +48,7 @@
         <div class="container header-middle-cont">
             <div class="toplogo">
                 <a href="/">
-                    <img src="{{ asset($settings->image) }}" alt="Cửa Hàng Điện Thoại">
+                    <img src="{{ asset($settings->image) }}" alt="Cửa Hàng Đồ Thể Thao">
                 </a>
             </div>
             <div class="shop-menu">
@@ -56,15 +56,15 @@
 
 
 
-{{--                    <li class="topauth">--}}
-{{--                        <a href="auth.html">--}}
-{{--                            <i class="fa fa-user-circle-o"></i>--}}
-{{--                            <span class="shop-menu-ttl">Đăng ký</span>--}}
-{{--                        </a>--}}
-{{--                        <a href="auth.html">--}}
-{{--                            <span class="shop-menu-ttl">Đăng nhập</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
+                    {{-- <li class="topauth">--}}
+                    {{-- <a href="auth.html">--}}
+                    {{-- <i class="fa fa-user-circle-o"></i>--}}
+                    {{-- <span class="shop-menu-ttl">Đăng ký</span>--}}
+                    {{-- </a>--}}
+                    {{-- <a href="auth.html">--}}
+                    {{-- <span class="shop-menu-ttl">Đăng nhập</span>--}}
+                    {{-- </a>--}}
+                    {{-- </li>--}}
 
                     <li>
                         <div class="h-cart">
@@ -91,42 +91,42 @@
                     <a class="topcatalog-btn" href="/"><span>Tất cả</span> Danh Mục</a>
                     <ul class="topcatalog-list">
                         @if(!empty($categories))
-                            @foreach($categories as $category)
-                                @if($category->parent_id == 0)
-                                    <li>
-                                        <a href="{{ route('shop.listProducts',['slug' => $category->slug]) }}">
-                                            {{ $category->name }}
-                                        </a>
+                        @foreach($categories as $category)
+                        @if($category->parent_id == 0)
+                        <li>
+                            <a href="{{ route('shop.listProducts',['slug' => $category->slug]) }}">
+                                {{ $category->name }}
+                            </a>
 
-                                        <ul>
-                                            @foreach($categories as $key => $child)
-                                                @if($child->parent_id == $category->id)
-                                                <li>
-                                                <a href="{{ route('shop.listProducts',['slug' => $child->slug]) }}">
-                                                    {{$child->name}}
-                                                </a>
-                                                    @foreach($categories as $key => $child2)
-                                                        @if($child2->parent_id == $child->id)
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="{{ route('shop.listProducts',['slug' => $child2->slug]) }}">
-                                                                        {{$child2->name}}
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        @endif
-                                                    @endforeach
-                                                </li>
+                            <ul>
+                                @foreach($categories as $key => $child)
+                                @if($child->parent_id == $category->id)
+                                <li>
+                                    <a href="{{ route('shop.listProducts',['slug' => $child->slug]) }}">
+                                        {{$child->name}}
+                                    </a>
+                                    @foreach($categories as $key => $child2)
+                                    @if($child2->parent_id == $child->id)
+                                    <ul>
+                                        <li>
+                                            <a href="{{ route('shop.listProducts',['slug' => $child2->slug]) }}">
+                                                {{$child2->name}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    @endif
+                                    @endforeach
+                                </li>
 
 
 
-                                                @endif
-                                            @endforeach
-                                        </ul>
-
-                                    </li>
                                 @endif
-                            @endforeach
+                                @endforeach
+                            </ul>
+
+                        </li>
+                        @endif
+                        @endforeach
                         @endif
                     </ul>
                 </div>
@@ -182,9 +182,9 @@
                 </div>
                 <!-- Search - end -->
 
-            </nav>		</div>
+            </nav>
+        </div>
     </div>
     <!-- Topmenu - end -->
 
 </header>
-
